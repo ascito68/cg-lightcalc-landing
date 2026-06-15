@@ -1,0 +1,8 @@
+Inserire qui i file screenshot dell'app con questi nomi:
+
+  main.png    → schermata principale (rapporto 16:9 consigliato, es. 1280×720 px)
+  results.png → schermata risultati e verifica normativa
+  report.png  → schermata generazione report PDF
+
+Dopo aver aggiunto i file, fare commit e push: le immagini compariranno
+automaticamente nella landing page al posto dei placeholder grigi.
