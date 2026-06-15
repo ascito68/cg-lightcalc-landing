@@ -3,72 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="C/G LightCalc — Software professionale per il calcolo illuminotecnico. Verifiche EN 12464-1 e EN 13201 per architetti e progettisti illuminotecnici. Prova gratis 3 giorni.">
-  <meta name="keywords" content="calcolo illuminotecnico, EN 12464-1, EN 13201, software illuminazione, architetti, IES, LDT, lux, UGR">
+  <meta name="description" content="C/G LightCalc — Software professionale per il calcolo illuminotecnico. Verifiche EN 12464-1, EN 13201 e IRM Spencer per architetti e progettisti illuminotecnici. Prova gratis 3 giorni.">
+  <meta name="keywords" content="calcolo illuminotecnico, EN 12464-1, EN 13201, software illuminazione, architetti, IES, LDT, lux, UGR, IRM Spencer, luce naturale, isolux, heatmap">
   <meta property="og:title" content="C/G LightCalc — Calcolo Illuminotecnico Professionale">
-  <meta property="og:description" content="Software professionale per la verifica degli impianti di illuminazione secondo EN 12464-1 e EN 13201. Prova gratuita 3 giorni, poi €4,99/mese.">
+  <meta property="og:description" content="Software professionale per la verifica degli impianti di illuminazione secondo EN 12464-1, EN 13201 e IRM Spencer. Prova gratuita 3 giorni, poi €4,99/mese.">
   <meta property="og:type" content="website">
   <title>C/G LightCalc — Calcolo Illuminotecnico Professionale</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ==================== RESET & VARIABLES ==================== */
+    /* ==================== DESIGN TOKENS (cgblog) ==================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:        #0D1B2A;
-      --navy-mid:    #162030;
-      --navy-light:  #1E3048;
-      --gold:        #D4A843;
-      --gold-hover:  #BF9330;
-      --gold-light:  #EFC564;
-      --white:       #FFFFFF;
-      --gray-50:     #F9FAFB;
-      --gray-100:    #F3F4F6;
-      --gray-200:    #E5E7EB;
-      --gray-400:    #9CA3AF;
-      --gray-500:    #6B7280;
-      --gray-600:    #4B5563;
-      --gray-700:    #374151;
-      --gray-900:    #111827;
-      --green:       #10B981;
-      --font:        'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --radius:      8px;
-      --radius-lg:   16px;
-      --radius-xl:   24px;
-      --shadow:      0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
-      --shadow-lg:   0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
-      --shadow-xl:   0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+      /* palette — cibelli/guadagno */
+      --cg-tortora:        #d4c8b0;
+      --cg-tortora-mid:    #a89986;
+      --cg-tortora-deep:   #6e6357;
+      --cg-nero:           #2e2a26;
+      --cg-nero-deep:      #1a1714;
+      --cg-soft:           #faf8f5;
+      --cg-bianco:         #ffffff;
+      --cg-grigio-chiaro:  #e5e2dc;
+      --cg-fg-muted:       #7a7268;
+      --cg-fg-subtle:      #b0aaa1;
+      --cg-border:         rgba(46, 42, 38, 0.10);
+      --cg-border-strong:  rgba(46, 42, 38, 0.85);
+      --cg-green:          #5a8a6a;
+
+      /* type */
+      --cg-font: 'Helvetica Neue', 'Helvetica', 'Inter', 'Arial', sans-serif;
+
+      /* geometry — the brand is rigorously square */
+      --radius: 0px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font);
-      color: var(--gray-900);
-      background: var(--white);
+      font-family: var(--cg-font);
+      color: var(--cg-nero);
+      background: var(--cg-bianco);
       line-height: 1.6;
+      font-weight: 300;
       -webkit-font-smoothing: antialiased;
     }
 
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; }
-    button { font-family: var(--font); }
+    button { font-family: var(--cg-font); }
 
     /* ==================== NAVIGATION ==================== */
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(13, 27, 42, 0.96);
+      background: rgba(26, 23, 20, 0.96);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(212, 168, 67, 0.15);
-      height: 68px;
-      padding: 0 2rem;
+      border-bottom: 1px solid rgba(212, 200, 176, 0.12);
+      height: 64px;
+      padding: 0 clamp(28px, 6vw, 88px);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -76,25 +74,23 @@
 
     .nav-logo {
       display: flex;
-      align-items: center;
-      gap: 0.65rem;
-    }
-
-    .nav-logo-icon {
-      width: 36px; height: 36px;
-      background: var(--gold);
-      border-radius: 9px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .nav-logo-text {
-      font-size: 1.1rem;
+      align-items: baseline;
+      font-size: 13px;
       font-weight: 700;
-      color: var(--white);
-      letter-spacing: -0.02em;
+      color: var(--cg-bianco);
+      letter-spacing: 0.02em;
+      text-transform: lowercase;
     }
-    .nav-logo-text span { color: var(--gold); }
+    .nav-logo .slash {
+      color: var(--cg-tortora-mid);
+      font-weight: 200;
+      padding: 0 0.1em;
+      font-size: 1.35em;
+      line-height: 0;
+      position: relative;
+      top: 3px;
+    }
+    .nav-logo .app { color: var(--cg-tortora); }
 
     .nav-links {
       display: flex;
@@ -104,25 +100,27 @@
     }
 
     .nav-links a {
-      color: rgba(255,255,255,.75);
-      font-size: .9rem;
-      font-weight: 500;
+      color: rgba(255,255,255,.5);
+      font-size: .76rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: lowercase;
       transition: color .2s;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
     }
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover { color: var(--cg-tortora); border-bottom-color: var(--cg-tortora-mid); }
 
     .nav-cta {
-      background: var(--gold) !important;
-      color: var(--navy) !important;
-      padding: .5rem 1.25rem;
-      border-radius: var(--radius);
+      background: var(--cg-tortora) !important;
+      color: var(--cg-nero) !important;
+      padding: .4rem 1.1rem;
       font-weight: 700 !important;
-      transition: background .2s, transform .15s !important;
+      letter-spacing: 0.06em !important;
+      border-bottom: none !important;
+      transition: background .2s !important;
     }
-    .nav-cta:hover {
-      background: var(--gold-hover) !important;
-      transform: translateY(-1px);
-    }
+    .nav-cta:hover { background: var(--cg-tortora-mid) !important; }
 
     .nav-hamburger {
       display: none;
@@ -132,43 +130,42 @@
       padding: .4rem;
     }
     .nav-hamburger span {
-      display: block; width: 22px; height: 2px;
-      background: var(--white); border-radius: 2px;
-      transition: .3s;
+      display: block; width: 22px; height: 1px;
+      background: var(--cg-bianco);
     }
 
     /* ==================== HERO ==================== */
     .hero {
-      background: linear-gradient(140deg, #0A1520 0%, #0D1B2A 40%, #152538 100%);
+      background: var(--cg-nero-deep);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 120px 2rem 80px;
+      padding: 120px clamp(28px, 6vw, 88px) 80px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse at 15% 55%, rgba(212,168,67,.09) 0%, transparent 65%),
-        radial-gradient(ellipse at 85% 15%, rgba(59,130,246,.05) 0%, transparent 65%);
+    /* ambient slash — cgblog leitmotiv */
+    .hero-slash {
+      position: absolute;
+      left: 50%; top: 50%;
+      width: 140vmin; height: 140vmin;
+      transform: translate(-50%, -50%) rotate(70deg);
       pointer-events: none;
     }
-
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(212,168,67,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212,168,67,.04) 1px, transparent 1px);
-      background-size: 56px 56px;
-      pointer-events: none;
+    .hero-slash::before {
+      content: '';
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      width: 1px;
+      background: var(--cg-tortora);
+      opacity: 0.10;
+      transform: translateX(-50%);
     }
 
     .hero-content {
-      max-width: 860px;
+      max-width: 840px;
       text-align: center;
       position: relative;
       z-index: 1;
@@ -178,178 +175,186 @@
       display: inline-flex;
       align-items: center;
       gap: .5rem;
-      background: rgba(212,168,67,.1);
-      border: 1px solid rgba(212,168,67,.3);
-      color: var(--gold);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .09em;
-      text-transform: uppercase;
-      padding: .38rem 1rem;
-      border-radius: 100px;
+      background: rgba(212, 200, 176, 0.07);
+      border: 1px solid rgba(212, 200, 176, 0.18);
+      color: var(--cg-tortora);
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: lowercase;
+      padding: .32rem 1rem;
       margin-bottom: 1.75rem;
     }
 
     .badge-dot {
-      width: 6px; height: 6px;
-      background: var(--gold);
+      width: 5px; height: 5px;
+      background: var(--cg-tortora-mid);
       border-radius: 50%;
-      animation: blink 2s ease-in-out infinite;
+      animation: blink 2.5s ease-in-out infinite;
     }
 
     @keyframes blink {
       0%, 100% { opacity: 1; }
-      50%       { opacity: .25; }
+      50%       { opacity: .2; }
     }
 
     .hero-title {
-      font-size: clamp(2.4rem, 6vw, 4.25rem);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.08;
-      letter-spacing: -.035em;
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      font-weight: 200;
+      color: var(--cg-bianco);
+      line-height: 1.0;
+      letter-spacing: -0.025em;
       margin-bottom: 1.5rem;
+      text-transform: lowercase;
     }
-
-    .hero-title span {
-      background: linear-gradient(130deg, var(--gold) 0%, var(--gold-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero-title strong { font-weight: 700; }
+    .hero-title .slash-accent {
+      color: var(--cg-tortora-mid);
+      font-weight: 200;
     }
 
     .hero-subtitle {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,.68);
-      max-width: 620px;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.50);
+      max-width: 580px;
       margin: 0 auto 2.25rem;
-      line-height: 1.75;
+      line-height: 1.78;
+      font-weight: 300;
     }
 
     .hero-norms {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: .65rem;
-      margin-bottom: 2.5rem;
+      gap: .45rem;
+      margin-bottom: 2.75rem;
     }
 
     .norm-pill {
       display: inline-flex;
       align-items: center;
-      gap: .38rem;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
-      color: rgba(255,255,255,.82);
-      font-size: .78rem;
-      font-weight: 500;
-      padding: .32rem .8rem;
-      border-radius: 100px;
+      gap: .32rem;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(212, 200, 176, 0.14);
+      color: rgba(255,255,255,.58);
+      font-size: .7rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      padding: .26rem .68rem;
     }
-
-    .norm-pill .check-icon { color: var(--gold); }
+    .norm-pill .check-icon { color: var(--cg-tortora-mid); }
 
     .hero-actions {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: .9rem;
-      margin-bottom: 3.75rem;
+      gap: .85rem;
+      margin-bottom: 4rem;
     }
 
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: .5rem;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 1rem;
+      gap: .45rem;
+      background: var(--cg-tortora);
+      color: var(--cg-nero);
+      font-size: .84rem;
       font-weight: 700;
-      padding: .875rem 2rem;
-      border-radius: var(--radius);
+      padding: .78rem 1.85rem;
       border: none;
       cursor: pointer;
-      transition: background .2s, transform .18s;
-      letter-spacing: -.01em;
+      transition: background .2s;
+      letter-spacing: 0.05em;
+      text-transform: lowercase;
     }
-    .btn-primary:hover { background: var(--gold-hover); transform: translateY(-2px); }
+    .btn-primary:hover { background: var(--cg-tortora-mid); }
 
     .btn-outline {
       display: inline-flex;
       align-items: center;
-      gap: .5rem;
+      gap: .45rem;
       background: transparent;
-      color: var(--white);
-      font-size: 1rem;
-      font-weight: 600;
-      padding: .875rem 2rem;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.22);
+      color: rgba(255,255,255,.65);
+      font-size: .84rem;
+      font-weight: 400;
+      padding: .78rem 1.85rem;
+      border: 1px solid rgba(212, 200, 176, 0.22);
       cursor: pointer;
-      transition: border-color .2s, background .2s;
+      letter-spacing: 0.05em;
+      text-transform: lowercase;
+      transition: border-color .2s, color .2s;
     }
-    .btn-outline:hover { border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.04); }
+    .btn-outline:hover { border-color: rgba(212, 200, 176, 0.5); color: var(--cg-bianco); }
 
     .hero-stats {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 2.5rem;
       padding-top: 2.5rem;
-      border-top: 1px solid rgba(255,255,255,.08);
+      border-top: 1px solid rgba(212, 200, 176, 0.10);
     }
+
+    .stat {
+      padding: 0 1.75rem;
+      border-right: 1px solid rgba(212, 200, 176, 0.10);
+    }
+    .stat:last-child { border-right: none; }
+    .stat:first-child { padding-left: 0; }
 
     .stat-value {
       display: block;
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -.03em;
-      line-height: 1.1;
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--cg-tortora);
+      letter-spacing: 0;
+      line-height: 1.2;
     }
-    .stat-value span { color: var(--gold); }
-
     .stat-label {
-      font-size: .73rem;
-      color: rgba(255,255,255,.45);
-      text-transform: uppercase;
-      letter-spacing: .07em;
-      font-weight: 500;
+      font-size: .65rem;
+      color: rgba(255,255,255,.32);
+      text-transform: lowercase;
+      letter-spacing: .12em;
+      font-weight: 400;
+      margin-top: .2rem;
     }
 
     /* ==================== SHARED SECTION STYLES ==================== */
-    .section { padding: 96px 2rem; }
-    .section-alt { background: var(--gray-50); }
-    .section-dark { background: var(--navy); }
+    .section { padding: 96px clamp(28px, 6vw, 88px); }
+    .section-alt { background: var(--cg-soft); }
+    .section-dark { background: var(--cg-nero); }
 
     .container { max-width: 1200px; margin: 0 auto; }
 
     .section-label {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--gold);
+      font-size: .66rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: lowercase;
+      color: var(--cg-tortora-mid);
       margin-bottom: .6rem;
     }
 
     .section-title {
-      font-size: clamp(1.7rem, 3.5vw, 2.65rem);
-      font-weight: 800;
-      color: var(--gray-900);
-      letter-spacing: -.03em;
-      line-height: 1.12;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 200;
+      color: var(--cg-nero);
+      letter-spacing: -0.025em;
+      line-height: 1.06;
       margin-bottom: 1rem;
+      text-transform: lowercase;
     }
-    .section-title--light { color: var(--white); }
+    .section-title strong { font-weight: 700; }
+    .section-title--light { color: var(--cg-bianco); }
 
     .section-desc {
-      font-size: 1.02rem;
-      color: var(--gray-500);
-      line-height: 1.72;
-      max-width: 580px;
+      font-size: .94rem;
+      color: var(--cg-fg-muted);
+      line-height: 1.75;
+      max-width: 560px;
+      font-weight: 400;
     }
-    .section-desc--light { color: rgba(255,255,255,.6); }
+    .section-desc--light { color: rgba(255,255,255,.45); }
 
     .section-header { margin-bottom: 3.5rem; }
     .section-header--center { text-align: center; }
@@ -359,79 +364,73 @@
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+      gap: 1px;
+      background: var(--cg-border);
+      border: 1px solid var(--cg-border);
     }
 
     .feature-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
+      background: var(--cg-bianco);
       padding: 2rem;
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      transition: background .22s;
     }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-xl);
-      border-color: rgba(212,168,67,.4);
-    }
+    .feature-card:hover { background: var(--cg-soft); }
 
     .feature-icon {
-      width: 50px; height: 50px;
-      background: linear-gradient(135deg, rgba(212,168,67,.14) 0%, rgba(212,168,67,.04) 100%);
-      border: 1px solid rgba(212,168,67,.22);
-      border-radius: 12px;
+      width: 42px; height: 42px;
+      border: 1px solid var(--cg-border);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.2rem;
-      color: var(--gold);
+      margin-bottom: 1.25rem;
+      color: var(--cg-tortora-deep);
     }
 
     .feature-title {
-      font-size: 1rem;
+      font-size: .92rem;
       font-weight: 700;
-      color: var(--gray-900);
-      letter-spacing: -.02em;
-      margin-bottom: .5rem;
+      color: var(--cg-nero);
+      letter-spacing: -0.01em;
+      margin-bottom: .45rem;
+      text-transform: lowercase;
     }
 
     .feature-desc {
-      font-size: .875rem;
-      color: var(--gray-500);
-      line-height: 1.65;
+      font-size: .83rem;
+      color: var(--cg-fg-muted);
+      line-height: 1.68;
+      font-weight: 400;
     }
 
     .feature-tag {
       display: inline-block;
-      margin-top: .9rem;
-      font-size: .67rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(212,168,67,.09);
-      padding: .22rem .58rem;
-      border-radius: 4px;
+      margin-top: 1rem;
+      font-size: .62rem;
+      font-weight: 400;
+      letter-spacing: .14em;
+      text-transform: lowercase;
+      color: var(--cg-tortora-deep);
+      border-bottom: 1px solid var(--cg-tortora-mid);
+      padding-bottom: 1px;
     }
 
     /* ==================== SCREENSHOTS ==================== */
     .screenshots-section {
-      background: var(--navy);
-      padding: 96px 2rem;
+      background: var(--cg-nero);
+      padding: 96px clamp(28px, 6vw, 88px);
     }
 
     .screenshots-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
+      gap: 1px;
+      background: rgba(212, 200, 176, 0.08);
     }
 
     .screenshot-span2 { grid-column: 1 / -1; }
 
     .screenshot-frame {
       position: relative;
-      border-radius: var(--radius-lg);
       overflow: hidden;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
       aspect-ratio: 16 / 9;
     }
 
@@ -440,52 +439,47 @@
       object-fit: cover;
     }
 
-    /* Placeholder shown when no image is present */
     .screenshot-placeholder {
       position: absolute; inset: 0;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       gap: .75rem;
-      background: linear-gradient(135deg, rgba(212,168,67,.05) 0%, rgba(30,48,72,.6) 100%);
-      color: rgba(255,255,255,.3);
-      font-size: .82rem;
+      background: rgba(212, 200, 176, 0.03);
+      color: rgba(255,255,255,.18);
+      font-size: .76rem;
       text-align: center;
       padding: 2rem;
     }
-    .screenshot-placeholder svg { opacity: .4; }
+    .screenshot-placeholder svg { opacity: .25; }
 
     .screenshot-frame img + .screenshot-placeholder { display: none; }
 
     .screenshot-caption {
       position: absolute;
       bottom: .85rem; left: .85rem;
-      background: rgba(10,21,32,.85);
+      background: rgba(26, 23, 20, 0.88);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      color: var(--white);
-      font-size: .75rem;
-      font-weight: 600;
-      padding: .3rem .7rem;
-      border-radius: 6px;
-      border: 1px solid rgba(212,168,67,.18);
+      color: var(--cg-tortora);
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .10em;
+      text-transform: lowercase;
+      padding: .26rem .62rem;
+      border: 1px solid rgba(212, 200, 176, 0.14);
     }
 
     /* ==================== PRICING ==================== */
-    .pricing-wrap {
-      max-width: 500px;
-      margin: 0 auto;
-    }
+    .pricing-wrap { max-width: 480px; margin: 0 auto; }
 
     .pricing-card {
-      background: var(--white);
-      border: 2px solid var(--gold);
-      border-radius: var(--radius-xl);
+      background: var(--cg-bianco);
+      border: 1px solid var(--cg-border-strong);
       overflow: hidden;
-      box-shadow: 0 0 0 6px rgba(212,168,67,.09), var(--shadow-xl);
     }
 
     .pricing-top {
-      background: linear-gradient(140deg, var(--navy) 0%, var(--navy-light) 100%);
+      background: var(--cg-nero);
       padding: 2.5rem 2.5rem 2.25rem;
       text-align: center;
     }
@@ -494,71 +488,72 @@
       display: inline-flex;
       align-items: center;
       gap: .38rem;
-      background: rgba(212,168,67,.14);
-      border: 1px solid rgba(212,168,67,.38);
-      color: var(--gold);
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: .33rem .8rem;
-      border-radius: 100px;
+      background: rgba(212, 200, 176, 0.08);
+      border: 1px solid rgba(212, 200, 176, 0.22);
+      color: var(--cg-tortora);
+      font-size: .66rem;
+      font-weight: 400;
+      letter-spacing: .14em;
+      text-transform: lowercase;
+      padding: .28rem .8rem;
       margin-bottom: 1.25rem;
     }
 
     .plan-name {
-      font-size: 1rem;
-      font-weight: 700;
-      color: rgba(255,255,255,.6);
-      text-transform: uppercase;
-      letter-spacing: .09em;
-      margin-bottom: .5rem;
+      font-size: .74rem;
+      font-weight: 400;
+      color: rgba(255,255,255,.4);
+      text-transform: lowercase;
+      letter-spacing: .14em;
+      margin-bottom: .65rem;
     }
 
     .price-row {
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      gap: .2rem;
+      gap: .12rem;
       margin-bottom: .35rem;
     }
 
     .price-currency {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--gold);
-      margin-top: .65rem;
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--cg-tortora-mid);
+      margin-top: .85rem;
     }
 
     .price-amount {
-      font-size: 4.25rem;
-      font-weight: 800;
-      color: var(--white);
+      font-size: 4.5rem;
+      font-weight: 200;
+      color: var(--cg-bianco);
       line-height: 1;
-      letter-spacing: -.045em;
+      letter-spacing: -0.04em;
     }
 
     .price-period {
-      font-size: .88rem;
-      color: rgba(255,255,255,.45);
+      font-size: .8rem;
+      color: rgba(255,255,255,.32);
       align-self: flex-end;
-      margin-bottom: .55rem;
+      margin-bottom: .65rem;
+      letter-spacing: .06em;
     }
 
-    .price-note { font-size: .85rem; color: rgba(255,255,255,.5); }
+    .price-note { font-size: .76rem; color: rgba(255,255,255,.34); font-weight: 400; text-transform: lowercase; }
 
     .trial-pill {
       display: inline-flex;
       align-items: center;
       gap: .38rem;
       margin-top: 1.1rem;
-      background: rgba(16,185,129,.12);
-      border: 1px solid rgba(16,185,129,.28);
-      color: #34D399;
-      font-size: .78rem;
-      font-weight: 600;
-      padding: .32rem .8rem;
-      border-radius: 100px;
+      background: rgba(90,138,106,.08);
+      border: 1px solid rgba(90,138,106,.28);
+      color: #8abf9a;
+      font-size: .72rem;
+      font-weight: 400;
+      letter-spacing: .06em;
+      text-transform: lowercase;
+      padding: .28rem .8rem;
     }
 
     .pricing-body { padding: 2rem 2.5rem 2.5rem; }
@@ -568,25 +563,26 @@
     .feature-list li {
       display: flex;
       align-items: flex-start;
-      gap: .7rem;
-      padding: .58rem 0;
-      border-bottom: 1px solid var(--gray-100);
-      font-size: .92rem;
-      color: var(--gray-700);
+      gap: .68rem;
+      padding: .52rem 0;
+      border-bottom: 1px solid var(--cg-border);
+      font-size: .86rem;
+      color: var(--cg-nero);
+      font-weight: 400;
+      text-transform: lowercase;
+      letter-spacing: .01em;
     }
     .feature-list li:last-child { border-bottom: none; }
 
     .check-circle {
-      width: 20px; height: 20px;
-      background: rgba(16,185,129,.1);
-      border-radius: 50%;
+      width: 18px; height: 18px;
+      border: 1px solid rgba(90,138,106,.35);
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
-      margin-top: 1px;
-      color: var(--green);
+      margin-top: 2px;
+      color: var(--cg-green);
     }
 
-    /* PayPal form */
     .paypal-form { text-align: center; }
 
     .paypal-btn {
@@ -594,77 +590,89 @@
       background: #FFC439;
       color: #111827;
       border: none;
-      border-radius: var(--radius);
-      padding: 1rem 1.5rem;
-      font-size: 1rem;
+      padding: .92rem 1.5rem;
+      font-size: .84rem;
       font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: .55rem;
-      transition: background .2s, transform .18s;
-      letter-spacing: -.01em;
+      transition: background .2s;
+      letter-spacing: .04em;
+      text-transform: lowercase;
     }
-    .paypal-btn:hover { background: #F0B420; transform: translateY(-2px); }
+    .paypal-btn:hover { background: #F0B420; }
 
-    .paypal-logo {
-      font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: -.01em;
-    }
+    .paypal-logo { font-size: .9rem; font-weight: 800; }
     .paypal-logo .pay { color: #003087; }
     .paypal-logo .pal { color: #009cde; }
 
     .paypal-trust {
       margin-top: .75rem;
-      font-size: .75rem;
-      color: var(--gray-400);
+      font-size: .7rem;
+      color: var(--cg-fg-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
       gap: .35rem;
       line-height: 1.5;
+      text-transform: lowercase;
+      letter-spacing: .04em;
     }
 
     /* ==================== CTA BANNER ==================== */
     .cta-section {
-      background: linear-gradient(140deg, var(--navy) 0%, #162030 100%);
-      padding: 96px 2rem;
+      background: var(--cg-nero-deep);
+      padding: 96px clamp(28px, 6vw, 88px);
       text-align: center;
       position: relative;
       overflow: hidden;
     }
-    .cta-section::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at center, rgba(212,168,67,.08) 0%, transparent 70%);
+    .cta-slash {
+      position: absolute;
+      left: 50%; top: 50%;
+      width: 140vmin; height: 140vmin;
+      transform: translate(-50%, -50%) rotate(70deg);
       pointer-events: none;
+    }
+    .cta-slash::before {
+      content: '';
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      width: 1px;
+      background: var(--cg-tortora);
+      opacity: 0.07;
+      transform: translateX(-50%);
     }
 
     .cta-title {
-      font-size: clamp(1.9rem, 4vw, 3rem);
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -.035em;
-      line-height: 1.1;
-      margin-bottom: 1.1rem;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 200;
+      color: var(--cg-bianco);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+      text-transform: lowercase;
       position: relative;
     }
+    .cta-title strong { font-weight: 700; }
 
     .cta-desc {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,.58);
-      max-width: 460px;
+      font-size: .94rem;
+      color: rgba(255,255,255,.4);
+      max-width: 400px;
       margin: 0 auto 2.25rem;
+      font-weight: 400;
       position: relative;
+      text-transform: lowercase;
     }
 
     /* ==================== FOOTER ==================== */
     footer {
-      background: #080F18;
-      padding: 3rem 2rem;
-      border-top: 1px solid rgba(255,255,255,.06);
+      background: var(--cg-nero-deep);
+      padding: 3rem clamp(28px, 6vw, 88px);
+      border-top: 1px solid rgba(212, 200, 176, 0.07);
     }
 
     .footer-inner {
@@ -678,16 +686,29 @@
     }
 
     .footer-brand-name {
-      font-size: .95rem;
+      font-size: .78rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--cg-bianco);
+      text-transform: lowercase;
+      letter-spacing: .02em;
     }
-    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-name .slash {
+      color: var(--cg-tortora-mid);
+      font-weight: 200;
+      padding: 0 .08em;
+      font-size: 1.35em;
+      line-height: 0;
+      position: relative;
+      top: 2px;
+    }
+    .footer-brand-name .app { color: var(--cg-tortora); }
 
     .footer-copy {
       margin-top: .35rem;
-      font-size: .78rem;
-      color: rgba(255,255,255,.32);
+      font-size: .7rem;
+      color: rgba(255,255,255,.22);
+      text-transform: lowercase;
+      letter-spacing: .06em;
     }
 
     .footer-links {
@@ -697,17 +718,21 @@
       list-style: none;
     }
     .footer-links a {
-      color: rgba(255,255,255,.42);
-      font-size: .8rem;
+      color: rgba(255,255,255,.3);
+      font-size: .72rem;
+      text-transform: lowercase;
+      letter-spacing: .1em;
       transition: color .2s;
+      padding-bottom: 1px;
+      border-bottom: 1px solid transparent;
     }
-    .footer-links a:hover { color: var(--gold); }
+    .footer-links a:hover { color: var(--cg-tortora); border-bottom-color: var(--cg-tortora-mid); }
 
     /* ==================== ANIMATION ==================== */
     .fade-up {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .6s ease, transform .6s ease;
+      transform: translateY(18px);
+      transition: opacity .55s ease, transform .55s ease;
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
@@ -719,20 +744,21 @@
       .screenshots-grid { grid-template-columns: 1fr; }
       .screenshot-span2 { grid-column: 1; }
 
-      .hero-stats { gap: 1.5rem; }
+      .stat { padding: 0 1.1rem; }
 
       .pricing-top { padding: 2rem 1.5rem 1.75rem; }
       .pricing-body { padding: 1.75rem 1.5rem 2rem; }
-      .price-amount { font-size: 3.25rem; }
+      .price-amount { font-size: 3.5rem; }
 
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     }
 
     @media (max-width: 480px) {
-      .section { padding: 72px 1.25rem; }
-      .hero { padding: 110px 1.25rem 72px; }
+      .section { padding: 72px 1.5rem; }
+      .hero { padding: 110px 1.5rem 72px; }
       .hero-actions { flex-direction: column; align-items: center; }
       .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+      .stat { padding: 0 .75rem; }
     }
   </style>
 </head>
@@ -741,19 +767,14 @@
 <!-- ======================== NAVIGATION ======================== -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo" aria-label="C/G LightCalc home">
-    <div class="nav-logo-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-      </svg>
-    </div>
-    <span class="nav-logo-text"><span>C/G</span> LightCalc</span>
+    c<span class="slash">/</span>g<span class="app">&nbsp;lightcalc</span>
   </a>
 
   <ul class="nav-links" role="list">
-    <li><a href="#features">Funzionalità</a></li>
-    <li><a href="#screenshots">Screenshot</a></li>
-    <li><a href="#pricing">Prezzi</a></li>
-    <li><a href="#pricing" class="nav-cta">Prova Gratis 3 Giorni</a></li>
+    <li><a href="#features">funzionalità</a></li>
+    <li><a href="#screenshots">screenshot</a></li>
+    <li><a href="#pricing">prezzi</a></li>
+    <li><a href="#pricing" class="nav-cta">prova gratis 3 giorni</a></li>
   </ul>
 
   <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')">
@@ -763,55 +784,62 @@
 
 <!-- ======================== HERO ======================== -->
 <section class="hero" id="hero" aria-label="Introduzione">
-  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-slash" aria-hidden="true"></div>
   <div class="hero-content">
 
     <div class="hero-badge">
       <span class="badge-dot" aria-hidden="true"></span>
-      Software professionale di illuminotecnica
+      software professionale di illuminotecnica
     </div>
 
     <h1 class="hero-title">
-      Calcolo illuminotecnico<br>
-      <span>preciso e veloce</span>
+      calcolo illuminotecnico<br>
+      <strong>preciso <span class="slash-accent">/</span> veloce</strong>
     </h1>
 
     <p class="hero-subtitle">
-      C/G LightCalc è il software professionale per la verifica e il calcolo
-      degli impianti di illuminazione secondo le norme <strong>EN&nbsp;12464-1</strong>
-      e <strong>EN&nbsp;13201</strong>. Progettato per architetti e progettisti
-      illuminotecnici.
+      C/G LightCalc verifica la conformità normativa degli impianti di illuminazione
+      interni, stradali e a luce naturale. Calcolo punto per punto, grafici isolux,
+      sovrapposizione planimetria, heatmap e report professionali PDF&nbsp;/&nbsp;DOCX.
     </p>
 
     <div class="hero-norms" role="list" aria-label="Norme supportate">
       <span class="norm-pill" role="listitem">
-        <svg class="check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        EN&nbsp;12464-1 — Interni
+        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        en&nbsp;12464-1 — interni
       </span>
       <span class="norm-pill" role="listitem">
-        <svg class="check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        EN&nbsp;13201 — Stradale
+        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        en&nbsp;13201 — stradale
       </span>
       <span class="norm-pill" role="listitem">
-        <svg class="check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        File IES / LDT
+        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        uni&nbsp;11248 / norme regionali
       </span>
       <span class="norm-pill" role="listitem">
-        <svg class="check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        Report PDF
+        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        irm spencer — solare
+      </span>
+      <span class="norm-pill" role="listitem">
+        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        file ies / ldt
+      </span>
+      <span class="norm-pill" role="listitem">
+        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        report pdf / docx
       </span>
     </div>
 
     <div class="hero-actions">
       <a href="#pricing" class="btn-primary">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
-        Inizia 3 Giorni Gratis
+        inizia 3 giorni gratis
       </a>
       <a href="#features" class="btn-outline">
-        Scopri le funzionalità
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        scopri le funzionalità
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
           <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
         </svg>
       </a>
@@ -819,20 +847,24 @@
 
     <div class="hero-stats" aria-label="Cifre chiave">
       <div class="stat">
-        <span class="stat-value">EN<span>&nbsp;12464-1</span></span>
-        <span class="stat-label">Illuminazione interni</span>
+        <span class="stat-value">en 12464-1</span>
+        <span class="stat-label">illuminazione interni</span>
       </div>
       <div class="stat">
-        <span class="stat-value">EN<span>&nbsp;13201</span></span>
-        <span class="stat-label">Illuminazione stradale</span>
+        <span class="stat-value">en 13201</span>
+        <span class="stat-label">illuminazione stradale</span>
       </div>
       <div class="stat">
-        <span class="stat-value">3<span> giorni</span></span>
-        <span class="stat-label">Prova gratuita</span>
+        <span class="stat-value">irm spencer</span>
+        <span class="stat-label">luce naturale solare</span>
       </div>
       <div class="stat">
-        <span class="stat-value">€<span>4,99</span>/m</span>
-        <span class="stat-label">Prezzo lancio</span>
+        <span class="stat-value">3 giorni</span>
+        <span class="stat-label">prova gratuita</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">€4,99/m</span>
+        <span class="stat-label">prezzo lancio</span>
       </div>
     </div>
 
@@ -843,84 +875,86 @@
 <section class="section" id="features" aria-label="Funzionalità">
   <div class="container">
     <div class="section-header section-header--center fade-up">
-      <p class="section-label">Funzionalità</p>
-      <h2 class="section-title">Tutto ciò che serve per<br>la progettazione illuminotecnica</h2>
-      <p class="section-desc">Strumenti completi per la verifica di conformità normativa, dalla fase di progetto alla documentazione finale.</p>
+      <p class="section-label">funzionalità</p>
+      <h2 class="section-title">tutto ciò che serve per<br><strong>la progettazione illuminotecnica</strong></h2>
+      <p class="section-desc">Strumenti completi per la verifica di conformità normativa, dalla fase di progetto alla documentazione finale per il cliente e la Direzione Lavori.</p>
     </div>
 
     <div class="features-grid">
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="0"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
           </svg>
         </div>
-        <h3 class="feature-title">Calcolo EN&nbsp;12464-1 — Interni</h3>
-        <p class="feature-desc">Verifica di illuminamento medio mantenuto (Em), uniformità (U₀), indice di abbagliamento unificato (UGR) e resa cromatica (Ra) per luoghi di lavoro interni.</p>
-        <span class="feature-tag">Norma interni</span>
+        <h3 class="feature-title">calcolo en&nbsp;12464-1 — interni</h3>
+        <p class="feature-desc">Calcolo punto per punto di E<sub>m</sub>, uniformità U₀ e resa cromatica Ra. Supporta geometrie complesse: <strong>volte a botte e crociera</strong> con calcolo adattivo della superficie. Metodo IRM Spencer per la correzione da luce riflessa (pareti, soffitto, pavimento). Indicatori di conformità immediati.</p>
+        <span class="feature-tag">norma interni</span>
       </article>
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 17l4-8 4 4 3-6 4 10"/>
+            <line x1="3" y1="21" x2="21" y2="21"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">calcolo en&nbsp;13201 — stradale</h3>
+        <p class="feature-desc">Classi ME (strade principali), CE (incroci e rotatorie), S/P (percorsi pedonali). Calcola E<sub>m</sub>, E<sub>min</sub>, uniformità U₀, rapporto Rg. Supporta le classi UNI 11248 e le normative regionali antiinquinamento luminoso (es. legge regionale Puglia).</p>
+        <span class="feature-tag">norma stradale</span>
+      </article>
+
+      <article class="feature-card fade-up">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
             <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
           </svg>
         </div>
-        <h3 class="feature-title">Calcolo EN&nbsp;13201 — Stradale</h3>
-        <p class="feature-desc">Classi di illuminazione ME (strade principali), CE (incroci e rotatorie) e S/P (percorsi pedonali). Calcolo di luminanza, uniformità complessiva e incremento di soglia (TI).</p>
-        <span class="feature-tag">Norma stradale</span>
+        <h3 class="feature-title">irm spencer — luce naturale</h3>
+        <p class="feature-desc">Calcolo del contributo della luce solare con la formula della cavità sferica di Spencer (Interreflection Multiplier). Determina il flusso naturale in funzione di latitudine, data e ora. Integrabile con il calcolo artificiale per la verifica del mix illuminotecnico complessivo.</p>
+        <span class="feature-tag">luce naturale</span>
       </article>
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
             <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
           </svg>
         </div>
-        <h3 class="feature-title">Libreria Fotometrica IES/LDT</h3>
-        <p class="feature-desc">Importazione e gestione di file fotometrici nei formati IES (IESNA) e LDT (EULUMDAT). Costruisci il tuo database di corpi illuminanti e scegli il prodotto più adatto al progetto.</p>
-        <span class="feature-tag">File fotometrici</span>
+        <h3 class="feature-title">libreria fotometrica ies / ldt</h3>
+        <p class="feature-desc">Importazione di file fotometrici <strong>IES (IESNA LM-63)</strong> e <strong>LDT (EULUMDAT)</strong> con rilevamento automatico del formato dal contenuto. Diagramma polare generato al caricamento. Costruisci il tuo database di corpi illuminanti e seleziona la rotazione per apparecchio.</p>
+        <span class="feature-tag">file fotometrici</span>
       </article>
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="0"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">isolux, heatmap e 3d con planimetria</h3>
+        <p class="feature-desc">Tre viste della griglia di calcolo: <strong>curve isolux</strong>, <strong>heatmap a falsi colori</strong> e <strong>superficie 3D</strong>. Carica la planimetria reale in PDF (conversione automatica PNG) e sovrapponila alla griglia con calibrazione metrica a due punti. La mappa si integra nei report.</p>
+        <span class="feature-tag">visualizzazione</span>
+      </article>
+
+      <article class="feature-card fade-up">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
             <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
           </svg>
         </div>
-        <h3 class="feature-title">Report PDF Professionali</h3>
-        <p class="feature-desc">Genera documentazione tecnica completa: tavole dei risultati, curve isolux, calcoli di verifica e relazione illuminotecnica. Pronti per la consegna al cliente e alla Direzione Lavori.</p>
-        <span class="feature-tag">Documentazione</span>
-      </article>
-
-      <article class="feature-card fade-up">
-        <div class="feature-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-          </svg>
-        </div>
-        <h3 class="feature-title">Verifica Conformità Normativa</h3>
-        <p class="feature-desc">Controllo automatico del rispetto dei requisiti normativi. Indicatori cromatici evidenziano immediatamente i parametri conformi e non conformi, semplificando ogni fase di verifica progettuale.</p>
-        <span class="feature-tag">Conformità</span>
-      </article>
-
-      <article class="feature-card fade-up">
-        <div class="feature-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
-          </svg>
-        </div>
-        <h3 class="feature-title">Calcolo su Griglia Punti</h3>
-        <p class="feature-desc">Definisci la geometria dell'area di calcolo e la griglia di misura. Posiziona i corpi illuminanti con altezza e orientamento. Ottieni la mappa di illuminamento punto per punto in pochi secondi.</p>
-        <span class="feature-tag">Calcolo puntuale</span>
+        <h3 class="feature-title">report pdf e docx professionali</h3>
+        <p class="feature-desc">Documentazione tecnica completa generata con <strong>ReportLab (PDF)</strong> e <strong>python-docx (DOCX)</strong>. Include planimetria in copertina, tavole dei risultati, grafici isolux e relazione di verifica. Salvataggio e ripristino del progetto in formato <strong>.json</strong>. Pronta per la consegna.</p>
+        <span class="feature-tag">documentazione</span>
       </article>
 
     </div>
@@ -931,57 +965,54 @@
 <section class="screenshots-section" id="screenshots" aria-label="Screenshot dell'applicazione">
   <div class="container">
     <div class="section-header section-header--center fade-up">
-      <p class="section-label" style="color:var(--gold)">Screenshot</p>
-      <h2 class="section-title section-title--light">L'interfaccia di C/G LightCalc</h2>
-      <p class="section-desc section-desc--light">Un'interfaccia professionale, chiara e intuitiva per massimizzare la produttività in fase di progettazione.</p>
+      <p class="section-label" style="color:var(--cg-tortora-mid)">screenshot</p>
+      <h2 class="section-title section-title--light">l'interfaccia di <strong>c<span style="color:var(--cg-tortora-mid);font-weight:200;padding:0 .05em">/</span>g lightcalc</strong></h2>
+      <p class="section-desc section-desc--light">Interfaccia professionale e diretta, progettata per massimizzare la produttività in fase di verifica e progettazione illuminotecnica.</p>
     </div>
 
     <div class="screenshots-grid fade-up">
 
-      <!-- Screenshot principale: sostituire il percorso src con l'immagine reale -->
       <div class="screenshot-span2">
         <figure class="screenshot-frame">
           <img src="screenshots/main.png" alt="C/G LightCalc — Schermata principale" loading="lazy"
                onerror="this.style.display='none'">
           <div class="screenshot-placeholder" aria-hidden="true">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+              <rect x="3" y="3" width="18" height="18" rx="0"/><circle cx="8.5" cy="8.5" r="1.5"/>
               <polyline points="21 15 16 10 5 21"/>
             </svg>
-            <span>Inserire <code>screenshots/main.png</code></span>
+            <span>inserire <code>screenshots/main.png</code></span>
           </div>
-          <figcaption class="screenshot-caption">Vista principale — Calcolo EN&nbsp;12464-1</figcaption>
+          <figcaption class="screenshot-caption">vista principale — calcolo en&nbsp;12464-1</figcaption>
         </figure>
       </div>
 
-      <!-- Screenshot risultati -->
       <div>
         <figure class="screenshot-frame">
           <img src="screenshots/results.png" alt="Risultati calcolo e verifica normativa" loading="lazy"
                onerror="this.style.display='none'">
           <div class="screenshot-placeholder" aria-hidden="true">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
             </svg>
-            <span>Inserire <code>screenshots/results.png</code></span>
+            <span>inserire <code>screenshots/results.png</code></span>
           </div>
-          <figcaption class="screenshot-caption">Risultati e verifica normativa</figcaption>
+          <figcaption class="screenshot-caption">risultati e verifica normativa</figcaption>
         </figure>
       </div>
 
-      <!-- Screenshot report -->
       <div>
         <figure class="screenshot-frame">
           <img src="screenshots/report.png" alt="Generazione report PDF" loading="lazy"
                onerror="this.style.display='none'">
           <div class="screenshot-placeholder" aria-hidden="true">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
             </svg>
-            <span>Inserire <code>screenshots/report.png</code></span>
+            <span>inserire <code>screenshots/report.png</code></span>
           </div>
-          <figcaption class="screenshot-caption">Generazione report PDF</figcaption>
+          <figcaption class="screenshot-caption">generazione report pdf / docx</figcaption>
         </figure>
       </div>
 
@@ -993,8 +1024,8 @@
 <section class="section section-alt" id="pricing" aria-label="Prezzi">
   <div class="container">
     <div class="section-header section-header--center fade-up">
-      <p class="section-label">Prezzi</p>
-      <h2 class="section-title">Semplice e conveniente</h2>
+      <p class="section-label">prezzi</p>
+      <h2 class="section-title">semplice e <strong>conveniente</strong></h2>
       <p class="section-desc">Un piano unico, tutto incluso. Aggiornamenti e supporto senza costi aggiuntivi.</p>
     </div>
 
@@ -1002,16 +1033,16 @@
       <div class="pricing-card">
 
         <div class="pricing-top">
-          <div class="promo-pill">🔥 Offerta Lancio — Periodo Limitato</div>
-          <p class="plan-name">Piano Professionale</p>
+          <div class="promo-pill">offerta lancio — periodo limitato</div>
+          <p class="plan-name">piano professionale</p>
           <div class="price-row">
             <span class="price-currency">€</span>
             <span class="price-amount">4,99</span>
             <span class="price-period">/mese</span>
           </div>
-          <p class="price-note">Prezzo speciale di lancio · Disdici in qualsiasi momento</p>
+          <p class="price-note">prezzo speciale di lancio · disdici in qualsiasi momento</p>
           <div class="trial-pill">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             3 giorni di prova gratuita — nessun addebito immediato
           </div>
         </div>
@@ -1019,32 +1050,36 @@
         <div class="pricing-body">
           <ul class="feature-list" role="list">
             <li>
-              <span class="check-circle" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Calcolo illuminotecnico EN&nbsp;12464-1 (interni)
+              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              calcolo punto-per-punto en&nbsp;12464-1 (volte a botte e crociera)
             </li>
             <li>
-              <span class="check-circle" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Calcolo illuminazione stradale EN&nbsp;13201
+              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              calcolo illuminazione stradale en&nbsp;13201 (me, ce, s/p) + uni 11248
             </li>
             <li>
-              <span class="check-circle" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Libreria corpi illuminanti (IES&nbsp;/&nbsp;LDT)
+              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              calcolo luce naturale irm spencer
             </li>
             <li>
-              <span class="check-circle" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Verifica automatica conformità normativa
+              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              libreria corpi illuminanti ies / ldt con diagramma polare
             </li>
             <li>
-              <span class="check-circle" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Generazione report PDF professionali
+              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              isolux · heatmap · superficie 3d con planimetria sovrapposta
             </li>
             <li>
-              <span class="check-circle" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Aggiornamenti inclusi nell'abbonamento
+              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              report pdf (reportlab) e docx (word) con planimetria in copertina
             </li>
             <li>
-              <span class="check-circle" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Supporto tecnico via email
+              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              salvataggio e caricamento progetto (.json)
+            </li>
+            <li>
+              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              aggiornamenti inclusi · supporto tecnico via email
             </li>
           </ul>
 
@@ -1055,7 +1090,6 @@
           ║  2. Crea un pulsante "Abbonamento"                       ║
           ║  3. Importa: 0 per 3 giorni, poi €4,99/mese             ║
           ║  4. Sostituisci YOUR_PAYPAL_EMAIL qui sotto              ║
-          ║     con la tua email PayPal verificata                   ║
           ╚══════════════════════════════════════════════════════════╝
           -->
           <form
@@ -1067,36 +1101,32 @@
           >
             <input type="hidden" name="cmd"           value="_xclick-subscriptions">
             <input type="hidden" name="business"      value="YOUR_PAYPAL_EMAIL">
-            <!-- ↑ Sostituisci con la tua email PayPal -->
             <input type="hidden" name="lc"            value="IT">
             <input type="hidden" name="item_name"     value="C/G LightCalc — Abbonamento Mensile">
             <input type="hidden" name="no_note"       value="1">
             <input type="hidden" name="src"           value="1">
             <input type="hidden" name="sra"           value="1">
-            <!-- Periodo di prova: 3 giorni gratuiti -->
             <input type="hidden" name="a1"            value="0">
             <input type="hidden" name="p1"            value="3">
             <input type="hidden" name="t1"            value="D">
-            <!-- Abbonamento mensile: €4,99 -->
             <input type="hidden" name="a3"            value="4.99">
             <input type="hidden" name="p3"            value="1">
             <input type="hidden" name="t3"            value="M">
             <input type="hidden" name="currency_code" value="EUR">
 
             <button type="submit" class="paypal-btn">
-              <!-- PayPal "P" icon -->
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#003087" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#003087" aria-hidden="true">
                 <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 6.643-8.558 6.643H9.83c-.524 0-.968.382-1.05.9L7.662 21.2a.641.641 0 0 0 .633.74h3.979c.524 0 .968-.382 1.05-.9l.484-3.07a1.052 1.052 0 0 1 1.05-.9h.664c4.272 0 7.614-1.736 8.587-6.754.383-1.962.094-3.607-.887-4.399z"/>
               </svg>
               <span class="paypal-logo"><span class="pay">Pay</span><span class="pal">Pal</span></span>
-              · Inizia 3 Giorni Gratis
+              · inizia 3 giorni gratis
             </button>
 
             <p class="paypal-trust">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
-              Pagamento sicuro &nbsp;·&nbsp; Nessun addebito nei primi 3 giorni &nbsp;·&nbsp; Disdici quando vuoi
+              pagamento sicuro &nbsp;·&nbsp; nessun addebito nei primi 3 giorni &nbsp;·&nbsp; disdici quando vuoi
             </p>
           </form>
         </div>
@@ -1107,14 +1137,15 @@
 
 <!-- ======================== CTA ======================== -->
 <section class="cta-section" aria-label="Chiamata all'azione">
-  <div class="container">
-    <h2 class="cta-title">Pronto a progettare<br>con precisione?</h2>
+  <div class="cta-slash" aria-hidden="true"></div>
+  <div class="container" style="position:relative">
+    <h2 class="cta-title">pronto a progettare<br><strong>con precisione?</strong></h2>
     <p class="cta-desc">Prova C/G LightCalc gratis per 3 giorni. Nessun addebito immediato.</p>
     <a href="#pricing" class="btn-primary" style="margin:0 auto;display:inline-flex;">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
       </svg>
-      Inizia Gratis Ora
+      inizia gratis ora
     </a>
   </div>
 </section>
@@ -1123,23 +1154,18 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <div style="display:flex;align-items:center;gap:.65rem;">
-        <div class="nav-logo-icon" style="width:30px;height:30px;border-radius:7px;">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-          </svg>
-        </div>
-        <span class="footer-brand-name"><span>C/G</span> LightCalc</span>
+      <div class="footer-brand-name">
+        c<span class="slash">/</span>g<span class="app">&nbsp;lightcalc</span>
       </div>
-      <p class="footer-copy">© 2026 Studio Cibelli/Guadagno · Tutti i diritti riservati</p>
+      <p class="footer-copy">© 2026 studio cibelli/guadagno · tutti i diritti riservati</p>
     </div>
 
     <ul class="footer-links" role="list">
-      <li><a href="#features">Funzionalità</a></li>
-      <li><a href="#screenshots">Screenshot</a></li>
-      <li><a href="#pricing">Prezzi</a></li>
-      <li><a href="mailto:stefanocibelli@gmail.com">Supporto</a></li>
-      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="#features">funzionalità</a></li>
+      <li><a href="#screenshots">screenshot</a></li>
+      <li><a href="#pricing">prezzi</a></li>
+      <li><a href="mailto:stefanocibelli@gmail.com">supporto</a></li>
+      <li><a href="privacy.html">privacy policy</a></li>
     </ul>
   </div>
 </footer>
@@ -1150,31 +1176,36 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 75);
+        setTimeout(() => entry.target.classList.add('visible'), i * 65);
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
+  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
   // Active nav link highlight on scroll
   const sections = document.querySelectorAll('section[id]');
   const links    = document.querySelectorAll('.nav-links a');
-
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 80) current = s.id;
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
     links.forEach(l => {
-      const isActive = l.getAttribute('href') === `#${current}`;
-      l.style.color  = isActive && !l.classList.contains('nav-cta') ? 'var(--gold)' : '';
+      if (!l.classList.contains('nav-cta')) {
+        const active = l.getAttribute('href') === `#${current}`;
+        l.style.color = active ? 'var(--cg-tortora)' : '';
+        l.style.borderBottomColor = active ? 'var(--cg-tortora-mid)' : '';
+      }
     });
   }, { passive: true });
 
-  // Mobile hamburger (simple toggle already inline via onclick)
-  // Adds nav-open class; CSS below shows the mobile menu
+  // Ambient slash rotation on scroll (cgblog leitmotiv)
+  const heroSlash = document.querySelector('.hero-slash');
+  if (heroSlash) {
+    window.addEventListener('scroll', () => {
+      const rot = 70 + window.scrollY * 0.015;
+      heroSlash.style.transform = `translate(-50%, -50%) rotate(${rot}deg)`;
+    }, { passive: true });
+  }
 </script>
 
 <style>
@@ -1184,11 +1215,11 @@
       display: flex;
       flex-direction: column;
       position: absolute;
-      top: 68px; left: 0; right: 0;
-      background: rgba(13,27,42,.98);
-      padding: 1.5rem 2rem;
-      gap: 1.25rem;
-      border-bottom: 1px solid rgba(212,168,67,.15);
+      top: 64px; left: 0; right: 0;
+      background: rgba(26,23,20,.98);
+      padding: 1.5rem clamp(28px, 6vw, 88px);
+      gap: 1.1rem;
+      border-bottom: 1px solid rgba(212, 200, 176, 0.10);
     }
     .nav-links.nav-open .nav-cta {
       display: inline-block;
