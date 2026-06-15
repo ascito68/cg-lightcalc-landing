@@ -814,7 +814,7 @@
       </span>
       <span class="norm-pill" role="listitem">
         <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        uni&nbsp;11248 / norme regionali
+        uni&nbsp;11248 / 6 leggi regionali
       </span>
       <span class="norm-pill" role="listitem">
         <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
@@ -901,7 +901,7 @@
           </svg>
         </div>
         <h3 class="feature-title">calcolo en&nbsp;13201 — stradale</h3>
-        <p class="feature-desc">Classi ME (strade principali), CE (incroci e rotatorie), S/P (percorsi pedonali). Calcola E<sub>m</sub>, E<sub>min</sub>, uniformità U₀, rapporto Rg. Supporta le classi UNI 11248 e le normative regionali antiinquinamento luminoso (es. legge regionale Puglia).</p>
+        <p class="feature-desc">Classi ME (strade principali), CE (incroci e rotatorie), S/P (percorsi pedonali). Calcola E<sub>m</sub>, E<sub>min</sub>, uniformità U₀, rapporto Rg. Supporta UNI 11248 e <strong>6 leggi regionali antiinquinamento luminoso</strong> (Abruzzo, Basilicata, Lombardia, Piemonte, Puglia, Toscana) con verifica automatica del limite di temperatura di colore CCT ove previsto.</p>
         <span class="feature-tag">norma stradale</span>
       </article>
 
@@ -926,8 +926,8 @@
             <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
           </svg>
         </div>
-        <h3 class="feature-title">libreria fotometrica ies / ldt</h3>
-        <p class="feature-desc">Importazione di file fotometrici <strong>IES (IESNA LM-63)</strong> e <strong>LDT (EULUMDAT)</strong> con rilevamento automatico del formato dal contenuto. Diagramma polare generato al caricamento. Costruisci il tuo database di corpi illuminanti e seleziona la rotazione per apparecchio.</p>
+        <h3 class="feature-title">libreria fotometrica ies / ldt · strippled</h3>
+        <p class="feature-desc">Importazione di file fotometrici <strong>IES (IESNA LM-63)</strong> e <strong>LDT (EULUMDAT)</strong> con rilevamento automatico del formato. Diagramma polare generato al caricamento. Supporto <strong>StripLED</strong>: sorgente lineare definita in lm/m e lunghezza, calcolabile come striscia discretizzata o punto equivalente. Fino a 4 tipi di apparecchio per progetto, ciascuno con fotometria e parametri indipendenti.</p>
         <span class="feature-tag">file fotometrici</span>
       </article>
 
@@ -939,8 +939,8 @@
             <polyline points="21 15 16 10 5 21"/>
           </svg>
         </div>
-        <h3 class="feature-title">isolux, heatmap e 3d con planimetria</h3>
-        <p class="feature-desc">Tre viste della griglia di calcolo: <strong>curve isolux</strong>, <strong>heatmap a falsi colori</strong> e <strong>superficie 3D</strong>. Carica la planimetria reale in PDF (conversione automatica PNG) e sovrapponila alla griglia con calibrazione metrica a due punti. La mappa si integra nei report.</p>
+        <h3 class="feature-title">posizionamento e visualizzazione avanzata</h3>
+        <p class="feature-desc">Quattro modalità di posizionamento: griglia per numero, griglia per interasse, <strong>selezione grafica su griglia</strong> con assegnazione del tipo per cella, e <strong>click diretto su planimetria</strong> con calibrazione metrica a due punti. Tre viste del risultato: <strong>isolux</strong>, <strong>heatmap</strong> e <strong>superficie 3D</strong>. Planimetria in PDF convertita automaticamente in PNG e sovrapposta ai grafici.</p>
         <span class="feature-tag">visualizzazione</span>
       </article>
 
@@ -970,9 +970,11 @@
       <p style="font-size:.92rem;color:var(--cg-nero);font-weight:400;line-height:1.72;max-width:72ch">
         C/G LightCalc nasce per le <strong>verifiche preliminari e di controllo</strong> in fase di progetto:
         risultati rapidi e affidabili per orientare le scelte illuminotecniche prima di approfondire.
-        I calcoli si basano su metodi semplificati — griglia piana, geometrie regolari, riflessioni con
-        formula sferica — e non coprono scenari complessi come ambienti a più piani, ostruzioni fisiche
-        o simulazioni fotorealistiche. Per progettazioni definitive ad alta complessità è sempre consigliato
+        I calcoli si basano su metodi semplificati — griglia piana orizzontale, geometrie regolari,
+        riflessioni con formula sferica — e non coprono scenari complessi come superfici verticali o
+        cilindriche, ostruzioni fisiche, ambienti a più piani o simulazioni fotorealistiche. Il metodo
+        a flusso totale non considera la geometria delle volte; in presenza di più tipi di apparecchio
+        la griglia è condivisa. Per progettazioni definitive ad alta complessità è sempre consigliato
         affiancare strumenti di simulazione avanzata.
       </p>
     </div>
@@ -1069,11 +1071,11 @@
           <ul class="feature-list" role="list">
             <li>
               <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              calcolo punto-per-punto en&nbsp;12464-1 (volte a botte e crociera)
+              calcolo punto-per-punto en&nbsp;12464-1 (interni, volte a botte e crociera)
             </li>
             <li>
               <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              calcolo illuminazione stradale en&nbsp;13201 (me, ce, s/p) + uni 11248
+              calcolo en&nbsp;13201 (me, ce, s/p) + uni 11248 + 6 leggi regionali con verifica cct
             </li>
             <li>
               <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -1081,7 +1083,11 @@
             </li>
             <li>
               <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              libreria corpi illuminanti ies / ldt con diagramma polare
+              libreria ies / ldt · strippled (lm/m) · fino a 4 tipi per progetto
+            </li>
+            <li>
+              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              4 modalità di posizionamento · click su planimetria con calibrazione metrica
             </li>
             <li>
               <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -1089,11 +1095,7 @@
             </li>
             <li>
               <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              report pdf (reportlab) e docx (word) con planimetria in copertina
-            </li>
-            <li>
-              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              salvataggio e caricamento progetto (.json)
+              report pdf e docx con planimetria in copertina · salvataggio progetto .json
             </li>
             <li>
               <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
