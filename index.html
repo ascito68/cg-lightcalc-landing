@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="C/G LightCalc — Software professionale per il calcolo illuminotecnico. Verifiche EN 12464-1, EN 13201 e IRM Spencer per architetti e progettisti illuminotecnici. Prova gratis 3 giorni.">
-  <meta name="keywords" content="calcolo illuminotecnico, EN 12464-1, EN 13201, software illuminazione, architetti, IES, LDT, lux, UGR, IRM Spencer, luce naturale, isolux, heatmap">
+  <meta name="keywords" content="calcolo illuminotecnico, EN 12464-1, EN 13201, software illuminazione, architetti, IES, LDT, lux, IRM Spencer, luce naturale, isolux, heatmap">
   <meta property="og:title" content="C/G LightCalc — Calcolo Illuminotecnico Professionale">
   <meta property="og:description" content="Software professionale per la verifica degli impianti di illuminazione secondo EN 12464-1, EN 13201 e IRM Spencer. Prova gratuita 3 giorni, poi €4,99/mese.">
   <meta property="og:type" content="website">
@@ -12,783 +12,333 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ==================== DESIGN TOKENS (cgblog) ==================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* palette — cibelli/guadagno */
-      --cg-tortora:        #d4c8b0;
-      --cg-tortora-mid:    #a89986;
-      --cg-tortora-deep:   #6e6357;
-      --cg-nero:           #2e2a26;
-      --cg-nero-deep:      #1a1714;
-      --cg-soft:           #faf8f5;
-      --cg-bianco:         #ffffff;
-      --cg-grigio-chiaro:  #e5e2dc;
-      --cg-fg-muted:       #7a7268;
-      --cg-fg-subtle:      #b0aaa1;
-      --cg-border:         rgba(46, 42, 38, 0.10);
-      --cg-border-strong:  rgba(46, 42, 38, 0.85);
-      --cg-green:          #5a8a6a;
-
-      /* type */
+      --cg-tortora:       #d4c8b0;
+      --cg-tortora-mid:   #a89986;
+      --cg-tortora-deep:  #6e6357;
+      --cg-nero:          #2e2a26;
+      --cg-nero-deep:     #1a1714;
+      --cg-soft:          #faf8f5;
+      --cg-bianco:        #ffffff;
+      --cg-border:        rgba(46, 42, 38, 0.09);
+      --cg-border-mid:    rgba(46, 42, 38, 0.28);
+      --cg-fg-muted:      #7a7268;
+      --cg-fg-subtle:     #b0aaa1;
+      --cg-green:         #5a8a6a;
       --cg-font: 'Helvetica Neue', 'Helvetica', 'Inter', 'Arial', sans-serif;
-
-      /* geometry — the brand is rigorously square */
-      --radius: 0px;
+      --bx: clamp(28px, 6vw, 88px);
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--cg-font);
-      color: var(--cg-nero);
-      background: var(--cg-bianco);
-      line-height: 1.6;
-      font-weight: 300;
-      -webkit-font-smoothing: antialiased;
-    }
-
+    body { font-family: var(--cg-font); color: var(--cg-nero); background: var(--cg-bianco); line-height: 1.6; font-weight: 300; -webkit-font-smoothing: antialiased; }
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; }
     button { font-family: var(--cg-font); }
 
-    /* ==================== NAVIGATION ==================== */
+    /* ── NAV ── */
     .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(26, 23, 20, 0.96);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(212, 200, 176, 0.12);
-      height: 64px;
-      padding: 0 clamp(28px, 6vw, 88px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26,23,20,.96);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212,200,176,.10);
+      height: 64px; padding: 0 var(--bx);
+      display: flex; align-items: center; justify-content: space-between;
     }
-
-    .nav-logo {
-      display: flex;
-      align-items: baseline;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--cg-bianco);
-      letter-spacing: 0.02em;
-      text-transform: lowercase;
-    }
-    .nav-logo .slash {
-      color: var(--cg-tortora-mid);
-      font-weight: 200;
-      padding: 0 0.1em;
-      font-size: 1.35em;
-      line-height: 0;
-      position: relative;
-      top: 3px;
-    }
+    .nav-logo { font-size: 13px; font-weight: 700; color: var(--cg-bianco); letter-spacing: .02em; text-transform: lowercase; }
+    .nav-logo .sl { color: var(--cg-tortora-mid); font-weight: 200; padding: 0 .1em; font-size: 1.4em; line-height: 0; position: relative; top: 3px; }
     .nav-logo .app { color: var(--cg-tortora); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,.5);
-      font-size: .76rem;
-      font-weight: 400;
-      letter-spacing: 0.16em;
-      text-transform: lowercase;
-      transition: color .2s;
-      padding-bottom: 2px;
-      border-bottom: 1px solid transparent;
-    }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.48); font-size: .75rem; font-weight: 400; letter-spacing: .16em; text-transform: lowercase; transition: color .2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
     .nav-links a:hover { color: var(--cg-tortora); border-bottom-color: var(--cg-tortora-mid); }
-
-    .nav-cta {
-      background: var(--cg-tortora) !important;
-      color: var(--cg-nero) !important;
-      padding: .4rem 1.1rem;
-      font-weight: 700 !important;
-      letter-spacing: 0.06em !important;
-      border-bottom: none !important;
-      transition: background .2s !important;
-    }
+    .nav-cta { background: var(--cg-tortora) !important; color: var(--cg-nero) !important; padding: .4rem 1.1rem; font-weight: 700 !important; letter-spacing: .06em !important; border-bottom: none !important; }
     .nav-cta:hover { background: var(--cg-tortora-mid) !important; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: .4rem; }
+    .nav-hamburger span { display: block; width: 22px; height: 1px; background: var(--cg-bianco); }
 
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: .4rem;
-    }
-    .nav-hamburger span {
-      display: block; width: 22px; height: 1px;
-      background: var(--cg-bianco);
-    }
-
-    /* ==================== HERO ==================== */
+    /* ── HERO ── */
     .hero {
       background: var(--cg-nero-deep);
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 120px clamp(28px, 6vw, 88px) 80px;
-      position: relative;
-      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      padding: 140px var(--bx) 100px;
+      position: relative; overflow: hidden;
     }
-
-    /* ambient slash — cgblog leitmotiv */
     .hero-slash {
-      position: absolute;
-      left: 50%; top: 50%;
-      width: 140vmin; height: 140vmin;
-      transform: translate(-50%, -50%) rotate(70deg);
+      position: absolute; left: 50%; top: 50%;
+      width: 160vmin; height: 160vmin;
+      transform: translate(-50%,-50%) rotate(70deg);
       pointer-events: none;
     }
     .hero-slash::before {
-      content: '';
-      position: absolute;
-      left: 50%; top: 0; bottom: 0;
-      width: 1px;
-      background: var(--cg-tortora);
-      opacity: 0.10;
+      content: ''; position: absolute;
+      left: 50%; top: 0; bottom: 0; width: 1px;
+      background: var(--cg-tortora); opacity: .09;
       transform: translateX(-50%);
     }
-
-    .hero-content {
-      max-width: 840px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
+    .hero-content { max-width: 900px; text-align: center; position: relative; z-index: 1; }
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: rgba(212, 200, 176, 0.07);
-      border: 1px solid rgba(212, 200, 176, 0.18);
-      color: var(--cg-tortora);
-      font-size: .68rem;
-      font-weight: 400;
-      letter-spacing: .18em;
-      text-transform: lowercase;
-      padding: .32rem 1rem;
-      margin-bottom: 1.75rem;
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(212,200,176,.06); border: 1px solid rgba(212,200,176,.16);
+      color: var(--cg-tortora); font-size: .66rem; font-weight: 400;
+      letter-spacing: .20em; text-transform: lowercase;
+      padding: .32rem 1rem; margin-bottom: 2.25rem;
     }
-
-    .badge-dot {
-      width: 5px; height: 5px;
-      background: var(--cg-tortora-mid);
-      border-radius: 50%;
-      animation: blink 2.5s ease-in-out infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: .2; }
-    }
+    .badge-dot { width: 5px; height: 5px; background: var(--cg-tortora-mid); border-radius: 50%; animation: blink 2.5s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
 
     .hero-title {
-      font-size: clamp(2.6rem, 7vw, 5rem);
+      font-size: clamp(3rem, 8vw, 6.5rem);
       font-weight: 200;
       color: var(--cg-bianco);
-      line-height: 1.0;
-      letter-spacing: -0.025em;
-      margin-bottom: 1.5rem;
+      line-height: .96;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
       text-transform: lowercase;
     }
     .hero-title strong { font-weight: 700; }
-    .hero-title .slash-accent {
-      color: var(--cg-tortora-mid);
-      font-weight: 200;
-    }
+    .hero-title .sl { color: var(--cg-tortora-mid); font-weight: 200; }
 
     .hero-subtitle {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,.50);
-      max-width: 580px;
-      margin: 0 auto 2.25rem;
-      line-height: 1.78;
-      font-weight: 300;
+      font-size: 1.08rem; color: rgba(255,255,255,.46);
+      max-width: 560px; margin: 0 auto 2.5rem;
+      line-height: 1.80; font-weight: 300;
     }
 
-    .hero-norms {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: .45rem;
-      margin-bottom: 2.75rem;
-    }
-
+    .hero-norms { display: flex; justify-content: center; flex-wrap: wrap; gap: .4rem; margin-bottom: 3rem; }
     .norm-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: .32rem;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(212, 200, 176, 0.14);
-      color: rgba(255,255,255,.58);
-      font-size: .7rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: lowercase;
-      padding: .26rem .68rem;
+      display: inline-flex; align-items: center; gap: .3rem;
+      background: rgba(255,255,255,.03); border: 1px solid rgba(212,200,176,.13);
+      color: rgba(255,255,255,.55); font-size: .68rem; font-weight: 400;
+      letter-spacing: .08em; text-transform: lowercase; padding: .25rem .65rem;
     }
-    .norm-pill .check-icon { color: var(--cg-tortora-mid); }
+    .norm-pill .ck { color: var(--cg-tortora-mid); }
 
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: .85rem;
-      margin-bottom: 4rem;
-    }
+    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: .85rem; margin-bottom: 5rem; }
 
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      background: var(--cg-tortora);
-      color: var(--cg-nero);
-      font-size: .84rem;
-      font-weight: 700;
-      padding: .78rem 1.85rem;
-      border: none;
-      cursor: pointer;
-      transition: background .2s;
-      letter-spacing: 0.05em;
-      text-transform: lowercase;
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: var(--cg-tortora); color: var(--cg-nero);
+      font-size: .82rem; font-weight: 700; padding: .82rem 2rem;
+      border: none; cursor: pointer; transition: background .2s;
+      letter-spacing: .05em; text-transform: lowercase;
     }
     .btn-primary:hover { background: var(--cg-tortora-mid); }
 
     .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      background: transparent;
-      color: rgba(255,255,255,.65);
-      font-size: .84rem;
-      font-weight: 400;
-      padding: .78rem 1.85rem;
-      border: 1px solid rgba(212, 200, 176, 0.22);
-      cursor: pointer;
-      letter-spacing: 0.05em;
-      text-transform: lowercase;
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: transparent; color: rgba(255,255,255,.6);
+      font-size: .82rem; font-weight: 400; padding: .82rem 2rem;
+      border: 1px solid rgba(212,200,176,.20); cursor: pointer;
+      letter-spacing: .05em; text-transform: lowercase;
       transition: border-color .2s, color .2s;
     }
-    .btn-outline:hover { border-color: rgba(212, 200, 176, 0.5); color: var(--cg-bianco); }
+    .btn-outline:hover { border-color: rgba(212,200,176,.48); color: var(--cg-bianco); }
 
     .hero-stats {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding-top: 2.5rem;
-      border-top: 1px solid rgba(212, 200, 176, 0.10);
+      display: flex; justify-content: center; flex-wrap: wrap;
+      padding-top: 3rem; border-top: 1px solid rgba(212,200,176,.09);
     }
-
-    .stat {
-      padding: 0 1.75rem;
-      border-right: 1px solid rgba(212, 200, 176, 0.10);
-    }
+    .stat { padding: 0 2rem; border-right: 1px solid rgba(212,200,176,.09); }
     .stat:last-child { border-right: none; }
     .stat:first-child { padding-left: 0; }
+    .stat-value { display: block; font-size: .82rem; font-weight: 700; color: var(--cg-tortora); line-height: 1.2; }
+    .stat-label { font-size: .62rem; color: rgba(255,255,255,.28); text-transform: lowercase; letter-spacing: .12em; margin-top: .22rem; }
 
-    .stat-value {
-      display: block;
-      font-size: .88rem;
-      font-weight: 700;
-      color: var(--cg-tortora);
-      letter-spacing: 0;
-      line-height: 1.2;
-    }
-    .stat-label {
-      font-size: .65rem;
-      color: rgba(255,255,255,.32);
-      text-transform: lowercase;
-      letter-spacing: .12em;
-      font-weight: 400;
-      margin-top: .2rem;
-    }
-
-    /* ==================== SHARED SECTION STYLES ==================== */
-    .section { padding: 96px clamp(28px, 6vw, 88px); }
+    /* ── SHARED ── */
+    .section { padding: 112px var(--bx); }
     .section-alt { background: var(--cg-soft); }
-    .section-dark { background: var(--cg-nero); }
-
     .container { max-width: 1200px; margin: 0 auto; }
-
-    .section-label {
-      font-size: .66rem;
-      font-weight: 400;
-      letter-spacing: .18em;
-      text-transform: lowercase;
-      color: var(--cg-tortora-mid);
-      margin-bottom: .6rem;
-    }
-
-    .section-title {
-      font-size: clamp(1.9rem, 4vw, 3rem);
-      font-weight: 200;
-      color: var(--cg-nero);
-      letter-spacing: -0.025em;
-      line-height: 1.06;
-      margin-bottom: 1rem;
-      text-transform: lowercase;
-    }
+    .section-label { font-size: .64rem; font-weight: 400; letter-spacing: .20em; text-transform: lowercase; color: var(--cg-tortora-mid); margin-bottom: .65rem; }
+    .section-title { font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 200; color: var(--cg-nero); letter-spacing: -0.03em; line-height: 1.04; margin-bottom: 1.1rem; text-transform: lowercase; }
     .section-title strong { font-weight: 700; }
     .section-title--light { color: var(--cg-bianco); }
-
-    .section-desc {
-      font-size: .94rem;
-      color: var(--cg-fg-muted);
-      line-height: 1.75;
-      max-width: 560px;
-      font-weight: 400;
-    }
-    .section-desc--light { color: rgba(255,255,255,.45); }
-
-    .section-header { margin-bottom: 3.5rem; }
+    .section-desc { font-size: .94rem; color: var(--cg-fg-muted); line-height: 1.78; max-width: 540px; font-weight: 400; }
+    .section-desc--light { color: rgba(255,255,255,.42); }
+    .section-header { margin-bottom: 4rem; }
     .section-header--center { text-align: center; }
     .section-header--center .section-desc { margin: 0 auto; }
 
-    /* ==================== FEATURES ==================== */
+    /* ── FEATURES ── */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: var(--cg-border);
       border: 1px solid var(--cg-border);
     }
+    @media (max-width: 960px) { .features-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } }
 
-    .feature-card {
-      background: var(--cg-bianco);
-      padding: 2rem;
-      transition: background .22s;
-    }
+    .feature-card { background: var(--cg-bianco); padding: 2.75rem 2.5rem; transition: background .22s; }
     .feature-card:hover { background: var(--cg-soft); }
 
     .feature-icon {
-      width: 42px; height: 42px;
+      width: 44px; height: 44px;
       border: 1px solid var(--cg-border);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.25rem;
-      color: var(--cg-tortora-deep);
+      margin-bottom: 1.6rem; color: var(--cg-tortora-deep);
+    }
+    .feature-title { font-size: .9rem; font-weight: 700; color: var(--cg-nero); letter-spacing: -.01em; margin-bottom: .6rem; text-transform: lowercase; }
+    .feature-desc { font-size: .84rem; color: var(--cg-fg-muted); line-height: 1.72; font-weight: 400; }
+    .feature-tag { display: inline-block; margin-top: 1.4rem; font-size: .6rem; font-weight: 400; letter-spacing: .14em; text-transform: lowercase; color: var(--cg-tortora-deep); border-bottom: 1px solid var(--cg-tortora-mid); padding-bottom: 1px; }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      background: var(--cg-soft);
+      border-top: 1px solid var(--cg-border);
+      border-bottom: 1px solid var(--cg-border);
+      padding: 3rem var(--bx);
+    }
+    .disclaimer-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 2rem; align-items: flex-start; }
+    .disclaimer-bar { flex-shrink: 0; width: 2px; background: var(--cg-tortora-mid); align-self: stretch; opacity: .5; }
+    .disclaimer-label { font-size: .64rem; font-weight: 400; letter-spacing: .18em; text-transform: lowercase; color: var(--cg-tortora-deep); margin-bottom: .55rem; }
+    .disclaimer-text { font-size: .9rem; color: var(--cg-nero); font-weight: 400; line-height: 1.75; max-width: 80ch; }
+
+    /* ── SCREENSHOTS ── */
+    .screenshots-section { background: var(--cg-nero); padding: 112px var(--bx); }
+
+    /* layout: immagine principale full-width, poi due affiancate */
+    .screenshots-main {
+      position: relative; overflow: hidden;
+      background: #0d0b09;
+      margin-bottom: 1px;
+    }
+    .screenshots-main img {
+      width: 100%; display: block;
+      object-fit: cover; object-position: left top;
+      max-height: 560px;
     }
 
-    .feature-title {
-      font-size: .92rem;
-      font-weight: 700;
-      color: var(--cg-nero);
-      letter-spacing: -0.01em;
-      margin-bottom: .45rem;
-      text-transform: lowercase;
+    .screenshots-duo {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: rgba(212,200,176,.08);
     }
+    .screenshot-cell { position: relative; overflow: hidden; background: #0d0b09; }
+    .screenshot-cell img { width: 100%; height: 100%; display: block; object-fit: contain; }
 
-    .feature-desc {
-      font-size: .83rem;
-      color: var(--cg-fg-muted);
-      line-height: 1.68;
-      font-weight: 400;
-    }
-
-    .feature-tag {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: .62rem;
-      font-weight: 400;
-      letter-spacing: .14em;
-      text-transform: lowercase;
-      color: var(--cg-tortora-deep);
-      border-bottom: 1px solid var(--cg-tortora-mid);
-      padding-bottom: 1px;
-    }
-
-    /* ==================== SCREENSHOTS ==================== */
-    .screenshots-section {
-      background: var(--cg-nero);
-      padding: 96px clamp(28px, 6vw, 88px);
-    }
-
-    .screenshots-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: rgba(212, 200, 176, 0.08);
-    }
-
-    .screenshot-span2 { grid-column: 1 / -1; }
-
-    .screenshot-frame {
-      position: relative;
-      overflow: hidden;
-      background: #0e0c0a;
-      aspect-ratio: 16 / 9;
-    }
-
-    /* report è A4 verticale — aspect-ratio più alto */
-    .screenshot-frame--tall {
-      aspect-ratio: 3 / 4;
-    }
-
-    .screenshot-frame img {
-      width: 100%; height: 100%;
-      object-fit: contain;
-      background: #111;
-    }
-
-    .screenshot-placeholder {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: .75rem;
-      background: rgba(212, 200, 176, 0.03);
-      color: rgba(255,255,255,.18);
-      font-size: .76rem;
-      text-align: center;
-      padding: 2rem;
-    }
-    .screenshot-placeholder svg { opacity: .25; }
-
-    .screenshot-frame img + .screenshot-placeholder { display: none; }
+    /* altezze diverse per i due pannelli */
+    .screenshot-cell--chart { aspect-ratio: 4 / 3; }
+    .screenshot-cell--report { aspect-ratio: 3 / 4; }
 
     .screenshot-caption {
-      position: absolute;
-      bottom: .85rem; left: .85rem;
-      background: rgba(26, 23, 20, 0.88);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: var(--cg-tortora);
-      font-size: .68rem;
-      font-weight: 400;
-      letter-spacing: .10em;
-      text-transform: lowercase;
-      padding: .26rem .62rem;
-      border: 1px solid rgba(212, 200, 176, 0.14);
+      position: absolute; bottom: .85rem; left: .85rem;
+      background: rgba(26,23,20,.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      color: var(--cg-tortora); font-size: .66rem; font-weight: 400;
+      letter-spacing: .10em; text-transform: lowercase;
+      padding: .24rem .6rem; border: 1px solid rgba(212,200,176,.13);
     }
 
-    /* ==================== PRICING ==================== */
+    /* ── PRICING ── */
     .pricing-wrap { max-width: 480px; margin: 0 auto; }
+    .pricing-card { background: var(--cg-bianco); border: 1px solid var(--cg-border-mid); overflow: hidden; }
+    .pricing-top { background: var(--cg-nero); padding: 2.75rem 2.75rem 2.5rem; text-align: center; }
+    .promo-pill { display: inline-flex; align-items: center; gap: .38rem; background: rgba(212,200,176,.08); border: 1px solid rgba(212,200,176,.20); color: var(--cg-tortora); font-size: .64rem; font-weight: 400; letter-spacing: .14em; text-transform: lowercase; padding: .28rem .8rem; margin-bottom: 1.4rem; }
+    .plan-name { font-size: .72rem; font-weight: 400; color: rgba(255,255,255,.38); text-transform: lowercase; letter-spacing: .14em; margin-bottom: .7rem; }
+    .price-row { display: flex; align-items: flex-start; justify-content: center; gap: .1rem; margin-bottom: .4rem; }
+    .price-currency { font-size: 1.2rem; font-weight: 300; color: var(--cg-tortora-mid); margin-top: 1rem; }
+    .price-amount { font-size: 5rem; font-weight: 200; color: var(--cg-bianco); line-height: 1; letter-spacing: -0.045em; }
+    .price-period { font-size: .78rem; color: rgba(255,255,255,.30); align-self: flex-end; margin-bottom: .7rem; letter-spacing: .06em; }
+    .price-note { font-size: .74rem; color: rgba(255,255,255,.32); font-weight: 400; text-transform: lowercase; }
+    .trial-pill { display: inline-flex; align-items: center; gap: .38rem; margin-top: 1.25rem; background: rgba(90,138,106,.08); border: 1px solid rgba(90,138,106,.26); color: #8abf9a; font-size: .7rem; font-weight: 400; letter-spacing: .06em; text-transform: lowercase; padding: .28rem .8rem; }
 
-    .pricing-card {
-      background: var(--cg-bianco);
-      border: 1px solid var(--cg-border-strong);
-      overflow: hidden;
-    }
-
-    .pricing-top {
-      background: var(--cg-nero);
-      padding: 2.5rem 2.5rem 2.25rem;
-      text-align: center;
-    }
-
-    .promo-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: .38rem;
-      background: rgba(212, 200, 176, 0.08);
-      border: 1px solid rgba(212, 200, 176, 0.22);
-      color: var(--cg-tortora);
-      font-size: .66rem;
-      font-weight: 400;
-      letter-spacing: .14em;
-      text-transform: lowercase;
-      padding: .28rem .8rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .plan-name {
-      font-size: .74rem;
-      font-weight: 400;
-      color: rgba(255,255,255,.4);
-      text-transform: lowercase;
-      letter-spacing: .14em;
-      margin-bottom: .65rem;
-    }
-
-    .price-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      gap: .12rem;
-      margin-bottom: .35rem;
-    }
-
-    .price-currency {
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: var(--cg-tortora-mid);
-      margin-top: .85rem;
-    }
-
-    .price-amount {
-      font-size: 4.5rem;
-      font-weight: 200;
-      color: var(--cg-bianco);
-      line-height: 1;
-      letter-spacing: -0.04em;
-    }
-
-    .price-period {
-      font-size: .8rem;
-      color: rgba(255,255,255,.32);
-      align-self: flex-end;
-      margin-bottom: .65rem;
-      letter-spacing: .06em;
-    }
-
-    .price-note { font-size: .76rem; color: rgba(255,255,255,.34); font-weight: 400; text-transform: lowercase; }
-
-    .trial-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: .38rem;
-      margin-top: 1.1rem;
-      background: rgba(90,138,106,.08);
-      border: 1px solid rgba(90,138,106,.28);
-      color: #8abf9a;
-      font-size: .72rem;
-      font-weight: 400;
-      letter-spacing: .06em;
-      text-transform: lowercase;
-      padding: .28rem .8rem;
-    }
-
-    .pricing-body { padding: 2rem 2.5rem 2.5rem; }
-
-    .feature-list { list-style: none; margin-bottom: 1.75rem; }
-
-    .feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: .68rem;
-      padding: .52rem 0;
-      border-bottom: 1px solid var(--cg-border);
-      font-size: .86rem;
-      color: var(--cg-nero);
-      font-weight: 400;
-      text-transform: lowercase;
-      letter-spacing: .01em;
-    }
+    .pricing-body { padding: 2.25rem 2.75rem 2.75rem; }
+    .feature-list { list-style: none; margin-bottom: 2rem; }
+    .feature-list li { display: flex; align-items: flex-start; gap: .7rem; padding: .6rem 0; border-bottom: 1px solid var(--cg-border); font-size: .86rem; color: var(--cg-nero); font-weight: 400; text-transform: lowercase; letter-spacing: .01em; }
     .feature-list li:last-child { border-bottom: none; }
-
-    .check-circle {
-      width: 18px; height: 18px;
-      border: 1px solid rgba(90,138,106,.35);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-      color: var(--cg-green);
-    }
+    .check-circle { width: 18px; height: 18px; border: 1px solid rgba(90,138,106,.32); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; color: var(--cg-green); }
 
     .paypal-form { text-align: center; }
-
-    .paypal-btn {
-      width: 100%;
-      background: #FFC439;
-      color: #111827;
-      border: none;
-      padding: .92rem 1.5rem;
-      font-size: .84rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .55rem;
-      transition: background .2s;
-      letter-spacing: .04em;
-      text-transform: lowercase;
-    }
+    .paypal-btn { width: 100%; background: #FFC439; color: #111827; border: none; padding: 1rem 1.5rem; font-size: .84rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .55rem; transition: background .2s; letter-spacing: .04em; text-transform: lowercase; }
     .paypal-btn:hover { background: #F0B420; }
-
     .paypal-logo { font-size: .9rem; font-weight: 800; }
-    .paypal-logo .pay { color: #003087; }
-    .paypal-logo .pal { color: #009cde; }
+    .paypal-logo .pay { color: #003087; } .paypal-logo .pal { color: #009cde; }
+    .paypal-trust { margin-top: .8rem; font-size: .7rem; color: var(--cg-fg-subtle); display: flex; align-items: center; justify-content: center; gap: .35rem; line-height: 1.5; text-transform: lowercase; letter-spacing: .04em; }
 
-    .paypal-trust {
-      margin-top: .75rem;
-      font-size: .7rem;
-      color: var(--cg-fg-subtle);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .35rem;
-      line-height: 1.5;
-      text-transform: lowercase;
-      letter-spacing: .04em;
-    }
-
-    /* ==================== CTA BANNER ==================== */
-    .cta-section {
-      background: var(--cg-nero-deep);
-      padding: 96px clamp(28px, 6vw, 88px);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-slash {
-      position: absolute;
-      left: 50%; top: 50%;
-      width: 140vmin; height: 140vmin;
-      transform: translate(-50%, -50%) rotate(70deg);
-      pointer-events: none;
-    }
-    .cta-slash::before {
-      content: '';
-      position: absolute;
-      left: 50%; top: 0; bottom: 0;
-      width: 1px;
-      background: var(--cg-tortora);
-      opacity: 0.07;
-      transform: translateX(-50%);
-    }
-
-    .cta-title {
-      font-size: clamp(2rem, 4.5vw, 3.5rem);
-      font-weight: 200;
-      color: var(--cg-bianco);
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      margin-bottom: 1rem;
-      text-transform: lowercase;
-      position: relative;
-    }
+    /* ── CTA ── */
+    .cta-section { background: var(--cg-nero-deep); padding: 112px var(--bx); text-align: center; position: relative; overflow: hidden; }
+    .cta-slash { position: absolute; left: 50%; top: 50%; width: 140vmin; height: 140vmin; transform: translate(-50%,-50%) rotate(70deg); pointer-events: none; }
+    .cta-slash::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--cg-tortora); opacity: .07; transform: translateX(-50%); }
+    .cta-title { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 200; color: var(--cg-bianco); letter-spacing: -0.03em; line-height: 1.04; margin-bottom: 1.1rem; text-transform: lowercase; position: relative; }
     .cta-title strong { font-weight: 700; }
+    .cta-desc { font-size: .94rem; color: rgba(255,255,255,.38); max-width: 380px; margin: 0 auto 2.5rem; font-weight: 400; text-transform: lowercase; position: relative; }
 
-    .cta-desc {
-      font-size: .94rem;
-      color: rgba(255,255,255,.4);
-      max-width: 400px;
-      margin: 0 auto 2.25rem;
-      font-weight: 400;
-      position: relative;
-      text-transform: lowercase;
-    }
+    /* ── FOOTER ── */
+    footer { background: var(--cg-nero-deep); padding: 0 var(--bx); border-top: 1px solid rgba(212,200,176,.07); }
 
-    /* ==================== FOOTER ==================== */
-    footer {
-      background: var(--cg-nero-deep);
-      padding: 3rem clamp(28px, 6vw, 88px);
-      border-top: 1px solid rgba(212, 200, 176, 0.07);
+    .footer-credits {
+      max-width: 1200px; margin: 0 auto;
+      padding: 4rem 0 3rem;
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
+      border-bottom: 1px solid rgba(212,200,176,.07);
     }
+    @media (max-width: 768px) { .footer-credits { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0 2rem; } }
 
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
+    .footer-credits-label { font-size: .62rem; font-weight: 400; letter-spacing: .18em; text-transform: lowercase; color: var(--cg-tortora-deep); margin-bottom: .9rem; }
+    .footer-credits-text { font-size: .82rem; color: rgba(255,255,255,.28); line-height: 1.78; font-weight: 300; }
+    .footer-credits-text strong { color: rgba(255,255,255,.48); font-weight: 400; }
+    .footer-credits-list { list-style: none; }
+    .footer-credits-list li { font-size: .8rem; color: rgba(255,255,255,.28); line-height: 2.1; font-weight: 300; display: flex; align-items: baseline; gap: .5rem; }
+    .footer-credits-list li::before { content: '/'; color: var(--cg-tortora-deep); font-weight: 200; flex-shrink: 0; }
 
-    .footer-brand-name {
-      font-size: .78rem;
-      font-weight: 700;
-      color: var(--cg-bianco);
-      text-transform: lowercase;
-      letter-spacing: .02em;
-    }
-    .footer-brand-name .slash {
-      color: var(--cg-tortora-mid);
-      font-weight: 200;
-      padding: 0 .08em;
-      font-size: 1.35em;
-      line-height: 0;
-      position: relative;
-      top: 2px;
-    }
-    .footer-brand-name .app { color: var(--cg-tortora); }
-
-    .footer-copy {
-      margin-top: .35rem;
-      font-size: .7rem;
-      color: rgba(255,255,255,.22);
-      text-transform: lowercase;
-      letter-spacing: .06em;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      list-style: none;
-    }
-    .footer-links a {
-      color: rgba(255,255,255,.3);
-      font-size: .72rem;
-      text-transform: lowercase;
-      letter-spacing: .1em;
-      transition: color .2s;
-      padding-bottom: 1px;
-      border-bottom: 1px solid transparent;
-    }
+    .footer-base { max-width: 1200px; margin: 0 auto; padding: 2rem 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; }
+    .footer-brand { font-size: .78rem; font-weight: 700; color: var(--cg-bianco); text-transform: lowercase; letter-spacing: .02em; }
+    .footer-brand .sl { color: var(--cg-tortora-mid); font-weight: 200; padding: 0 .08em; font-size: 1.35em; line-height: 0; position: relative; top: 2px; }
+    .footer-brand .app { color: var(--cg-tortora); }
+    .footer-copy { margin-top: .3rem; font-size: .68rem; color: rgba(255,255,255,.20); text-transform: lowercase; letter-spacing: .06em; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.25rem; list-style: none; }
+    .footer-links a { color: rgba(255,255,255,.28); font-size: .7rem; text-transform: lowercase; letter-spacing: .10em; transition: color .2s; padding-bottom: 1px; border-bottom: 1px solid transparent; }
     .footer-links a:hover { color: var(--cg-tortora); border-bottom-color: var(--cg-tortora-mid); }
 
-    /* ==================== ANIMATION ==================== */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .55s ease, transform .55s ease;
-    }
+    /* ── ANIMATION ── */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* ==================== RESPONSIVE ==================== */
+    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-
-      .screenshots-grid { grid-template-columns: 1fr; }
-      .screenshot-span2 { grid-column: 1; }
-
       .stat { padding: 0 1.1rem; }
-
-      .pricing-top { padding: 2rem 1.5rem 1.75rem; }
-      .pricing-body { padding: 1.75rem 1.5rem 2rem; }
-      .price-amount { font-size: 3.5rem; }
-
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+      .pricing-top, .pricing-body { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .screenshots-duo { grid-template-columns: 1fr; }
+      .screenshot-cell--chart, .screenshot-cell--report { aspect-ratio: 4/3; }
     }
-
     @media (max-width: 480px) {
-      .section { padding: 72px 1.5rem; }
-      .hero { padding: 110px 1.5rem 72px; }
+      .section { padding: 80px 1.5rem; }
+      .hero { padding: 120px 1.5rem 80px; }
       .hero-actions { flex-direction: column; align-items: center; }
       .btn-primary, .btn-outline { width: 100%; justify-content: center; }
-      .stat { padding: 0 .75rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-links.nav-open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(26,23,20,.98); padding: 1.5rem var(--bx); gap: 1.1rem; border-bottom: 1px solid rgba(212,200,176,.10); }
+      .nav-links.nav-open .nav-cta { display: inline-block; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<!-- ======================== NAVIGATION ======================== -->
+<!-- NAV -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo" aria-label="C/G LightCalc home">
-    c<span class="slash">/</span>g<span class="app">&nbsp;lightcalc</span>
+    c<span class="sl">/</span>g<span class="app">&nbsp;lightcalc</span>
   </a>
-
   <ul class="nav-links" role="list">
     <li><a href="#features">funzionalità</a></li>
     <li><a href="#screenshots">screenshot</a></li>
     <li><a href="#pricing">prezzi</a></li>
     <li><a href="#pricing" class="nav-cta">prova gratis 3 giorni</a></li>
   </ul>
-
   <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- ======================== HERO ======================== -->
+<!-- HERO -->
 <section class="hero" id="hero" aria-label="Introduzione">
   <div class="hero-slash" aria-hidden="true"></div>
   <div class="hero-content">
@@ -799,85 +349,49 @@
     </div>
 
     <h1 class="hero-title">
-      calcolo illuminotecnico<br>
-      <strong>preciso <span class="slash-accent">/</span> veloce</strong>
+      calcolo<br>
+      illumino<strong>tecnico<br>
+      preciso <span class="sl">/</span> veloce</strong>
     </h1>
 
     <p class="hero-subtitle">
-      C/G LightCalc verifica la conformità normativa degli impianti di illuminazione
-      interni, stradali e a luce naturale. Calcolo punto per punto, grafici isolux,
-      sovrapposizione planimetria, heatmap e report professionali PDF&nbsp;/&nbsp;DOCX.
+      Verifica la conformità normativa degli impianti di illuminazione interni,
+      stradali e a luce naturale. Calcolo punto per punto, grafici isolux,
+      sovrapposizione planimetria, report PDF&nbsp;/&nbsp;DOCX.
     </p>
 
-    <div class="hero-norms" role="list" aria-label="Norme supportate">
-      <span class="norm-pill" role="listitem">
-        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        en&nbsp;12464-1 — interni
-      </span>
-      <span class="norm-pill" role="listitem">
-        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        en&nbsp;13201 — stradale
-      </span>
-      <span class="norm-pill" role="listitem">
-        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        uni&nbsp;11248 / 6 leggi regionali
-      </span>
-      <span class="norm-pill" role="listitem">
-        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        irm spencer — solare
-      </span>
-      <span class="norm-pill" role="listitem">
-        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        file ies / ldt
-      </span>
-      <span class="norm-pill" role="listitem">
-        <svg class="check-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        report pdf / docx
-      </span>
+    <div class="hero-norms" role="list">
+      <span class="norm-pill" role="listitem"><svg class="ck" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>en&nbsp;12464-1 — interni</span>
+      <span class="norm-pill" role="listitem"><svg class="ck" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>en&nbsp;13201 — stradale</span>
+      <span class="norm-pill" role="listitem"><svg class="ck" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>uni&nbsp;11248 / 6 leggi regionali</span>
+      <span class="norm-pill" role="listitem"><svg class="ck" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>irm spencer — solare</span>
+      <span class="norm-pill" role="listitem"><svg class="ck" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>file ies / ldt</span>
+      <span class="norm-pill" role="listitem"><svg class="ck" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>report pdf / docx</span>
     </div>
 
     <div class="hero-actions">
       <a href="#pricing" class="btn-primary">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         inizia 3 giorni gratis
       </a>
       <a href="#features" class="btn-outline">
         scopri le funzionalità
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-          <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
-        </svg>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
       </a>
     </div>
 
     <div class="hero-stats" aria-label="Cifre chiave">
-      <div class="stat">
-        <span class="stat-value">en 12464-1</span>
-        <span class="stat-label">illuminazione interni</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">en 13201</span>
-        <span class="stat-label">illuminazione stradale</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">irm spencer</span>
-        <span class="stat-label">luce naturale solare</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">3 giorni</span>
-        <span class="stat-label">prova gratuita</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">€4,99/m</span>
-        <span class="stat-label">prezzo lancio</span>
-      </div>
+      <div class="stat"><span class="stat-value">en 12464-1</span><span class="stat-label">illuminazione interni</span></div>
+      <div class="stat"><span class="stat-value">en 13201</span><span class="stat-label">illuminazione stradale</span></div>
+      <div class="stat"><span class="stat-value">irm spencer</span><span class="stat-label">luce naturale solare</span></div>
+      <div class="stat"><span class="stat-value">3 giorni</span><span class="stat-label">prova gratuita</span></div>
+      <div class="stat"><span class="stat-value">€4,99/m</span><span class="stat-label">prezzo lancio</span></div>
     </div>
 
   </div>
 </section>
 
-<!-- ======================== FEATURES ======================== -->
+<!-- FEATURES -->
 <section class="section" id="features" aria-label="Funzionalità">
   <div class="container">
     <div class="section-header section-header--center fade-up">
@@ -890,9 +404,7 @@
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="0"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-          </svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="0"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
         <h3 class="feature-title">calcolo en&nbsp;12464-1 — interni</h3>
         <p class="feature-desc">Calcolo punto per punto di E<sub>m</sub>, uniformità U₀ e resa cromatica Ra. Supporta geometrie complesse: <strong>volte a botte e crociera</strong> con calcolo adattivo della superficie. Metodo IRM Spencer per la correzione da luce riflessa (pareti, soffitto, pavimento). Indicatori di conformità immediati.</p>
@@ -901,24 +413,16 @@
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 17l4-8 4 4 3-6 4 10"/>
-            <line x1="3" y1="21" x2="21" y2="21"/>
-          </svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 3-6 4 10"/><line x1="3" y1="21" x2="21" y2="21"/></svg>
         </div>
         <h3 class="feature-title">calcolo en&nbsp;13201 — stradale</h3>
-        <p class="feature-desc">Classi ME (strade principali), CE (incroci e rotatorie), S/P (percorsi pedonali). Calcola E<sub>m</sub>, E<sub>min</sub>, uniformità U₀, rapporto Rg. Supporta UNI 11248 e <strong>6 leggi regionali antiinquinamento luminoso</strong> (Abruzzo, Basilicata, Lombardia, Piemonte, Puglia, Toscana) con verifica automatica del limite di temperatura di colore CCT ove previsto.</p>
+        <p class="feature-desc">Classi ME (strade principali), CE (incroci e rotatorie), S/P (percorsi pedonali). Calcola E<sub>m</sub>, E<sub>min</sub>, uniformità U₀, rapporto Rg. Supporta UNI 11248 e <strong>6 leggi regionali antiinquinamento luminoso</strong> (Abruzzo, Basilicata, Lombardia, Piemonte, Puglia, Toscana) con verifica automatica del limite CCT.</p>
         <span class="feature-tag">norma stradale</span>
       </article>
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </div>
         <h3 class="feature-title">irm spencer — luce naturale</h3>
         <p class="feature-desc">Calcolo del contributo della luce solare con la formula della cavità sferica di Spencer (Interreflection Multiplier). Determina il flusso naturale in funzione di latitudine, data e ora. Integrabile con il calcolo artificiale per la verifica del mix illuminotecnico complessivo.</p>
@@ -927,36 +431,25 @@
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
-          </svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         </div>
         <h3 class="feature-title">libreria fotometrica ies / ldt · strippled</h3>
-        <p class="feature-desc">Importazione di file fotometrici <strong>IES (IESNA LM-63)</strong> e <strong>LDT (EULUMDAT)</strong> con rilevamento automatico del formato. Diagramma polare generato al caricamento. Supporto <strong>StripLED</strong>: sorgente lineare definita in lm/m e lunghezza, calcolabile come striscia discretizzata o punto equivalente. Fino a 4 tipi di apparecchio per progetto, ciascuno con fotometria e parametri indipendenti.</p>
+        <p class="feature-desc">Importazione di file fotometrici <strong>IES (IESNA LM-63)</strong> e <strong>LDT (EULUMDAT)</strong> con rilevamento automatico del formato. Diagramma polare generato al caricamento. Supporto <strong>StripLED</strong>: sorgente lineare in lm/m, calcolabile come striscia discretizzata o punto equivalente. Fino a 4 tipi di apparecchio per progetto.</p>
         <span class="feature-tag">file fotometrici</span>
       </article>
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="0"/>
-            <circle cx="8.5" cy="8.5" r="1.5"/>
-            <polyline points="21 15 16 10 5 21"/>
-          </svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="0"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         </div>
         <h3 class="feature-title">posizionamento e visualizzazione avanzata</h3>
-        <p class="feature-desc">Quattro modalità di posizionamento: griglia per numero, griglia per interasse, <strong>selezione grafica su griglia</strong> con assegnazione del tipo per cella, e <strong>click diretto su planimetria</strong> con calibrazione metrica a due punti. Tre viste del risultato: <strong>isolux</strong>, <strong>heatmap</strong> e <strong>superficie 3D</strong>. Planimetria in PDF convertita automaticamente in PNG e sovrapposta ai grafici.</p>
+        <p class="feature-desc">Quattro modalità: griglia per numero, per interasse, <strong>selezione grafica per cella</strong> con assegnazione del tipo, e <strong>click su planimetria reale</strong> con calibrazione metrica a due punti. Tre viste del risultato: <strong>isolux</strong>, <strong>heatmap</strong> e <strong>superficie 3D</strong>.</p>
         <span class="feature-tag">visualizzazione</span>
       </article>
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-          </svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
         <h3 class="feature-title">report pdf e docx professionali</h3>
         <p class="feature-desc">Documentazione tecnica completa generata con <strong>ReportLab (PDF)</strong> e <strong>python-docx (DOCX)</strong>. Include planimetria in copertina, tavole dei risultati, grafici isolux e relazione di verifica. Salvataggio e ripristino del progetto in formato <strong>.json</strong>. Pronta per la consegna.</p>
@@ -967,27 +460,25 @@
   </div>
 </section>
 
-<!-- ======================== DISCLAIMER ======================== -->
-<div style="background:var(--cg-soft);border-top:1px solid var(--cg-border);border-bottom:1px solid var(--cg-border);padding:2.5rem clamp(28px,6vw,88px)">
-  <div style="max-width:1200px;margin:0 auto;display:flex;gap:2rem;align-items:flex-start">
-    <div style="flex-shrink:0;width:3px;background:var(--cg-tortora-mid);align-self:stretch;opacity:.6"></div>
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <div class="disclaimer-inner">
+    <div class="disclaimer-bar"></div>
     <div>
-      <p style="font-size:.72rem;font-weight:400;letter-spacing:.16em;text-transform:lowercase;color:var(--cg-tortora-deep);margin-bottom:.5rem">a cosa serve</p>
-      <p style="font-size:.92rem;color:var(--cg-nero);font-weight:400;line-height:1.72;max-width:72ch">
+      <p class="disclaimer-label">a cosa serve</p>
+      <p class="disclaimer-text">
         C/G LightCalc nasce per le <strong>verifiche preliminari e di controllo</strong> in fase di progetto:
         risultati rapidi e affidabili per orientare le scelte illuminotecniche prima di approfondire.
         I calcoli si basano su metodi semplificati — griglia piana orizzontale, geometrie regolari,
-        riflessioni con formula sferica — e non coprono scenari complessi come superfici verticali o
-        cilindriche, ostruzioni fisiche, ambienti a più piani o simulazioni fotorealistiche. Il metodo
-        a flusso totale non considera la geometria delle volte; in presenza di più tipi di apparecchio
-        la griglia è condivisa. Per progettazioni definitive ad alta complessità è sempre consigliato
-        affiancare strumenti di simulazione avanzata.
+        riflessioni con formula sferica — e non coprono scenari complessi come superfici verticali,
+        ostruzioni fisiche o ambienti a più piani. Per progettazioni definitive ad alta complessità
+        è sempre consigliato affiancare strumenti di simulazione avanzata.
       </p>
     </div>
   </div>
 </div>
 
-<!-- ======================== SCREENSHOTS ======================== -->
+<!-- SCREENSHOTS -->
 <section class="screenshots-section" id="screenshots" aria-label="Screenshot dell'applicazione">
   <div class="container">
     <div class="section-header section-header--center fade-up">
@@ -996,57 +487,29 @@
       <p class="section-desc section-desc--light">Interfaccia professionale e diretta, progettata per massimizzare la produttività in fase di verifica e progettazione illuminotecnica.</p>
     </div>
 
-    <div class="screenshots-grid fade-up">
-
-      <div class="screenshot-span2">
-        <figure class="screenshot-frame">
-          <img src="screenshots/main.png" alt="C/G LightCalc — Schermata principale" loading="lazy"
-               onerror="this.style.display='none'">
-          <div class="screenshot-placeholder" aria-hidden="true">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-              <rect x="3" y="3" width="18" height="18" rx="0"/><circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <span>inserire <code>screenshots/main.png</code></span>
-          </div>
-          <figcaption class="screenshot-caption">vista principale — calcolo en&nbsp;12464-1</figcaption>
-        </figure>
+    <div class="fade-up">
+      <!-- schermata principale — full width -->
+      <div class="screenshots-main">
+        <img src="screenshots/main.png" alt="C/G LightCalc — Schermata principale" loading="lazy">
+        <figcaption class="screenshot-caption">vista principale — calcolo en&nbsp;12464-1</figcaption>
       </div>
 
-      <div>
-        <figure class="screenshot-frame">
-          <img src="screenshots/results.png" alt="Risultati calcolo e verifica normativa" loading="lazy"
-               onerror="this.style.display='none'">
-          <div class="screenshot-placeholder" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-            </svg>
-            <span>inserire <code>screenshots/results.png</code></span>
-          </div>
-          <figcaption class="screenshot-caption">risultati e verifica normativa</figcaption>
-        </figure>
+      <!-- isolux + report affiancati -->
+      <div class="screenshots-duo">
+        <div class="screenshot-cell screenshot-cell--chart">
+          <img src="screenshots/results.png" alt="Planimetria isolux con apparecchi posizionati" loading="lazy">
+          <figcaption class="screenshot-caption">planimetria isolux — en&nbsp;13201</figcaption>
+        </div>
+        <div class="screenshot-cell screenshot-cell--report">
+          <img src="screenshots/report.png" alt="Report PDF professionale" loading="lazy">
+          <figcaption class="screenshot-caption">report pdf — relazione tecnica</figcaption>
+        </div>
       </div>
-
-      <div>
-        <figure class="screenshot-frame screenshot-frame--tall">
-          <img src="screenshots/report.png" alt="Generazione report PDF" loading="lazy"
-               onerror="this.style.display='none'">
-          <div class="screenshot-placeholder" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-            </svg>
-            <span>inserire <code>screenshots/report.png</code></span>
-          </div>
-          <figcaption class="screenshot-caption">generazione report pdf / docx</figcaption>
-        </figure>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- ======================== PRICING ======================== -->
+<!-- PRICING -->
 <section class="section section-alt" id="pricing" aria-label="Prezzi">
   <div class="container">
     <div class="section-header section-header--center fade-up">
@@ -1057,7 +520,6 @@
 
     <div class="pricing-wrap fade-up">
       <div class="pricing-card">
-
         <div class="pricing-top">
           <div class="promo-pill">offerta lancio — periodo limitato</div>
           <p class="plan-name">piano professionale</p>
@@ -1072,59 +534,19 @@
             3 giorni di prova gratuita — nessun addebito immediato
           </div>
         </div>
-
         <div class="pricing-body">
           <ul class="feature-list" role="list">
-            <li>
-              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              calcolo punto-per-punto en&nbsp;12464-1 (interni, volte a botte e crociera)
-            </li>
-            <li>
-              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              calcolo en&nbsp;13201 (me, ce, s/p) + uni 11248 + 6 leggi regionali con verifica cct
-            </li>
-            <li>
-              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              calcolo luce naturale irm spencer
-            </li>
-            <li>
-              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              libreria ies / ldt · strippled (lm/m) · fino a 4 tipi per progetto
-            </li>
-            <li>
-              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              4 modalità di posizionamento · click su planimetria con calibrazione metrica
-            </li>
-            <li>
-              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              isolux · heatmap · superficie 3d con planimetria sovrapposta
-            </li>
-            <li>
-              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              report pdf e docx con planimetria in copertina · salvataggio progetto .json
-            </li>
-            <li>
-              <span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              aggiornamenti inclusi · supporto tecnico via email
-            </li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>calcolo punto-per-punto en&nbsp;12464-1 (interni, volte a botte e crociera)</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>calcolo en&nbsp;13201 (me, ce, s/p) + uni 11248 + 6 leggi regionali con verifica cct</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>calcolo luce naturale irm spencer</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>libreria ies / ldt · strippled (lm/m) · fino a 4 tipi per progetto</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>4 modalità di posizionamento · click su planimetria con calibrazione metrica</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>isolux · heatmap · superficie 3d con planimetria sovrapposta</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>report pdf e docx con planimetria in copertina · salvataggio progetto .json</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>aggiornamenti inclusi · supporto tecnico via email</li>
           </ul>
 
-          <!--
-          ╔══════════════════════════════════════════════════════════╗
-          ║  CONFIGURAZIONE PAYPAL                                    ║
-          ║  1. Vai su paypal.com → Strumenti merchant → Pulsanti    ║
-          ║  2. Crea un pulsante "Abbonamento"                       ║
-          ║  3. Importa: 0 per 3 giorni, poi €4,99/mese             ║
-          ║  4. Sostituisci YOUR_PAYPAL_EMAIL qui sotto              ║
-          ╚══════════════════════════════════════════════════════════╝
-          -->
-          <form
-            action="https://www.paypal.com/cgi-bin/webscr"
-            method="post"
-            target="_top"
-            class="paypal-form"
-            aria-label="Abbonati con PayPal"
-          >
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-form" aria-label="Abbonati con PayPal">
             <input type="hidden" name="cmd"           value="_xclick-subscriptions">
             <input type="hidden" name="business"      value="YOUR_PAYPAL_EMAIL">
             <input type="hidden" name="lc"            value="IT">
@@ -1139,19 +561,13 @@
             <input type="hidden" name="p3"            value="1">
             <input type="hidden" name="t3"            value="M">
             <input type="hidden" name="currency_code" value="EUR">
-
             <button type="submit" class="paypal-btn">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="#003087" aria-hidden="true">
-                <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 6.643-8.558 6.643H9.83c-.524 0-.968.382-1.05.9L7.662 21.2a.641.641 0 0 0 .633.74h3.979c.524 0 .968-.382 1.05-.9l.484-3.07a1.052 1.052 0 0 1 1.05-.9h.664c4.272 0 7.614-1.736 8.587-6.754.383-1.962.094-3.607-.887-4.399z"/>
-              </svg>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#003087" aria-hidden="true"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 6.643-8.558 6.643H9.83c-.524 0-.968.382-1.05.9L7.662 21.2a.641.641 0 0 0 .633.74h3.979c.524 0 .968-.382 1.05-.9l.484-3.07a1.052 1.052 0 0 1 1.05-.9h.664c4.272 0 7.614-1.736 8.587-6.754.383-1.962.094-3.607-.887-4.399z"/></svg>
               <span class="paypal-logo"><span class="pay">Pay</span><span class="pal">Pal</span></span>
               · inizia 3 giorni gratis
             </button>
-
             <p class="paypal-trust">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               pagamento sicuro &nbsp;·&nbsp; nessun addebito nei primi 3 giorni &nbsp;·&nbsp; disdici quando vuoi
             </p>
           </form>
@@ -1161,65 +577,56 @@
   </div>
 </section>
 
-<!-- ======================== CTA ======================== -->
+<!-- CTA -->
 <section class="cta-section" aria-label="Chiamata all'azione">
   <div class="cta-slash" aria-hidden="true"></div>
   <div class="container" style="position:relative">
     <h2 class="cta-title">pronto a progettare<br><strong>con precisione?</strong></h2>
     <p class="cta-desc">Prova C/G LightCalc gratis per 3 giorni. Nessun addebito immediato.</p>
     <a href="#pricing" class="btn-primary" style="margin:0 auto;display:inline-flex;">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-      </svg>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
       inizia gratis ora
     </a>
   </div>
 </section>
 
-<!-- ======================== FOOTER ======================== -->
+<!-- FOOTER -->
 <footer>
-  <div style="max-width:1200px;margin:0 auto;padding-bottom:2.5rem;border-bottom:1px solid rgba(212,200,176,.07);margin-bottom:2.5rem">
-    <p style="font-size:.66rem;font-weight:400;letter-spacing:.16em;text-transform:lowercase;color:var(--cg-tortora-deep);margin-bottom:1.25rem">sviluppo</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem">
-      <div>
-        <p style="font-size:.78rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:lowercase;letter-spacing:.06em;margin-bottom:.45rem">progetto</p>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.3);line-height:1.7;font-weight:300">
-          C/G LightCalc è un progetto di <strong style="color:rgba(255,255,255,.5);font-weight:400">Stefano Cibelli</strong>,
-          e nasce dall'esperienza maturata in quasi trent'anni di attività dello
-          <strong style="color:rgba(255,255,255,.5);font-weight:400">studio cibelli/guadagno</strong>.
-          L'obiettivo è disporre di uno strumento di verifica illuminotecnica rapido,
-          diretto e sempre a portata di mano durante la fase di progettazione.
-        </p>
-      </div>
-      <div>
-        <p style="font-size:.78rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:lowercase;letter-spacing:.06em;margin-bottom:.45rem">sviluppato con</p>
-        <ul style="list-style:none;font-size:.8rem;color:rgba(255,255,255,.3);line-height:2;font-weight:300">
-          <li><span style="color:var(--cg-tortora-deep);margin-right:.5rem">/</span>Python · Streamlit</li>
-          <li><span style="color:var(--cg-tortora-deep);margin-right:.5rem">/</span>ReportLab · python-docx</li>
-          <li><span style="color:var(--cg-tortora-deep);margin-right:.5rem">/</span>Matplotlib · PyMuPDF</li>
-          <li><span style="color:var(--cg-tortora-deep);margin-right:.5rem">/</span>Claude (Anthropic)</li>
-        </ul>
-      </div>
-      <div>
-        <p style="font-size:.78rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:lowercase;letter-spacing:.06em;margin-bottom:.45rem">metodi di calcolo</p>
-        <ul style="list-style:none;font-size:.8rem;color:rgba(255,255,255,.3);line-height:2;font-weight:300">
-          <li><span style="color:var(--cg-tortora-deep);margin-right:.5rem">/</span>UNI EN 12464-1:2021</li>
-          <li><span style="color:var(--cg-tortora-deep);margin-right:.5rem">/</span>UNI EN 13201 · UNI 11248</li>
-          <li><span style="color:var(--cg-tortora-deep);margin-right:.5rem">/</span>IRM Spencer</li>
-          <li><span style="color:var(--cg-tortora-deep);margin-right:.5rem">/</span>IESNA LM-63 · EULUMDAT</li>
-        </ul>
-      </div>
+  <div class="footer-credits">
+    <div>
+      <p class="footer-credits-label">progetto</p>
+      <p class="footer-credits-text">
+        C/G LightCalc è un progetto di <strong>Stefano Cibelli</strong>, e nasce dall'esperienza
+        maturata in quasi trent'anni di attività dello <strong>studio cibelli/guadagno</strong>.
+        L'obiettivo è disporre di uno strumento di verifica illuminotecnica rapido, diretto
+        e sempre a portata di mano durante la fase di progettazione.
+      </p>
+    </div>
+    <div>
+      <p class="footer-credits-label">sviluppato con</p>
+      <ul class="footer-credits-list">
+        <li>Python · Streamlit</li>
+        <li>ReportLab · python-docx</li>
+        <li>Matplotlib · PyMuPDF</li>
+        <li>Claude (Anthropic)</li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-credits-label">metodi di calcolo</p>
+      <ul class="footer-credits-list">
+        <li>UNI EN 12464-1:2021</li>
+        <li>UNI EN 13201 · UNI 11248</li>
+        <li>IRM Spencer</li>
+        <li>IESNA LM-63 · EULUMDAT</li>
+      </ul>
     </div>
   </div>
 
-  <div class="footer-inner">
+  <div class="footer-base">
     <div>
-      <div class="footer-brand-name">
-        c<span class="slash">/</span>g<span class="app">&nbsp;lightcalc</span>
-      </div>
+      <div class="footer-brand">c<span class="sl">/</span>g<span class="app">&nbsp;lightcalc</span></div>
       <p class="footer-copy">© 2026 studio cibelli/guadagno · tutti i diritti riservati</p>
     </div>
-
     <ul class="footer-links" role="list">
       <li><a href="#features">funzionalità</a></li>
       <li><a href="#screenshots">screenshot</a></li>
@@ -1230,63 +637,33 @@
   </div>
 </footer>
 
-<!-- ======================== SCRIPTS ======================== -->
 <script>
-  // Fade-in on scroll
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 65);
-        observer.unobserve(entry.target);
-      }
-    });
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 65); observer.unobserve(e.target); } });
   }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Active nav link highlight on scroll
   const sections = document.querySelectorAll('section[id]');
-  const links    = document.querySelectorAll('.nav-links a');
+  const links = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
     links.forEach(l => {
       if (!l.classList.contains('nav-cta')) {
-        const active = l.getAttribute('href') === `#${current}`;
-        l.style.color = active ? 'var(--cg-tortora)' : '';
-        l.style.borderBottomColor = active ? 'var(--cg-tortora-mid)' : '';
+        const on = l.getAttribute('href') === `#${cur}`;
+        l.style.color = on ? 'var(--cg-tortora)' : '';
+        l.style.borderBottomColor = on ? 'var(--cg-tortora-mid)' : '';
       }
     });
   }, { passive: true });
 
-  // Ambient slash rotation on scroll (cgblog leitmotiv)
   const heroSlash = document.querySelector('.hero-slash');
   if (heroSlash) {
     window.addEventListener('scroll', () => {
-      const rot = 70 + window.scrollY * 0.015;
-      heroSlash.style.transform = `translate(-50%, -50%) rotate(${rot}deg)`;
+      heroSlash.style.transform = `translate(-50%,-50%) rotate(${70 + window.scrollY * 0.015}deg)`;
     }, { passive: true });
   }
 </script>
-
-<style>
-  /* Mobile nav open state */
-  @media (max-width: 768px) {
-    .nav-links.nav-open {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 64px; left: 0; right: 0;
-      background: rgba(26,23,20,.98);
-      padding: 1.5rem clamp(28px, 6vw, 88px);
-      gap: 1.1rem;
-      border-bottom: 1px solid rgba(212, 200, 176, 0.10);
-    }
-    .nav-links.nav-open .nav-cta {
-      display: inline-block;
-      text-align: center;
-    }
-  }
-</style>
 
 </body>
 </html>
