@@ -26,7 +26,8 @@ Il secondo push mantiene allineato il branch di sviluppo (evita warning del stop
 ## File
 
 - `index.html` — unico file, contiene tutto (CSS inline, HTML, JS inline)
-- `screenshots/` — 3 immagini dell'app (main UI, isolux, PDF report)
+- `screenshots/` — 11 immagini dell'app (1.png … 11.png)
+- `assets/icon.png` — icona app (griglia di punti luce, sfondo scuro)
 
 ## Design system
 
@@ -68,21 +69,21 @@ Correzioni già applicate, da non invertire:
 ## Struttura sezioni index.html
 
 1. **Nav** — logo c/g lightcalc, link sezioni, CTA "prova gratis"
-2. **Hero** — titolo grande (weight 200), slash animata, badge normative, stats bar
-3. **Screenshots** — immagine principale full-width + duo 3/4 aspect-ratio
+2. **Hero** — icona app 72px, titolo grande (weight 200), slash animata, stats bar (EN 12464-1 / EN 13201 / IRM Spencer / 3 giorni / €4,99/m)
+3. **Screenshots** — galleria orizzontale scrollabile (11 immagini, drag su desktop, touch su mobile) + lightbox fullscreen con frecce e swipe
 4. **Features** — griglia 3 colonne, 6 card (EN 12464-1, EN 13201, IRM Spencer, Libreria fotometrica, Posizionamento, Report)
 5. **Disclaimer** — box su limiti dell'app (non sostituisce software professionali per alta complessità)
-6. **Pricing** — card unica, lista funzionalità, PayPal form
+6. **Pricing** — card unica, prezzo €9,99 sbarrato + €4,99 promo lancio, lista funzionalità, PayPal form
 7. **CTA** — "verifica. documenta. consegna."
 8. **Footer** — crediti studio cibelli/guadagno, Stefano Cibelli, tech stack
 
 ## Todo / aperto
 
-- [ ] Sostituire gli screenshot grezzi con immagini in browser-frame (Screely.com)
-- [ ] Valutare integrazione Lemon Squeezy per gestione abbonamenti automatica (sostituire PayPal manuale)
-- [ ] Aggiungere favicon personalizzata (logo c/g, 32×32px) all'app Streamlit in `ascito68/Lux`
-- [ ] Titolo hero attuale: "calcolo / illuminotecnico / preciso · veloce" — l'utente vuole cambiarlo, proposta preferita: struttura a 3 righe con slash
+- [ ] Cambiare titolo hero (attuale: "calcolo / illuminotecnico / preciso · veloce") — proposta in sospeso
+- [ ] Integrare Lemon Squeezy per gestione abbonamenti automatica (sostituire PayPal manuale)
+- [ ] Aggiungere favicon personalizzata all'app Streamlit in `ascito68/Lux` (già presente su landing)
+- [ ] Migliorare immagini galleria con browser-frame (Screely.com) — attualmente screenshot diretti
 
 ## Git — note operative
 
-Il stop hook richiede `commit.gpgsign=true` con chiave SSH. I commit vengono firmati automaticamente. Se compare il warning "Unverified", verificare che entrambi i branch (main e claude/...) siano aggiornati.
+Il stop hook richiede `commit.gpgsign=true` con chiave SSH. I commit vengono firmati automaticamente. Se compare il warning "Unverified", verificare che entrambi i branch (main e claude/...) siano aggiornati con `git push origin claude/lightcalc-landing-page-ej70k1 --force` se necessario.
