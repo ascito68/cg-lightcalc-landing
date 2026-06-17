@@ -206,39 +206,21 @@
     /* ── SCREENSHOTS ── */
     .screenshots-section { background: var(--cg-nero); padding: 112px var(--bx); }
 
-    /* layout: immagine principale full-width, poi due affiancate */
-    .screenshots-main {
-      position: relative; overflow: hidden;
-      background: var(--cg-nero-deep);
-      margin-bottom: 1px;
-      padding: 2.5rem 3rem 0;
+    /* layout: sequenza verticale 11 immagini */
+    .screenshots-seq {
+      display: flex; flex-direction: column; gap: 1px;
+      background: rgba(232,222,206,.06);
     }
-    .screenshots-main img {
+    .screenshots-seq-item {
+      background: var(--cg-nero-deep);
+      padding: 2.5rem 3rem 0;
+      overflow: hidden;
+    }
+    .screenshots-seq-item img {
       width: 100%; display: block;
       object-fit: contain; object-position: center top;
-      max-height: 600px;
-      border-radius: 0;
       filter: drop-shadow(0 8px 32px rgba(0,0,0,.45));
     }
-
-    .screenshots-duo {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-      background: rgba(212,200,176,.08);
-    }
-    .screenshot-cell {
-      position: relative; overflow: hidden;
-      background: var(--cg-nero-deep);
-      padding: 2rem 2rem 0;
-    }
-    .screenshot-cell img {
-      width: 100%; height: 100%; display: block;
-      object-fit: contain; object-position: center top;
-      filter: drop-shadow(0 4px 16px rgba(0,0,0,.38));
-    }
-
-    /* altezze diverse per i due pannelli */
-    .screenshot-cell--chart { aspect-ratio: 3 / 4; }
-    .screenshot-cell--report { aspect-ratio: 3 / 4; }
 
     .screenshot-caption {
       position: absolute; bottom: .85rem; left: .85rem;
@@ -320,8 +302,7 @@
       .nav-hamburger { display: flex; }
       .stat { padding: 0 1.1rem; }
       .pricing-top, .pricing-body { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .screenshots-duo { grid-template-columns: 1fr; }
-      .screenshot-cell--chart, .screenshot-cell--report { aspect-ratio: 4/3; }
+      .screenshots-seq-item { padding: 1.5rem 1.5rem 0; }
     }
     @media (max-width: 480px) {
       .section { padding: 80px 1.5rem; }
@@ -505,22 +486,19 @@
     </div>
 
     <div class="fade-up">
-      <!-- schermata principale — full width -->
-      <div class="screenshots-main">
-        <img src="screenshots/main.png" alt="C/G LightCalc — Schermata principale" loading="lazy">
-        <figcaption class="screenshot-caption">vista principale — calcolo en&nbsp;12464-1</figcaption>
+      <div class="screenshots-seq">
+        <div class="screenshots-seq-item"><img src="screenshots/1.png" alt="C/G LightCalc — schermata 1" loading="lazy"></div>
+        <div class="screenshots-seq-item"><img src="screenshots/2.png" alt="C/G LightCalc — schermata 2" loading="lazy"></div>
+        <div class="screenshots-seq-item"><img src="screenshots/3.png" alt="C/G LightCalc — schermata 3" loading="lazy"></div>
+        <div class="screenshots-seq-item"><img src="screenshots/4.png" alt="C/G LightCalc — schermata 4" loading="lazy"></div>
+        <div class="screenshots-seq-item"><img src="screenshots/5.png" alt="C/G LightCalc — schermata 5" loading="lazy"></div>
+        <div class="screenshots-seq-item"><img src="screenshots/6.png" alt="C/G LightCalc — schermata 6" loading="lazy"></div>
+        <div class="screenshots-seq-item"><img src="screenshots/7.png" alt="C/G LightCalc — schermata 7" loading="lazy"></div>
+        <div class="screenshots-seq-item"><img src="screenshots/8.png" alt="C/G LightCalc — schermata 8" loading="lazy"></div>
+        <div class="screenshots-seq-item"><img src="screenshots/9.png" alt="C/G LightCalc — schermata 9" loading="lazy"></div>
+        <div class="screenshots-seq-item"><img src="screenshots/10.png" alt="C/G LightCalc — schermata 10" loading="lazy"></div>
+        <div class="screenshots-seq-item"><img src="screenshots/11.png" alt="C/G LightCalc — schermata 11" loading="lazy"></div>
       </div>
-
-      <!-- isolux + report affiancati -->
-      <div class="screenshots-duo">
-        <div class="screenshot-cell screenshot-cell--chart">
-          <img src="screenshots/results.png" alt="Planimetria isolux con apparecchi posizionati" loading="lazy">
-          <figcaption class="screenshot-caption">planimetria isolux — en&nbsp;13201</figcaption>
-        </div>
-        <div class="screenshot-cell screenshot-cell--report">
-          <img src="screenshots/report.png" alt="Report PDF professionale" loading="lazy">
-          <figcaption class="screenshot-caption">report pdf — relazione tecnica</figcaption>
-        </div>
       </div>
     </div>
   </div>
