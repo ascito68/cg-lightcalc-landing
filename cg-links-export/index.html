@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cibelli / guadagno</title>
+  <meta name="description" content="cibelli / guadagno — inclinazioni architettoniche">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #ece9e3;
+      --card:         #ffffff;
+      --border:       #d8d3cc;
+      --border-hover: #b8967e;
+      --text:         #3d3530;
+      --text-muted:   #9c8878;
+      --accent:       #b8967e;
+      --radius:       8px;
+    }
+
+    body {
+      min-height: 100dvh;
+      background: var(--bg);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 20px 48px;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── logo header ── */
+    .logo-wrap {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 32px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .logo-full {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      display: block;
+    }
+
+    /* ── link list ── */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 17px 44px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+      -webkit-tap-highlight-color: transparent;
+      overflow: hidden;
+    }
+
+    .link-btn:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    }
+
+    .link-btn:active {
+      background: #f7f4f0;
+    }
+
+    .link-btn .label {
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 200;
+      letter-spacing: 0.06em;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .link-btn .arrow {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: var(--text-muted);
+      opacity: .4;
+      transition: opacity .18s, color .18s;
+    }
+
+    .link-btn:hover .arrow {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    /* ── footer ── */
+    .footer {
+      margin-top: 48px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      opacity: .45;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="logo-wrap">
+      <img class="logo-full" src="logo-full.jpeg" alt="cibelli / guadagno — inclinazioni architettoniche">
+    </div>
+
+    <nav class="links">
+
+      <a href="#TODO-blog" class="link-btn">
+        <span class="label">il diario</span>
+        <span class="arrow">›</span>
+      </a>
+
+      <a href="#TODO-website" class="link-btn">
+        <span class="label">website</span>
+        <span class="arrow">›</span>
+      </a>
+
+      <a href="#TODO-instagram" class="link-btn">
+        <span class="label">instagram</span>
+        <span class="arrow">›</span>
+      </a>
+
+      <a href="#TODO-facebook" class="link-btn">
+        <span class="label">facebook</span>
+        <span class="arrow">›</span>
+      </a>
+
+      <a href="#TODO-maps" class="link-btn">
+        <span class="label">dove siamo</span>
+        <span class="arrow">›</span>
+      </a>
+
+    </nav>
+
+    <p class="footer">cibelli / guadagno — 2026</p>
+
+  </div>
+</body>
+</html>
