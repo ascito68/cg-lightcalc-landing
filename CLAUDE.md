@@ -57,23 +57,24 @@ Correzioni già applicate, da non invertire:
 - **IRM Spencer** = calcola la **componente riflessa della luce artificiale** (interriflessioni su pareti/soffitto/pavimento). NON è luce solare/naturale. Solo interni, metodo punto-per-punto.
 - **Ra** non è calcolata dall'app: viene riportata in relazione dal datasheet del costruttore.
 - L'app **non calcola luce naturale/solare**.
-- Verifiche: EN 12464-1 (interni) + EN 13201 (stradale) + IRM Spencer (componente riflessa, solo interni).
+- Verifiche: EN 12464-1 (interni) + EN 13201 / UNI 11248 (stradale) + EN 1838 (emergenza) + IRM Spencer (componente riflessa, solo interni) + 15 leggi regionali anti-inquinamento luminoso.
 
 ## Pricing
 
-- Prezzo pieno: **€9,99/mese** (sbarrato)
-- Prezzo lancio: **€4,99/mese** (periodo limitato)
-- Prova gratuita: 3 giorni, nessun addebito immediato
-- Pagamento: PayPal subscription (`P-35Y18042VS367305GNIXRRQA`)
+- Prezzo pieno: **€119/anno** (sbarrato)
+- Prezzo lancio / Founding Member: **€79/anno**
+- Finestra promo: primi 30 giorni dal lancio
+- PayPal SDK plan Founding Member: `P-5U875098UL3621449NJHWXJQ`
+- Nota PayPal: per mantenere il prezzo Founding Member bloccato serve un piano PayPal separato a €79/anno, distinto dal piano standard a €119/anno.
 
 ## Struttura sezioni index.html
 
-1. **Nav** — logo c/g lightcalc, link sezioni, CTA "prova gratis"
-2. **Hero** — icona app 72px, titolo grande (weight 200), slash animata, stats bar (EN 12464-1 / EN 13201 / IRM Spencer / 3 giorni / €4,99/m)
+1. **Nav** — logo c/g lightcalc, link sezioni, CTA "piano annuale"
+2. **Hero** — icona app 72px, titolo grande (weight 200), slash animata, stats bar (EN 12464-1 / EN 13201 / EN 1838 / 15 leggi)
 3. **Screenshots** — galleria orizzontale scrollabile (11 immagini, drag su desktop, touch su mobile) + lightbox fullscreen con frecce e swipe
-4. **Features** — griglia 3 colonne, 6 card (EN 12464-1, EN 13201, IRM Spencer, Libreria fotometrica, Posizionamento, Report)
+4. **Features** — griglia 3 colonne, 6 card (doppio motore, normative, EN 1838, fotometrie, planimetria/progetto JSON, report)
 5. **Disclaimer** — box su limiti dell'app (non sostituisce software professionali per alta complessità)
-6. **Pricing** — card unica, prezzo €9,99 sbarrato + €4,99 promo lancio, lista funzionalità, PayPal form
+6. **Pricing** — card unica, prezzo €119 sbarrato + €79/anno promo Founding Member, lista funzionalità, PayPal form
 7. **CTA** — "verifica. documenta. consegna."
 8. **Footer** — crediti studio cibelli/guadagno, Stefano Cibelli, tech stack
 

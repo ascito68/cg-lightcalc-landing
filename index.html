@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="C/G LightCalc — Software professionale per il calcolo illuminotecnico. Verifiche EN 12464-1, EN 13201 e IRM Spencer per architetti e progettisti illuminotecnici. Prova gratis 3 giorni.">
-  <meta name="keywords" content="calcolo illuminotecnico, EN 12464-1, EN 13201, software illuminazione, architetti, IES, LDT, lux, IRM Spencer, interriflessione, isolux, heatmap">
+  <meta name="description" content="C/G LightCalc — Software professionale per il calcolo illuminotecnico. Verifiche UNI EN 12464-1, UNI EN 13201, UNI EN 1838 e IRM Spencer per architetti e progettisti illuminotecnici.">
+  <meta name="keywords" content="calcolo illuminotecnico, EN 12464-1, EN 13201, EN 1838, UNI 11248, software illuminazione, architetti, IES, LDT, lux, IRM Spencer, interriflessione, isolux, heatmap">
   <meta property="og:title" content="C/G LightCalc — Calcolo Illuminotecnico Professionale">
-  <meta property="og:description" content="Software professionale per la verifica degli impianti di illuminazione secondo EN 12464-1, EN 13201 e IRM Spencer. Prova gratuita 3 giorni, poi €4,99/mese.">
+  <meta property="og:description" content="Software professionale per la verifica degli impianti di illuminazione secondo UNI EN 12464-1, UNI EN 13201, UNI EN 1838 e IRM Spencer. Piano annuale da €79 in promo lancio.">
   <meta property="og:type" content="website">
   <title>C/G LightCalc — Calcolo Illuminotecnico Professionale</title>
 
@@ -307,11 +307,8 @@
     .feature-list li:last-child { border-bottom: none; }
     .check-circle { width: 18px; height: 18px; border: 1px solid rgba(90,138,106,.32); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; color: var(--cg-green); }
 
-    .paypal-form { text-align: center; }
-    .paypal-btn { width: 100%; background: #FFC439; color: #111827; border: none; padding: 1rem 1.5rem; font-size: .84rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .55rem; transition: background .2s; letter-spacing: .04em; text-transform: lowercase; }
-    .paypal-btn:hover { background: #F0B420; }
-    .paypal-logo { font-size: .9rem; font-weight: 800; }
-    .paypal-logo .pay { color: #003087; } .paypal-logo .pal { color: #009cde; }
+    .paypal-form { text-align: center; min-height: 54px; }
+    .paypal-buttons { min-height: 54px; }
     .paypal-trust { margin-top: .8rem; font-size: .7rem; color: var(--cg-fg-subtle); display: flex; align-items: center; justify-content: center; gap: .35rem; line-height: 1.5; text-transform: lowercase; letter-spacing: .04em; }
 
     /* ── CTA ── */
@@ -384,7 +381,7 @@
     <li><a href="#features">funzionalità</a></li>
     <li><a href="#screenshots">screenshot</a></li>
     <li><a href="#pricing">prezzi</a></li>
-    <li><a href="#pricing" class="nav-cta">prova gratis 3 giorni</a></li>
+    <li><a href="#pricing" class="nav-cta">piano annuale</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')">
     <span></span><span></span><span></span>
@@ -410,15 +407,15 @@
     </h1>
 
     <p class="hero-subtitle">
-      Verifica la conformità normativa degli impianti di illuminazione interni
-      e stradali. Calcolo punto per punto, grafici isolux,
-      sovrapposizione planimetria, report PDF&nbsp;/&nbsp;DOCX.
+      Verifica la conformità normativa degli impianti interni, stradali
+      e di emergenza. Doppio motore di calcolo, planimetrie calibrate,
+      grafici e relazione PDF&nbsp;/&nbsp;DOCX pronta alla consegna.
     </p>
 
     <div class="hero-actions">
       <a href="#pricing" class="btn-primary">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        inizia 3 giorni gratis
+        abbonati al piano annuale
       </a>
       <a href="#features" class="btn-outline">
         scopri le funzionalità
@@ -429,9 +426,8 @@
     <div class="hero-stats" aria-label="Cifre chiave">
       <div class="stat"><span class="stat-value">en 12464-1</span><span class="stat-label">illuminazione interni</span></div>
       <div class="stat"><span class="stat-value">en 13201</span><span class="stat-label">illuminazione stradale</span></div>
-      <div class="stat"><span class="stat-value">irm spencer</span><span class="stat-label">luce riflessa artificiale</span></div>
-      <div class="stat"><span class="stat-value">3 giorni</span><span class="stat-label">prova gratuita</span></div>
-      <div class="stat"><span class="stat-value">€4,99/m</span><span class="stat-label">prezzo lancio</span></div>
+      <div class="stat"><span class="stat-value">en 1838</span><span class="stat-label">emergenza ed esodo</span></div>
+      <div class="stat"><span class="stat-value">15 leggi</span><span class="stat-label">anti-inquinamento luminoso</span></div>
     </div>
 
   </div>
@@ -442,8 +438,8 @@
   <div class="container">
     <div class="section-header section-header--center fade-up">
       <p class="section-label">funzionalità</p>
-      <h2 class="section-title">Tutto ciò che serve per<br><strong>la progettazione illuminotecnica</strong></h2>
-      <p class="section-desc">Strumenti completi per la verifica di conformità normativa, dalla fase di progetto alla documentazione finale per il cliente e la Direzione Lavori.</p>
+      <h2 class="section-title">Dalla pianta PDF alla<br><strong>relazione firmabile</strong></h2>
+      <p class="section-desc">Strumenti completi per calcolo, verifica normativa italiana e documentazione finale: meno tempo di redazione, più controllo sul progetto.</p>
     </div>
 
     <div class="features-grid">
@@ -452,54 +448,54 @@
         <div class="feature-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="0"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
-        <h3 class="feature-title">calcolo en&nbsp;12464-1 — interni</h3>
-        <p class="feature-desc">Calcolo punto per punto di E<sub>m</sub> e uniformità U₀. Ra riportata in relazione dal datasheet del costruttore. Supporta geometrie complesse: <strong>volte a botte e crociera</strong> con calcolo adattivo della superficie. Metodo IRM Spencer per la correzione da luce riflessa (pareti, soffitto, pavimento). Indicatori di conformità immediati.</p>
-        <span class="feature-tag">norma interni</span>
+        <h3 class="feature-title">doppio motore di calcolo</h3>
+        <p class="feature-desc">Metodo del flusso totale per verifiche speditive e metodo punto-per-punto con distribuzione fotometrica reale dell'apparecchio. Supporta geometrie complesse, <strong>volte a botte e a crociera</strong>, pianta calibrata e più tipi di apparecchio nello stesso progetto.</p>
+        <span class="feature-tag">flusso totale + punto-per-punto</span>
       </article>
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 3-6 4 10"/><line x1="3" y1="21" x2="21" y2="21"/></svg>
         </div>
-        <h3 class="feature-title">calcolo en&nbsp;13201 — stradale</h3>
-        <p class="feature-desc">Classi ME (strade principali), CE (incroci e rotatorie), S/P (percorsi pedonali). Calcola E<sub>m</sub>, E<sub>min</sub>, uniformità U₀, rapporto Rg. Supporta UNI 11248 e <strong>6 leggi regionali antiinquinamento luminoso</strong> (Abruzzo, Basilicata, Lombardia, Piemonte, Puglia, Toscana) con verifica automatica del limite CCT.</p>
-        <span class="feature-tag">norma stradale</span>
+        <h3 class="feature-title">copertura normativa italiana</h3>
+        <p class="feature-desc"><strong>UNI EN 12464-1:2021</strong> con 23 destinazioni d'uso, <strong>UNI EN 13201</strong> con classi CE e S, richiamo <strong>UNI 11248</strong> e <strong>15 leggi regionali anti-inquinamento luminoso</strong> con estremi e requisiti tecnici pronti per la relazione.</p>
+        <span class="feature-tag">interni · stradale · regioni</span>
       </article>
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
         </div>
-        <h3 class="feature-title">irm spencer — componente riflessa</h3>
-        <p class="feature-desc">Correzione della componente riflessa della luce artificiale con la formula della cavità sferica di Spencer (Interreflection Multiplier). Stima il contributo delle interriflessioni su pareti, soffitto e pavimento per una valutazione più accurata dell'illuminamento medio.</p>
-        <span class="feature-tag">solo interni — metodo punto-per-punto</span>
+        <h3 class="feature-title">emergenza uni en&nbsp;1838</h3>
+        <p class="feature-desc">Modulo dedicato all'illuminazione di emergenza: area antipanico con esclusione automatica della fascia perimetrale e <strong>vie di esodo disegnate a mano libera</strong> sulla planimetria, verificate su linea centrale e fascia secondo i requisiti della norma.</p>
+        <span class="feature-tag">antipanico · vie di esodo</span>
       </article>
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         </div>
-        <h3 class="feature-title">libreria fotometrica ies / ldt · strippled</h3>
-        <p class="feature-desc">Importazione di file fotometrici <strong>IES (IESNA LM-63)</strong> e <strong>LDT (EULUMDAT)</strong> con rilevamento automatico del formato. Diagramma polare generato al caricamento. Supporto <strong>StripLED</strong>: sorgente lineare in lm/m, calcolabile come striscia discretizzata o punto equivalente. Fino a 4 tipi di apparecchio per progetto.</p>
-        <span class="feature-tag">file fotometrici</span>
+        <h3 class="feature-title">fotometrie ies / ldt · stripled</h3>
+        <p class="feature-desc">Importazione di file <strong>IES (IESNA LM-63)</strong> e <strong>LDT (EULUMDAT)</strong> con riconoscimento dal contenuto, espansione automatica delle simmetrie a 360° e interpolazione bilineare. Supporto StripLED in lm/m con modello accurato anche in campo vicino.</p>
+        <span class="feature-tag">file fotometrici reali</span>
       </article>
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="0"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         </div>
-        <h3 class="feature-title">posizionamento e visualizzazione avanzata</h3>
-        <p class="feature-desc">Quattro modalità: griglia per numero, per interasse, <strong>selezione grafica per cella</strong> con assegnazione del tipo, e <strong>click su planimetria reale</strong> con calibrazione metrica a due punti. Tre viste del risultato: <strong>isolux</strong>, <strong>heatmap</strong> e <strong>superficie 3D</strong>.</p>
-        <span class="feature-tag">visualizzazione</span>
+        <h3 class="feature-title">planimetria e progetto autosufficiente</h3>
+        <p class="feature-desc">Calibrazione metrica a due punti, disegno del perimetro anche irregolare o concavo e quattro modalità di disposizione: per numero, per interasse, griglia grafica editabile e click su planimetria. Il file <strong>JSON</strong> include geometria, fotometrie e disposizione per riaprire il progetto senza ricaricare nulla.</p>
+        <span class="feature-tag">pdf della pianta → progetto</span>
       </article>
 
       <article class="feature-card fade-up">
         <div class="feature-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
-        <h3 class="feature-title">report pdf e docx professionali</h3>
-        <p class="feature-desc">Documentazione tecnica completa generata con <strong>ReportLab (PDF)</strong> e <strong>python-docx (DOCX)</strong>. Include planimetria in copertina, tavole dei risultati, grafici isolux e relazione di verifica. Salvataggio e ripristino del progetto in formato <strong>.json</strong>. Pronta per la consegna.</p>
-        <span class="feature-tag">documentazione</span>
+        <h3 class="feature-title">relazione pdf e docx in un click</h3>
+        <p class="feature-desc">PDF e DOCX generati insieme con lo stesso contenuto: apparecchi, posizionamento, input, risultati, conformità normativa, emergenza EN 1838 quando attiva, planimetria calcolata e grafici. Include <strong>isolux, heatmap, superficie 3D, vista 3D e diagramma polare</strong>.</p>
+        <span class="feature-tag">output pronto alla consegna</span>
       </article>
 
     </div>
@@ -514,10 +510,10 @@
       <p class="disclaimer-label">a cosa serve</p>
       <p class="disclaimer-text">
         C/G LightCalc nasce per le <strong>verifiche preliminari e di controllo</strong> in fase di progetto:
-        risultati rapidi e affidabili per orientare le scelte illuminotecniche prima di approfondire.
+        risultati rapidi e documentabili per orientare le scelte illuminotecniche prima di approfondire.
         I calcoli si basano su metodi semplificati — griglia piana orizzontale, geometrie regolari,
         riflessioni con formula sferica — e non coprono scenari complessi come superfici verticali,
-        ostruzioni fisiche o ambienti a più piani. Per progettazioni definitive ad alta complessità
+        ostruzioni fisiche, ambienti a più piani o calcolo numerico completo dell'UGR. Per progettazioni definitive ad alta complessità
         è sempre consigliato affiancare strumenti di simulazione avanzata.
       </p>
     </div>
@@ -574,57 +570,39 @@
     <div class="pricing-wrap fade-up">
       <div class="pricing-card">
         <div class="pricing-top">
-          <div class="promo-pill">offerta lancio — periodo limitato</div>
+          <div class="promo-pill">offerta lancio — founding member</div>
           <p class="plan-name">piano professionale</p>
-          <p class="price-original">€ 9,99 / mese</p>
+          <p class="price-original">€ 119 / anno</p>
           <div class="price-row">
             <span class="price-currency">€</span>
-            <span class="price-amount">4,99</span>
-            <span class="price-period">/mese</span>
+            <span class="price-amount">79</span>
+            <span class="price-period">/anno</span>
           </div>
-          <p class="price-note">prezzo promo di lancio · valido per un periodo limitato · disdici in qualsiasi momento</p>
+          <p class="price-note">promo primi 30 giorni · prezzo bloccato finché l'abbonamento resta attivo · disdici in qualsiasi momento</p>
           <div class="trial-pill">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            3 giorni di prova gratuita — nessun addebito immediato
+            un solo piano annuale — tutto incluso
           </div>
         </div>
         <div class="pricing-body">
           <ul class="feature-list" role="list">
-            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>calcolo punto-per-punto en&nbsp;12464-1 (interni, volte a botte e crociera)</li>
-            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>calcolo en&nbsp;13201 (me, ce, s/p) + uni 11248 + 6 leggi regionali con verifica cct</li>
-            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>irm spencer — componente riflessa · solo interni</li>
-            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>libreria ies / ldt · strippled (lm/m) · fino a 4 tipi per progetto</li>
-            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>4 modalità di posizionamento · click su planimetria con calibrazione metrica</li>
-            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>isolux · heatmap · superficie 3d con planimetria sovrapposta</li>
-            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>report pdf e docx con planimetria in copertina · salvataggio progetto .json</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>doppio motore: flusso totale + punto-per-punto con fotometria reale</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>uni en&nbsp;12464-1 con 23 destinazioni d'uso · uni en&nbsp;13201 + uni 11248</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>uni en&nbsp;1838: area antipanico e vie di esodo su planimetria</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>15 leggi regionali anti-inquinamento luminoso con riferimenti citabili</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>ies / ldt · stripled · più tipi di apparecchio nello stesso progetto</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>planimetria calibrata · perimetri irregolari · progetto json autosufficiente</li>
+            <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>report pdf e docx con grafici, tabelle di conformità e citazioni normative</li>
             <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>aggiornamenti inclusi · supporto tecnico via email</li>
           </ul>
 
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-form" aria-label="Abbonati con PayPal">
-            <input type="hidden" name="cmd"           value="_xclick-subscriptions">
-            <input type="hidden" name="business"      value="YOUR_PAYPAL_EMAIL">
-            <input type="hidden" name="lc"            value="IT">
-            <input type="hidden" name="item_name"     value="C/G LightCalc — Abbonamento Mensile">
-            <input type="hidden" name="no_note"       value="1">
-            <input type="hidden" name="src"           value="1">
-            <input type="hidden" name="sra"           value="1">
-            <input type="hidden" name="a1"            value="0">
-            <input type="hidden" name="p1"            value="3">
-            <input type="hidden" name="t1"            value="D">
-            <input type="hidden" name="a3"            value="4.99">
-            <input type="hidden" name="p3"            value="1">
-            <input type="hidden" name="t3"            value="M">
-            <input type="hidden" name="currency_code" value="EUR">
-            <button type="submit" class="paypal-btn">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="#003087" aria-hidden="true"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 6.643-8.558 6.643H9.83c-.524 0-.968.382-1.05.9L7.662 21.2a.641.641 0 0 0 .633.74h3.979c.524 0 .968-.382 1.05-.9l.484-3.07a1.052 1.052 0 0 1 1.05-.9h.664c4.272 0 7.614-1.736 8.587-6.754.383-1.962.094-3.607-.887-4.399z"/></svg>
-              <span class="paypal-logo"><span class="pay">Pay</span><span class="pal">Pal</span></span>
-              · inizia 3 giorni gratis
-            </button>
+          <div class="paypal-form" aria-label="Abbonati con PayPal">
+            <div id="paypal-button-container-P-5U875098UL3621449NJHWXJQ" class="paypal-buttons"></div>
             <p class="paypal-trust">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              pagamento sicuro &nbsp;·&nbsp; nessun addebito nei primi 3 giorni &nbsp;·&nbsp; disdici quando vuoi
+              pagamento sicuro &nbsp;·&nbsp; piano annuale founding member &nbsp;·&nbsp; disdici quando vuoi
             </p>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -636,10 +614,10 @@
   <div class="cta-slash" aria-hidden="true"></div>
   <div class="container" style="position:relative">
     <h2 class="cta-title">c<span class="sl">/</span>g lightcalc.<br><strong>Nato sul campo.</strong></h2>
-    <p class="cta-desc">Prova C/G LightCalc gratis per 3 giorni. Nessun addebito immediato.</p>
+    <p class="cta-desc">Abbonamento annuale in promo lancio: €79/anno, prezzo bloccato finché resta attivo.</p>
     <a href="#pricing" class="btn-primary" style="margin:0 auto;display:inline-flex;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      inizia gratis ora
+      abbonati ora
     </a>
   </div>
 </section>
@@ -691,7 +669,28 @@
   </div>
 </footer>
 
+<script src="https://www.paypal.com/sdk/js?client-id=BAAWopI2D5c4L-7SRxcbb4ggOliPXj88OaFEF6_8KF_r7ReBCInubKYr7YKquWe8aBMtwngcu0iK1jhftg&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
+  const paypalContainerId = '#paypal-button-container-P-5U875098UL3621449NJHWXJQ';
+  if (window.paypal && document.querySelector(paypalContainerId)) {
+    paypal.Buttons({
+      style: {
+        shape: 'rect',
+        color: 'gold',
+        layout: 'vertical',
+        label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          plan_id: 'P-5U875098UL3621449NJHWXJQ'
+        });
+      },
+      onApprove: function(data) {
+        window.location.href = 'mailto:stefanocibelli@gmail.com?subject=C/G%20LightCalc%20-%20abbonamento%20attivato&body=Subscription%20ID:%20' + encodeURIComponent(data.subscriptionID);
+      }
+    }).render(paypalContainerId);
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 65); observer.unobserve(e.target); } });
   }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
