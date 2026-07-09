@@ -62,8 +62,9 @@ Correzioni già applicate, da non invertire:
 ## Pricing
 
 - Prezzo pieno: **€119/anno** (sbarrato)
-- Prezzo lancio / Founding Member: **€79/anno**
-- Finestra promo: primi 30 giorni dal lancio
+- Piano: **LightCalc Pro**
+- Prezzo lancio / Founding Member: **€79/anno** a vita per chi si iscrive entro il **12 agosto 2026**
+- Risparmio evidenziato: **€40/anno** rispetto al prezzo ufficiale
 - PayPal SDK plan Founding Member: `P-5U875098UL3621449NJHWXJQ`
 - Nota PayPal: per mantenere il prezzo Founding Member bloccato serve un piano PayPal separato a €79/anno, distinto dal piano standard a €119/anno.
 

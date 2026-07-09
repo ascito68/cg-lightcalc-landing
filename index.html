@@ -292,13 +292,14 @@
     .pricing-card { background: var(--cg-bianco); border: 1px solid var(--cg-border-mid); overflow: hidden; }
     .pricing-top { background: var(--cg-nero); padding: 2.75rem 2.75rem 2.5rem; text-align: center; }
     .promo-pill { display: inline-flex; align-items: center; gap: .38rem; background: rgba(212,200,176,.08); border: 1px solid rgba(212,200,176,.20); color: var(--cg-tortora); font-size: .64rem; font-weight: 400; letter-spacing: .14em; text-transform: lowercase; padding: .28rem .8rem; margin-bottom: 1.4rem; }
-    .plan-name { font-size: .72rem; font-weight: 400; color: rgba(255,255,255,.38); text-transform: lowercase; letter-spacing: .14em; margin-bottom: .7rem; }
+    .plan-name { font-size: .86rem; font-weight: 700; color: var(--cg-tortora); letter-spacing: .08em; margin-bottom: .85rem; }
     .price-row { display: flex; align-items: flex-start; justify-content: center; gap: .1rem; margin-bottom: .4rem; }
     .price-currency { font-size: 1.2rem; font-weight: 300; color: var(--cg-tortora-mid); margin-top: 1rem; }
     .price-amount { font-size: 5rem; font-weight: 200; color: var(--cg-bianco); line-height: 1; letter-spacing: -0.045em; }
     .price-period { font-size: .78rem; color: rgba(255,255,255,.30); align-self: flex-end; margin-bottom: .7rem; letter-spacing: .06em; }
     .price-original { font-size: .82rem; font-weight: 300; color: rgba(255,255,255,.30); text-decoration: line-through; text-align: center; margin-bottom: .3rem; letter-spacing: .02em; }
-    .price-note { font-size: .74rem; color: rgba(255,255,255,.32); font-weight: 400; text-transform: lowercase; }
+    .price-note { font-size: .76rem; color: rgba(255,255,255,.42); font-weight: 400; line-height: 1.65; max-width: 340px; margin: 0 auto; }
+    .saving-badge { display: inline-flex; align-items: center; justify-content: center; margin: .45rem auto 1.05rem; padding: .34rem .9rem; border: 1px solid rgba(90,138,106,.38); background: rgba(90,138,106,.12); color: #9fd2ad; font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: lowercase; }
     .trial-pill { display: inline-flex; align-items: center; gap: .38rem; margin-top: 1.25rem; background: rgba(90,138,106,.08); border: 1px solid rgba(90,138,106,.26); color: #8abf9a; font-size: .7rem; font-weight: 400; letter-spacing: .06em; text-transform: lowercase; padding: .28rem .8rem; }
 
     .pricing-body { padding: 2.25rem 2.75rem 2.75rem; }
@@ -570,15 +571,16 @@
     <div class="pricing-wrap fade-up">
       <div class="pricing-card">
         <div class="pricing-top">
-          <div class="promo-pill">offerta lancio — founding member</div>
-          <p class="plan-name">piano professionale</p>
+          <div class="promo-pill">offerta founding member</div>
+          <p class="plan-name">LightCalc Pro</p>
           <p class="price-original">€ 119 / anno</p>
+          <div class="saving-badge">risparmi €40/anno</div>
           <div class="price-row">
             <span class="price-currency">€</span>
             <span class="price-amount">79</span>
             <span class="price-period">/anno</span>
           </div>
-          <p class="price-note">promo primi 30 giorni · prezzo bloccato finché l'abbonamento resta attivo · disdici in qualsiasi momento</p>
+          <p class="price-note">Offerta Founding Member · 79 €/anno a vita per chi si iscrive entro il 12 agosto 2026. Il prezzo resta invariato finché l'abbonamento rimane attivo.</p>
           <div class="trial-pill">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             un solo piano annuale — tutto incluso
@@ -614,7 +616,7 @@
   <div class="cta-slash" aria-hidden="true"></div>
   <div class="container" style="position:relative">
     <h2 class="cta-title">c<span class="sl">/</span>g lightcalc.<br><strong>Nato sul campo.</strong></h2>
-    <p class="cta-desc">Abbonamento annuale in promo lancio: €79/anno, prezzo bloccato finché resta attivo.</p>
+    <p class="cta-desc">Offerta Founding Member: €79/anno a vita per chi si iscrive entro il 12 agosto 2026.</p>
     <a href="#pricing" class="btn-primary" style="margin:0 auto;display:inline-flex;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
       abbonati ora
