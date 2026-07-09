@@ -70,21 +70,23 @@ Correzioni già applicate, da non invertire:
 
 ## Struttura sezioni index.html
 
-1. **Nav** — logo c/g lightcalc, link workflow / funzionalità / screenshot / prezzi, CTA "prova lightcalc"
-2. **Hero** — promessa principale "dalla planimetria PDF alla relazione illuminotecnica pronta da consegnare", proof browser/dispositivi/output
+1. **Nav** — logo c/g lightcalc, link workflow / funzionalità / screenshot / prezzi, CTA "attiva lightcalc pro"
+2. **Hero** — promessa principale "Dalla planimetria PDF alla relazione illuminotecnica pronta da consegnare", proof browser/dispositivi/output
 3. **Workflow** — tre passaggi: planimetria PDF → verifica illuminotecnica → relazione tecnica
 4. **Screenshots** — galleria orizzontale scrollabile (11 immagini) con caption orientate al beneficio + lightbox
 5. **Benefits** — 3 card: meno tempo, meno errori, relazione pronta
-6. **Features** — griglia 3 colonne, 6 card tecniche tradotte in beneficio
-7. **Lavora ovunque** — web app browser, Windows, macOS, Linux, iPad
-8. **Fiducia** — sviluppato da architetto, oltre 100 controlli, normativa integrata
-9. **Confronto** — tabella DIALux / Relux vs LightCalc
-10. **Per chi è / non è** — due colonne di posizionamento
-11. **Storia** — perché è nato LightCalc
-12. **Pricing** — card unica, prezzo €119 sbarrato + €79/anno promo Founding Member, PayPal SDK
-13. **FAQ** — DIALux, browser, installazione, iPad, PDF/DOCX, normative, rinnovo, prezzo bloccato, salvataggio
-14. **CTA finale** — ritorno al valore "verifica → relazione"
-15. **Footer** — crediti studio cibelli/guadagno, Stefano Cibelli, tech stack
+6. **Output relazione** — cosa contiene la relazione PDF/DOCX e richiamo al controllo professionale
+7. **Features** — griglia 3 colonne, 6 card tecniche tradotte in beneficio
+8. **Casi d'uso** — interni, esterni/stradale, emergenza
+9. **Lavora ovunque** — web app browser, Windows, macOS, Linux, iPad
+10. **Fiducia** — sviluppato da architetto, oltre 100 controlli, normativa integrata, flusso di lavoro reale
+11. **Confronto** — tabella DIALux / Relux vs LightCalc
+12. **Per chi è / non è** — due colonne di posizionamento
+13. **Storia** — perché è nato LightCalc
+14. **Pricing** — card unica, prezzo €119 sbarrato + €79/anno promo Founding Member, PayPal SDK
+15. **FAQ** — DIALux, browser, installazione, iPad, PDF/DOCX, normative, rinnovo, prezzo bloccato, dati, supporto, attivazione
+16. **CTA finale** — ritorno al valore "verifica → relazione"
+17. **Footer** — crediti studio cibelli/guadagno, Stefano Cibelli, tech stack
 
 ## Todo / aperto
 

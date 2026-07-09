@@ -199,12 +199,16 @@
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
       background: var(--cg-border); border: 1px solid var(--cg-border);
     }
+    .trust-grid { grid-template-columns: repeat(4, 1fr); }
     .benefit-card, .trust-card, .audience-card, .story-card {
       background: var(--cg-bianco); padding: 2.4rem; min-height: 210px;
     }
     .benefit-kicker, .trust-kicker { font-size: .62rem; letter-spacing: .16em; text-transform: lowercase; color: var(--cg-tortora-deep); margin-bottom: 1rem; }
     .benefit-title, .trust-title, .audience-title, .story-title { font-size: 1.05rem; font-weight: 700; color: var(--cg-nero); line-height: 1.22; margin-bottom: .75rem; }
     .benefit-desc, .trust-desc, .story-desc { font-size: .86rem; color: var(--cg-fg-muted); line-height: 1.72; font-weight: 400; }
+    .report-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--cg-border); border: 1px solid var(--cg-border); }
+    .report-list li { background: var(--cg-bianco); padding: 1rem 1.2rem; font-size: .86rem; color: var(--cg-nero); font-weight: 400; line-height: 1.55; }
+    .report-list li::before { content: '/'; color: var(--cg-tortora-deep); margin-right: .45rem; font-weight: 200; }
 
     .device-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(212,200,176,.12); border: 1px solid rgba(212,200,176,.12); }
     .device-item { background: var(--cg-nero-deep); padding: 1.4rem 1rem; text-align: center; color: rgba(255,255,255,.62); font-size: .74rem; letter-spacing: .12em; text-transform: lowercase; }
@@ -387,6 +391,7 @@
     .paypal-form { text-align: center; min-height: 54px; }
     .paypal-buttons { min-height: 54px; }
     .paypal-trust { margin-top: .8rem; font-size: .7rem; color: var(--cg-fg-subtle); display: flex; align-items: center; justify-content: center; gap: .35rem; line-height: 1.5; text-transform: lowercase; letter-spacing: .04em; }
+    .paypal-next { margin-top: .75rem; font-size: .74rem; color: var(--cg-fg-muted); line-height: 1.55; font-weight: 400; }
 
     /* ── CTA ── */
     .cta-section { background: var(--cg-nero-deep); padding: 112px var(--bx); text-align: center; position: relative; overflow: hidden; }
@@ -440,6 +445,7 @@
       .comparison-cell { border-right: none; border-bottom: 1px solid var(--cg-border); }
       .comparison-cell:last-child { border-bottom: none; }
       .faq-list { grid-template-columns: 1fr; }
+      .report-list { grid-template-columns: 1fr; }
     }
     @media (min-width: 769px) and (max-width: 1100px) {
       .benefits-grid, .trust-grid, .features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -471,7 +477,7 @@
     <li><a href="#screenshots">screenshot</a></li>
     <li><a href="#features">funzionalità</a></li>
     <li><a href="#pricing">prezzi</a></li>
-    <li><a href="#pricing" class="nav-cta">prova lightcalc</a></li>
+    <li><a href="#pricing" class="nav-cta">attiva lightcalc pro</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')">
     <span></span><span></span><span></span>
@@ -491,7 +497,7 @@
     </div>
 
     <h1 class="hero-title">
-      dalla planimetria PDF<br>
+      Dalla planimetria PDF<br>
       alla relazione <strong>illuminotecnica<br>
       pronta da consegnare.</strong>
     </h1>
@@ -511,7 +517,7 @@
     <div class="hero-actions">
       <a href="#pricing" class="btn-primary">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        prova lightcalc
+        attiva lightcalc pro
       </a>
       <a href="#pricing" class="btn-outline">
         scopri l'offerta founding member
@@ -638,8 +644,27 @@
   </div>
 </section>
 
+<!-- REPORT OUTPUT -->
+<section class="section section-alt" id="report-output" aria-label="Cosa contiene la relazione">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <p class="section-label">output</p>
+      <h2 class="section-title">Una relazione tecnica<br><strong>da controllare, rifinire e consegnare.</strong></h2>
+      <p class="section-desc">LightCalc non elimina la responsabilità del progettista: organizza risultati, grafici e riferimenti in un documento tecnico verificabile.</p>
+    </div>
+    <ul class="report-list fade-up" role="list">
+      <li>dati di progetto e apparecchi utilizzati</li>
+      <li>posizionamento e planimetria calcolata</li>
+      <li>risultati illuminotecnici e tabelle di conformità</li>
+      <li>grafici isolux, heatmap e viste 3D disponibili</li>
+      <li>riferimenti normativi utili alla relazione</li>
+      <li>esportazione in PDF e DOCX modificabile</li>
+    </ul>
+  </div>
+</section>
+
 <!-- FEATURES -->
-<section class="section section-alt" id="features" aria-label="Funzionalità">
+<section class="section" id="features" aria-label="Funzionalità">
   <div class="container">
     <div class="section-header section-header--center fade-up">
       <p class="section-label">funzionalità</p>
@@ -705,6 +730,34 @@
   </div>
 </section>
 
+<!-- USE CASES -->
+<section class="section section-alt" id="use-cases" aria-label="Casi d'uso">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <p class="section-label">casi d'uso</p>
+      <h2 class="section-title">Quando ha senso<br><strong>usare LightCalc.</strong></h2>
+      <p class="section-desc">È pensato per incarichi in cui servono verifica, ordine documentale e rapidità, senza costruire un modello CAD completo.</p>
+    </div>
+    <div class="benefits-grid">
+      <article class="benefit-card fade-up">
+        <p class="benefit-kicker">interni</p>
+        <h3 class="benefit-title">Uffici, negozi e ambienti di lavoro</h3>
+        <p class="benefit-desc">Verifiche rapide su destinazioni d'uso ricorrenti, con dati e risultati già pronti per la relazione.</p>
+      </article>
+      <article class="benefit-card fade-up">
+        <p class="benefit-kicker">esterni</p>
+        <h3 class="benefit-title">Percorsi, aree esterne e controlli stradali</h3>
+        <p class="benefit-desc">Supporto a verifiche secondo UNI EN 13201, UNI 11248 e requisiti regionali anti-inquinamento luminoso.</p>
+      </article>
+      <article class="benefit-card fade-up">
+        <p class="benefit-kicker">emergenza</p>
+        <h3 class="benefit-title">Area antipanico e vie di esodo</h3>
+        <p class="benefit-desc">Controlli UNI EN 1838 documentabili sulla planimetria, utili quando serve allegare una verifica chiara.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- WORK ANYWHERE -->
 <section class="section" id="browser" aria-label="Lavora ovunque">
   <div class="container">
@@ -745,6 +798,11 @@
         <p class="trust-kicker">norme</p>
         <h3 class="trust-title">Normativa italiana integrata</h3>
         <p class="trust-desc">Requisiti e riferimenti sono pensati per rendere più verificabile il passaggio dalla norma alla relazione tecnica.</p>
+      </article>
+      <article class="trust-card fade-up">
+        <p class="trust-kicker">studio</p>
+        <h3 class="trust-title">Nato da un flusso di lavoro reale</h3>
+        <p class="trust-desc">Il prodotto è stato costruito per risolvere passaggi concreti: planimetria, verifica, grafici, relazione e controllo finale.</p>
       </article>
     </div>
   </div>
@@ -873,6 +931,7 @@
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               pagamento sicuro &nbsp;·&nbsp; rinnovo annuale &nbsp;·&nbsp; puoi disattivare il rinnovo automatico in qualsiasi momento
             </p>
+            <p class="paypal-next">Dopo l'abbonamento ricevi le istruzioni di accesso via email entro due ore dalla sottoscrizione.</p>
           </div>
 
           <h3 class="included-title">cosa è incluso</h3>
@@ -907,7 +966,7 @@
       </article>
       <article class="faq-item fade-up">
         <h3 class="faq-question">È adatto a un utilizzo professionale?</h3>
-        <p class="faq-answer">Sì. LightCalc è pensato per professionisti che devono produrre verifiche e documentazione tecnica in modo ordinato. Non sostituisce il giudizio del progettista, ma riduce passaggi manuali ed errori di trascrizione.</p>
+        <p class="faq-answer">Sì. La relazione è costruita per essere affidabile e ordinata, ma come qualsiasi output tecnico richiede la capacità di controllo del professionista prima della consegna.</p>
       </article>
       <article class="faq-item fade-up">
         <h3 class="faq-question">Devo installare un software?</h3>
@@ -943,15 +1002,15 @@
       </article>
       <article class="faq-item fade-up">
         <h3 class="faq-question">I miei dati e progetti sono sotto controllo?</h3>
-        <p class="faq-answer">LightCalc è pensato per ridurre dipendenze locali e mantenere il progetto esportabile. Il salvataggio in JSON ti permette di conservare una copia del lavoro e riutilizzarla nelle sessioni successive.</p>
+        <p class="faq-answer">I file caricati sono gestiti dal professionista che li utilizza: vengono lavorati e salvati sul terminale del progettista tramite progetto esportabile. È un approccio semplice e coerente con i principi di controllo e minimizzazione dei dati richiamati dal GDPR.</p>
       </article>
       <article class="faq-item fade-up">
         <h3 class="faq-question">Che cosa significa Founding Member?</h3>
-        <p class="faq-answer">È l'offerta di lancio per chi entra entro il 12 agosto 2026: LightCalc Pro a 79 €/anno invece di 119 €/anno, con prezzo bloccato finché l'abbonamento rimane attivo.</p>
+        <p class="faq-answer">È l'offerta di lancio per chi entra entro il 12 agosto 2026: LightCalc Pro a 79 €/anno invece di 119 €/anno, tramite piano PayPal Founding Member dedicato.</p>
       </article>
       <article class="faq-item fade-up">
         <h3 class="faq-question">Il prezzo resta davvero bloccato?</h3>
-        <p class="faq-answer">Sì. Per i Founding Member il prezzo resta 79 €/anno finché l'abbonamento rimane attivo. Se l'abbonamento viene disattivato e riattivato in futuro, potrà valere il prezzo corrente.</p>
+        <p class="faq-answer">Sì. Il prezzo è legato al piano PayPal Founding Member e non cambia finché l'abbonamento rimane attivo. Se viene disattivato e riattivato in futuro, potrà valere il prezzo corrente.</p>
       </article>
       <article class="faq-item fade-up">
         <h3 class="faq-question">Come funziona il rinnovo annuale?</h3>
@@ -959,7 +1018,11 @@
       </article>
       <article class="faq-item fade-up">
         <h3 class="faq-question">Cosa succede dopo il pagamento?</h3>
-        <p class="faq-answer">Dopo l'abbonamento ricevi le istruzioni per l'accesso e puoi iniziare a usare LightCalc Pro. Per dubbi o attivazione puoi contattare direttamente il supporto indicato nella pagina.</p>
+        <p class="faq-answer">Dopo l'abbonamento ricevi le istruzioni per l'accesso entro due ore dalla sottoscrizione. Per dubbi o problemi di attivazione puoi contattare direttamente il supporto indicato nella pagina.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">Il supporto è incluso?</h3>
+        <p class="faq-answer">Sì. Il supporto via email è incluso per problemi legati all'utilizzo di LightCalc o a eventuali mancati funzionamenti del servizio.</p>
       </article>
     </div>
   </div>
@@ -973,7 +1036,7 @@
     <p class="cta-desc">Offerta Founding Member: €79/anno a vita per chi si iscrive entro il 12 agosto 2026.</p>
     <a href="#pricing" class="btn-primary" style="margin:0 auto;display:inline-flex;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      prova lightcalc
+      attiva lightcalc pro
     </a>
   </div>
 </section>
