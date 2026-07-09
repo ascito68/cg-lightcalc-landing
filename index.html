@@ -439,10 +439,27 @@
       .pricing-top, .pricing-body { padding-left: 1.5rem; padding-right: 1.5rem; }
       .screenshots-seq-item { padding: 1.5rem 1.5rem 0; }
       .workflow-grid, .benefits-grid, .trust-grid, .device-strip { grid-template-columns: 1fr; }
-      .workflow-step::after { content: '↓'; right: 50%; top: auto; bottom: -18px; transform: translateX(50%); }
-      .audience-grid, .comparison-row { grid-template-columns: 1fr; }
-      .comparison-cell { border-right: none; border-bottom: 1px solid var(--cg-border); }
+      .workflow-step { min-height: 0; padding: 2rem; }
+      .workflow-step::after { display: none; }
+      .audience-grid { grid-template-columns: 1fr; }
+      .comparison-table { border: none; background: transparent; display: grid; gap: .9rem; }
+      .comparison-head { display: none; }
+      .comparison-row { display: block; border: 1px solid var(--cg-border); background: var(--cg-bianco); }
+      .comparison-cell { border-right: none; border-bottom: 1px solid var(--cg-border); padding: 1rem 1.1rem; }
       .comparison-cell:last-child { border-bottom: none; }
+      .comparison-row .comparison-cell::before {
+        display: block;
+        margin-bottom: .35rem;
+        color: var(--cg-tortora-deep);
+        font-size: .62rem;
+        font-weight: 700;
+        letter-spacing: .12em;
+        line-height: 1.2;
+        text-transform: lowercase;
+      }
+      .comparison-row .comparison-cell:nth-child(1)::before { content: 'esigenza'; }
+      .comparison-row .comparison-cell:nth-child(2)::before { content: 'DIALux / Relux'; }
+      .comparison-row .comparison-cell:nth-child(3)::before { content: 'C/G LightCalc'; }
       .faq-list { grid-template-columns: 1fr; }
       .report-list { grid-template-columns: 1fr; }
     }
@@ -1031,7 +1048,7 @@
 <section class="cta-section" aria-label="Chiamata all'azione">
   <div class="cta-slash" aria-hidden="true"></div>
   <div class="container" style="position:relative">
-    <h2 class="cta-title">Dalla verifica alla relazione.<br><strong>Senza ricominciare da zero.</strong></h2>
+    <h2 class="cta-title">Dalla verifica alla relazione.<br><strong>Con meno lavoro manuale.</strong></h2>
     <p class="cta-desc">Offerta Founding Member: €79/anno a vita per chi si iscrive entro il 12 agosto 2026.</p>
     <a href="#pricing" class="btn-primary" style="margin:0 auto;display:inline-flex;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
