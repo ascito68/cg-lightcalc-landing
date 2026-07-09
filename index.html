@@ -109,9 +109,20 @@
 
     .hero-subtitle {
       font-size: 1.08rem; color: rgba(255,255,255,.46);
-      max-width: 560px; margin: 0 auto 2.5rem;
+      max-width: 680px; margin: 0 auto 2rem;
       line-height: 1.80; font-weight: 300;
     }
+    .hero-proof {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: .45rem;
+      list-style: none; margin: 0 auto 2.7rem; max-width: 760px;
+    }
+    .hero-proof li {
+      display: inline-flex; align-items: center; gap: .34rem;
+      background: rgba(255,255,255,.035); border: 1px solid rgba(212,200,176,.12);
+      color: rgba(255,255,255,.58); font-size: .68rem; font-weight: 400;
+      letter-spacing: .08em; text-transform: lowercase; padding: .28rem .7rem;
+    }
+    .hero-proof li::before { content: '/'; color: var(--cg-tortora-mid); font-weight: 200; }
 
     .hero-norms { display: flex; justify-content: center; flex-wrap: wrap; gap: .4rem; margin-bottom: 3rem; }
     .norm-pill {
@@ -166,6 +177,57 @@
     .section-header { margin-bottom: 4rem; }
     .section-header--center { text-align: center; }
     .section-header--center .section-desc { margin: 0 auto; }
+
+    /* ── WORKFLOW / CONVERSION SECTIONS ── */
+    .workflow-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--cg-border); border: 1px solid var(--cg-border);
+    }
+    .workflow-step { background: var(--cg-bianco); padding: 2.5rem; min-height: 250px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+    .workflow-step::after { content: '→'; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); z-index: 2; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: var(--cg-tortora); color: var(--cg-nero); font-weight: 700; }
+    .workflow-step:last-child::after { display: none; }
+    .workflow-number { font-size: .72rem; letter-spacing: .16em; text-transform: lowercase; color: var(--cg-tortora-deep); margin-bottom: 1.4rem; }
+    .workflow-title { font-size: 1.25rem; line-height: 1.15; font-weight: 700; color: var(--cg-nero); margin-bottom: .75rem; }
+    .workflow-desc { font-size: .88rem; color: var(--cg-fg-muted); line-height: 1.72; font-weight: 400; }
+
+    .benefits-grid, .trust-grid, .audience-grid, .story-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--cg-border); border: 1px solid var(--cg-border);
+    }
+    .benefit-card, .trust-card, .audience-card, .story-card {
+      background: var(--cg-bianco); padding: 2.4rem; min-height: 210px;
+    }
+    .benefit-kicker, .trust-kicker { font-size: .62rem; letter-spacing: .16em; text-transform: lowercase; color: var(--cg-tortora-deep); margin-bottom: 1rem; }
+    .benefit-title, .trust-title, .audience-title, .story-title { font-size: 1.05rem; font-weight: 700; color: var(--cg-nero); line-height: 1.22; margin-bottom: .75rem; }
+    .benefit-desc, .trust-desc, .story-desc { font-size: .86rem; color: var(--cg-fg-muted); line-height: 1.72; font-weight: 400; }
+
+    .device-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(212,200,176,.12); border: 1px solid rgba(212,200,176,.12); }
+    .device-item { background: var(--cg-nero-deep); padding: 1.4rem 1rem; text-align: center; color: rgba(255,255,255,.62); font-size: .74rem; letter-spacing: .12em; text-transform: lowercase; }
+    .device-item strong { display: block; color: var(--cg-tortora); font-size: .9rem; letter-spacing: .04em; margin-bottom: .22rem; }
+
+    .comparison-table { border: 1px solid var(--cg-border); background: var(--cg-bianco); }
+    .comparison-row { display: grid; grid-template-columns: 1.1fr 1fr 1fr; border-bottom: 1px solid var(--cg-border); }
+    .comparison-row:last-child { border-bottom: none; }
+    .comparison-cell { padding: 1.15rem 1.3rem; font-size: .84rem; color: var(--cg-fg-muted); line-height: 1.65; font-weight: 400; border-right: 1px solid var(--cg-border); }
+    .comparison-cell:last-child { border-right: none; }
+    .comparison-head .comparison-cell { background: var(--cg-nero); color: var(--cg-tortora); font-weight: 700; letter-spacing: .08em; text-transform: lowercase; }
+    .comparison-cell strong { color: var(--cg-nero); }
+
+    .audience-grid { grid-template-columns: repeat(2, 1fr); }
+    .audience-list { list-style: none; }
+    .audience-list li { display: flex; gap: .65rem; align-items: flex-start; padding: .55rem 0; border-bottom: 1px solid var(--cg-border); font-size: .88rem; color: var(--cg-nero); font-weight: 400; }
+    .audience-list li:last-child { border-bottom: none; }
+    .audience-mark { color: var(--cg-green); font-weight: 700; }
+    .audience-mark--no { color: var(--cg-tortora-deep); }
+
+    .story-grid { grid-template-columns: 1fr; background: transparent; border: none; }
+    .story-card { max-width: 780px; margin: 0 auto; border-left: 2px solid var(--cg-tortora-mid); min-height: 0; background: var(--cg-soft); }
+    .story-card .story-desc + .story-desc { margin-top: .85rem; }
+
+    .faq-list { border-top: 1px solid var(--cg-border); }
+    .faq-item { border-bottom: 1px solid var(--cg-border); padding: 1.4rem 0; }
+    .faq-question { font-size: .96rem; font-weight: 700; color: var(--cg-nero); margin-bottom: .45rem; }
+    .faq-answer { font-size: .86rem; color: var(--cg-fg-muted); line-height: 1.72; max-width: 760px; font-weight: 400; }
 
     /* ── FEATURES ── */
     .features-grid {
@@ -232,6 +294,7 @@
       overflow: hidden;
       cursor: pointer;
       transition: opacity .2s;
+      position: relative;
     }
     .gallery-item:hover { opacity: .85; }
     .gallery-item img {
@@ -280,7 +343,7 @@
     }
 
     .screenshot-caption {
-      position: absolute; bottom: .85rem; left: .85rem;
+      position: absolute; bottom: .85rem; left: .85rem; right: .85rem;
       background: rgba(26,23,20,.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
       color: var(--cg-tortora); font-size: .66rem; font-weight: 400;
       letter-spacing: .10em; text-transform: lowercase;
@@ -303,6 +366,9 @@
     .trial-pill { display: inline-flex; align-items: center; gap: .38rem; margin-top: 1.25rem; background: rgba(90,138,106,.08); border: 1px solid rgba(90,138,106,.26); color: #8abf9a; font-size: .7rem; font-weight: 400; letter-spacing: .06em; text-transform: lowercase; padding: .28rem .8rem; }
 
     .pricing-body { padding: 2.25rem 2.75rem 2.75rem; }
+    .pricing-value { background: var(--cg-soft); border: 1px solid var(--cg-border); padding: 1.25rem 1.35rem; margin-bottom: 1.6rem; }
+    .pricing-value-title { font-size: .86rem; font-weight: 700; color: var(--cg-nero); margin-bottom: .4rem; }
+    .pricing-value-text { font-size: .8rem; color: var(--cg-fg-muted); line-height: 1.65; font-weight: 400; }
     .feature-list { list-style: none; margin-bottom: 2rem; }
     .feature-list li { display: flex; align-items: flex-start; gap: .7rem; padding: .6rem 0; border-bottom: 1px solid var(--cg-border); font-size: .86rem; color: var(--cg-nero); font-weight: 400; text-transform: lowercase; letter-spacing: .01em; }
     .feature-list li:last-child { border-bottom: none; }
@@ -358,6 +424,11 @@
       .stat { padding: 0 1.1rem; }
       .pricing-top, .pricing-body { padding-left: 1.5rem; padding-right: 1.5rem; }
       .screenshots-seq-item { padding: 1.5rem 1.5rem 0; }
+      .workflow-grid, .benefits-grid, .trust-grid, .device-strip { grid-template-columns: 1fr; }
+      .workflow-step::after { content: '↓'; right: 50%; top: auto; bottom: -18px; transform: translateX(50%); }
+      .audience-grid, .comparison-row { grid-template-columns: 1fr; }
+      .comparison-cell { border-right: none; border-bottom: 1px solid var(--cg-border); }
+      .comparison-cell:last-child { border-bottom: none; }
     }
     @media (max-width: 480px) {
       .section { padding: 80px 1.5rem; }
@@ -379,10 +450,11 @@
     c<span class="sl">/</span>g<span class="app">&nbsp;lightcalc</span>
   </a>
   <ul class="nav-links" role="list">
-    <li><a href="#features">funzionalità</a></li>
+    <li><a href="#workflow">workflow</a></li>
     <li><a href="#screenshots">screenshot</a></li>
+    <li><a href="#features">funzionalità</a></li>
     <li><a href="#pricing">prezzi</a></li>
-    <li><a href="#pricing" class="nav-cta">piano annuale</a></li>
+    <li><a href="#pricing" class="nav-cta">prova lightcalc</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')">
     <span></span><span></span><span></span>
@@ -402,24 +474,30 @@
     </div>
 
     <h1 class="hero-title">
-      calcolo<br>
-      illumino<strong>tecnico<br>
-      preciso <span class="sl">/</span> veloce</strong>
+      dalla planimetria PDF<br>
+      alla relazione <strong>illuminotecnica<br>
+      pronta da consegnare.</strong>
     </h1>
 
     <p class="hero-subtitle">
-      Verifica la conformità normativa degli impianti interni, stradali
-      e di emergenza. Doppio motore di calcolo, planimetrie calibrate,
-      grafici e relazione PDF&nbsp;/&nbsp;DOCX pronta alla consegna.
+      C/G LightCalc unisce calcolo illuminotecnico, verifica normativa UNI/EN
+      e generazione automatica della relazione tecnica in un unico flusso di lavoro.
     </p>
+
+    <ul class="hero-proof" role="list" aria-label="Vantaggi principali">
+      <li>nessuna installazione</li>
+      <li>funziona da browser</li>
+      <li>windows, macOS e iPad</li>
+      <li>PDF e DOCX pronti</li>
+    </ul>
 
     <div class="hero-actions">
       <a href="#pricing" class="btn-primary">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        abbonati al piano annuale
+        prova lightcalc
       </a>
-      <a href="#features" class="btn-outline">
-        scopri le funzionalità
+      <a href="#pricing" class="btn-outline">
+        scopri l'offerta founding member
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
       </a>
     </div>
@@ -434,92 +512,39 @@
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="section" id="features" aria-label="Funzionalità">
+<!-- WORKFLOW -->
+<section class="section" id="workflow" aria-label="Workflow">
   <div class="container">
     <div class="section-header section-header--center fade-up">
-      <p class="section-label">funzionalità</p>
-      <h2 class="section-title">Dalla pianta PDF alla<br><strong>relazione firmabile</strong></h2>
-      <p class="section-desc">Strumenti completi per calcolo, verifica normativa italiana e documentazione finale: meno tempo di redazione, più controllo sul progetto.</p>
+      <p class="section-label">workflow</p>
+      <h2 class="section-title">Dalla planimetria alla relazione<br><strong>in tre passaggi</strong></h2>
+      <p class="section-desc">LightCalc è costruito attorno al flusso reale di lavoro: partire dal materiale che hai già, verificare il progetto e produrre documenti consegnabili.</p>
     </div>
-
-    <div class="features-grid">
-
-      <article class="feature-card fade-up">
-        <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="0"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    <div class="workflow-grid">
+      <article class="workflow-step fade-up">
+        <div>
+          <p class="workflow-number">01</p>
+          <h3 class="workflow-title">Carica la planimetria PDF</h3>
+          <p class="workflow-desc">Usi la pianta del progetto come base operativa, senza ricostruire tutto in un ambiente CAD.</p>
         </div>
-        <h3 class="feature-title">doppio motore di calcolo</h3>
-        <p class="feature-desc">Metodo del flusso totale per verifiche speditive e metodo punto-per-punto con distribuzione fotometrica reale dell'apparecchio. Supporta geometrie complesse, <strong>volte a botte e a crociera</strong>, pianta calibrata e più tipi di apparecchio nello stesso progetto.</p>
-        <span class="feature-tag">flusso totale + punto-per-punto</span>
       </article>
-
-      <article class="feature-card fade-up">
-        <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 3-6 4 10"/><line x1="3" y1="21" x2="21" y2="21"/></svg>
+      <article class="workflow-step fade-up">
+        <div>
+          <p class="workflow-number">02</p>
+          <h3 class="workflow-title">Esegui la verifica illuminotecnica</h3>
+          <p class="workflow-desc">Posizioni gli apparecchi, importi le fotometrie e controlli la conformità normativa nel contesto della planimetria.</p>
         </div>
-        <h3 class="feature-title">copertura normativa italiana</h3>
-        <p class="feature-desc"><strong>UNI EN 12464-1:2021</strong> con 23 destinazioni d'uso, <strong>UNI EN 13201</strong> con classi CE e S, richiamo <strong>UNI 11248</strong> e <strong>15 leggi regionali anti-inquinamento luminoso</strong> con estremi e requisiti tecnici pronti per la relazione.</p>
-        <span class="feature-tag">interni · stradale · regioni</span>
       </article>
-
-      <article class="feature-card fade-up">
-        <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+      <article class="workflow-step fade-up">
+        <div>
+          <p class="workflow-number">03</p>
+          <h3 class="workflow-title">Genera automaticamente la relazione tecnica</h3>
+          <p class="workflow-desc">Ottieni PDF e DOCX con risultati, grafici e riferimenti normativi pronti per essere consegnati o rifiniti.</p>
         </div>
-        <h3 class="feature-title">emergenza uni en&nbsp;1838</h3>
-        <p class="feature-desc">Modulo dedicato all'illuminazione di emergenza: area antipanico con esclusione automatica della fascia perimetrale e <strong>vie di esodo disegnate a mano libera</strong> sulla planimetria, verificate su linea centrale e fascia secondo i requisiti della norma.</p>
-        <span class="feature-tag">antipanico · vie di esodo</span>
       </article>
-
-      <article class="feature-card fade-up">
-        <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-        </div>
-        <h3 class="feature-title">fotometrie ies / ldt · stripled</h3>
-        <p class="feature-desc">Importazione di file <strong>IES (IESNA LM-63)</strong> e <strong>LDT (EULUMDAT)</strong> con riconoscimento dal contenuto, espansione automatica delle simmetrie a 360° e interpolazione bilineare. Supporto StripLED in lm/m con modello accurato anche in campo vicino.</p>
-        <span class="feature-tag">file fotometrici reali</span>
-      </article>
-
-      <article class="feature-card fade-up">
-        <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="0"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        </div>
-        <h3 class="feature-title">planimetria e progetto autosufficiente</h3>
-        <p class="feature-desc">Calibrazione metrica a due punti, disegno del perimetro anche irregolare o concavo e quattro modalità di disposizione: per numero, per interasse, griglia grafica editabile e click su planimetria. Il file <strong>JSON</strong> include geometria, fotometrie e disposizione per riaprire il progetto senza ricaricare nulla.</p>
-        <span class="feature-tag">pdf della pianta → progetto</span>
-      </article>
-
-      <article class="feature-card fade-up">
-        <div class="feature-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <h3 class="feature-title">relazione pdf e docx in un click</h3>
-        <p class="feature-desc">PDF e DOCX generati insieme con lo stesso contenuto: apparecchi, posizionamento, input, risultati, conformità normativa, emergenza EN 1838 quando attiva, planimetria calcolata e grafici. Include <strong>isolux, heatmap, superficie 3D, vista 3D e diagramma polare</strong>.</p>
-        <span class="feature-tag">output pronto alla consegna</span>
-      </article>
-
     </div>
   </div>
 </section>
-
-<!-- DISCLAIMER -->
-<div class="disclaimer">
-  <div class="disclaimer-inner">
-    <div class="disclaimer-bar"></div>
-    <div>
-      <p class="disclaimer-label">a cosa serve</p>
-      <p class="disclaimer-text">
-        C/G LightCalc nasce per le <strong>verifiche preliminari e di controllo</strong> in fase di progetto:
-        risultati rapidi e documentabili per orientare le scelte illuminotecniche prima di approfondire.
-        I calcoli si basano su metodi semplificati — griglia piana orizzontale, geometrie regolari,
-        riflessioni con formula sferica — e non coprono scenari complessi come superfici verticali,
-        ostruzioni fisiche, ambienti a più piani o calcolo numerico completo dell'UGR. Per progettazioni definitive ad alta complessità
-        è sempre consigliato affiancare strumenti di simulazione avanzata.
-      </p>
-    </div>
-  </div>
-</div>
 
 <!-- SCREENSHOTS -->
 <section class="screenshots-section" id="screenshots" aria-label="Screenshot dell'applicazione">
@@ -533,17 +558,17 @@
     <div class="fade-up">
       <div class="gallery-track-wrap" id="galleryWrap">
         <div class="gallery-track" id="galleryTrack">
-          <div class="gallery-item" data-idx="0"><img src="screenshots/1.png"  alt="schermata 1"  loading="lazy"></div>
-          <div class="gallery-item" data-idx="1"><img src="screenshots/2.png"  alt="schermata 2"  loading="lazy"></div>
-          <div class="gallery-item" data-idx="2"><img src="screenshots/3.png"  alt="schermata 3"  loading="lazy"></div>
-          <div class="gallery-item" data-idx="3"><img src="screenshots/4.png"  alt="schermata 4"  loading="lazy"></div>
-          <div class="gallery-item" data-idx="4"><img src="screenshots/5.png"  alt="schermata 5"  loading="lazy"></div>
-          <div class="gallery-item" data-idx="5"><img src="screenshots/6.png"  alt="schermata 6"  loading="lazy"></div>
-          <div class="gallery-item" data-idx="6"><img src="screenshots/7.png"  alt="schermata 7"  loading="lazy"></div>
-          <div class="gallery-item" data-idx="7"><img src="screenshots/8.png"  alt="schermata 8"  loading="lazy"></div>
-          <div class="gallery-item" data-idx="8"><img src="screenshots/9.png"  alt="schermata 9"  loading="lazy"></div>
-          <div class="gallery-item" data-idx="9"><img src="screenshots/10.png" alt="schermata 10" loading="lazy"></div>
-          <div class="gallery-item" data-idx="10"><img src="screenshots/11.png" alt="schermata 11" loading="lazy"></div>
+          <div class="gallery-item" data-idx="0"><img src="screenshots/1.png"  alt="schermata 1"  loading="lazy"><span class="screenshot-caption">inizia dalla pianta e dai dati essenziali del progetto</span></div>
+          <div class="gallery-item" data-idx="1"><img src="screenshots/2.png"  alt="schermata 2"  loading="lazy"><span class="screenshot-caption">imposta rapidamente ambiente, apparecchi e requisiti</span></div>
+          <div class="gallery-item" data-idx="2"><img src="screenshots/3.png"  alt="schermata 3"  loading="lazy"><span class="screenshot-caption">posiziona gli apparecchi direttamente sulla planimetria</span></div>
+          <div class="gallery-item" data-idx="3"><img src="screenshots/4.png"  alt="schermata 4"  loading="lazy"><span class="screenshot-caption">controlla i risultati mentre costruisci la verifica</span></div>
+          <div class="gallery-item" data-idx="4"><img src="screenshots/5.png"  alt="schermata 5"  loading="lazy"><span class="screenshot-caption">visualizza isolux e distribuzione della luce</span></div>
+          <div class="gallery-item" data-idx="5"><img src="screenshots/6.png"  alt="schermata 6"  loading="lazy"><span class="screenshot-caption">verifica la conformità senza ricopiare dati a mano</span></div>
+          <div class="gallery-item" data-idx="6"><img src="screenshots/7.png"  alt="schermata 7"  loading="lazy"><span class="screenshot-caption">gestisci scenari e apparecchi multipli nello stesso progetto</span></div>
+          <div class="gallery-item" data-idx="7"><img src="screenshots/8.png"  alt="schermata 8"  loading="lazy"><span class="screenshot-caption">usa grafici chiari per leggere e documentare il risultato</span></div>
+          <div class="gallery-item" data-idx="8"><img src="screenshots/9.png"  alt="schermata 9"  loading="lazy"><span class="screenshot-caption">prepara tavole e output utili alla relazione</span></div>
+          <div class="gallery-item" data-idx="9"><img src="screenshots/10.png" alt="schermata 10" loading="lazy"><span class="screenshot-caption">salva il progetto e riprendi il lavoro senza ricaricare tutto</span></div>
+          <div class="gallery-item" data-idx="10"><img src="screenshots/11.png" alt="schermata 11" loading="lazy"><span class="screenshot-caption">genera documenti pronti per revisione e consegna</span></div>
         </div>
       </div>
     </div>
@@ -558,6 +583,229 @@
   <button class="lightbox-next" id="lbNext" aria-label="Successiva">&#8250;</button>
   <span class="lightbox-counter" id="lbCounter"></span>
 </div>
+
+<!-- BENEFITS -->
+<section class="section" id="benefits" aria-label="Benefici">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <p class="section-label">benefici</p>
+      <h2 class="section-title">Meno passaggi manuali.<br><strong>Più controllo sulla consegna.</strong></h2>
+      <p class="section-desc">Il valore di LightCalc non è solo il calcolo: è ridurre il lavoro ripetitivo che separa una verifica da una relazione tecnica utilizzabile.</p>
+    </div>
+    <div class="benefits-grid">
+      <article class="benefit-card fade-up">
+        <p class="benefit-kicker">tempo</p>
+        <h3 class="benefit-title">Meno tempo tra verifica e relazione</h3>
+        <p class="benefit-desc">Porti nello stesso flusso planimetria, calcolo, grafici e documentazione, evitando passaggi separati tra strumenti diversi.</p>
+      </article>
+      <article class="benefit-card fade-up">
+        <p class="benefit-kicker">accuratezza</p>
+        <h3 class="benefit-title">Meno errori di trascrizione</h3>
+        <p class="benefit-desc">I dati usati per la verifica alimentano anche la relazione, riducendo copia-incolla, dimenticanze e incongruenze tra tavole e testo.</p>
+      </article>
+      <article class="benefit-card fade-up">
+        <p class="benefit-kicker">consegna</p>
+        <h3 class="benefit-title">Relazione pronta da rifinire</h3>
+        <p class="benefit-desc">Esporti PDF e DOCX con risultati, tabelle e riferimenti normativi, così puoi concentrarti sulla revisione professionale finale.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section section-alt" id="features" aria-label="Funzionalità">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <p class="section-label">funzionalità</p>
+      <h2 class="section-title">Funzioni tecniche,<br><strong>tradotte in lavoro risparmiato</strong></h2>
+      <p class="section-desc">Le funzioni restano specialistiche, ma sono pensate per togliere attrito dal percorso che porta alla relazione finale.</p>
+    </div>
+
+    <div class="features-grid">
+      <article class="feature-card fade-up">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="0"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="feature-title">verifiche rapide o dettagliate</h3>
+        <p class="feature-desc">Scegli tra flusso totale per controlli spediti e punto-per-punto con fotometria reale quando serve più dettaglio. Usi il livello di approfondimento giusto senza cambiare strumento.</p>
+        <span class="feature-tag">flusso totale + punto-per-punto</span>
+      </article>
+
+      <article class="feature-card fade-up">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 3-6 4 10"/><line x1="3" y1="21" x2="21" y2="21"/></svg>
+        </div>
+        <h3 class="feature-title">normativa italiana già nel flusso</h3>
+        <p class="feature-desc">UNI EN 12464-1, UNI EN 13201, UNI 11248 e 15 leggi regionali aiutano a non ricostruire ogni volta requisiti, riferimenti e dati da riportare in relazione.</p>
+        <span class="feature-tag">interni · stradale · regioni</span>
+      </article>
+
+      <article class="feature-card fade-up">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </div>
+        <h3 class="feature-title">emergenza documentabile</h3>
+        <p class="feature-desc">Gestisci area antipanico e vie di esodo sulla planimetria, così la verifica UNI EN 1838 entra nel pacchetto documentale invece di restare un controllo separato.</p>
+        <span class="feature-tag">antipanico · vie di esodo</span>
+      </article>
+
+      <article class="feature-card fade-up">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <h3 class="feature-title">fotometrie dei produttori</h3>
+        <p class="feature-desc">Importi file IES e LDT senza ricostruire manualmente la sorgente. LightCalc riconosce il formato dal contenuto e usa i dati fotometrici nel calcolo.</p>
+        <span class="feature-tag">IES · LDT · StripLED</span>
+      </article>
+
+      <article class="feature-card fade-up">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="0"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h3 class="feature-title">progetto riapribile</h3>
+        <p class="feature-desc">Il file JSON conserva geometria, fotometrie e disposizione. Puoi riprendere una verifica senza cercare di nuovo file e impostazioni.</p>
+        <span class="feature-tag">salvataggio progetto</span>
+      </article>
+
+      <article class="feature-card fade-up">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3 class="feature-title">documenti modificabili</h3>
+        <p class="feature-desc">PDF e DOCX sono generati insieme: hai un output presentabile e una versione modificabile per note, integrazioni e personalizzazioni di studio.</p>
+        <span class="feature-tag">PDF · DOCX</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WORK ANYWHERE -->
+<section class="section" id="browser" aria-label="Lavora ovunque">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <p class="section-label">web app</p>
+      <h2 class="section-title">Lavora ovunque.<br><strong>Ti serve solo un browser.</strong></h2>
+      <p class="section-desc">Nessuna installazione locale, nessuna licenza legata a una singola macchina, nessun aggiornamento da gestire manualmente.</p>
+    </div>
+    <div class="device-strip fade-up">
+      <div class="device-item"><strong>windows</strong>desktop</div>
+      <div class="device-item"><strong>macOS</strong>studio</div>
+      <div class="device-item"><strong>linux</strong>browser</div>
+      <div class="device-item"><strong>iPad</strong>tablet</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="section section-alt" id="trust" aria-label="Perché puoi fidarti">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <p class="section-label">affidabilità</p>
+      <h2 class="section-title">Progettato da chi lavora<br><strong>ogni giorno con queste relazioni.</strong></h2>
+      <p class="section-desc">LightCalc nasce da esigenze di studio reali: ridurre attività ripetitive, mantenere tracciabilità e rendere più ordinata la verifica.</p>
+    </div>
+    <div class="trust-grid">
+      <article class="trust-card fade-up">
+        <p class="trust-kicker">origine</p>
+        <h3 class="trust-title">Sviluppato da un architetto</h3>
+        <p class="trust-desc">Le scelte di prodotto partono dal lavoro quotidiano su elaborati, verifiche e relazioni da consegnare.</p>
+      </article>
+      <article class="trust-card fade-up">
+        <p class="trust-kicker">controlli</p>
+        <h3 class="trust-title">Oltre 100 controlli automatici</h3>
+        <p class="trust-desc">Il motore e gli output sono protetti da test su calcolo, emergenza, parsing fotometrico e generazione documenti.</p>
+      </article>
+      <article class="trust-card fade-up">
+        <p class="trust-kicker">norme</p>
+        <h3 class="trust-title">Normativa italiana integrata</h3>
+        <p class="trust-desc">Requisiti e riferimenti sono pensati per rendere più verificabile il passaggio dalla norma alla relazione tecnica.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section" id="comparison" aria-label="Confronto con DIALux">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <p class="section-label">posizionamento</p>
+      <h2 class="section-title">Non sostituisce DIALux.<br><strong>Risolve un problema diverso.</strong></h2>
+      <p class="section-desc">DIALux e Relux sono strumenti potenti per simulazione e progettazione avanzata. LightCalc è pensato per il percorso rapido da PDF della pianta a relazione tecnica.</p>
+    </div>
+    <div class="comparison-table fade-up">
+      <div class="comparison-row comparison-head">
+        <div class="comparison-cell">esigenza</div>
+        <div class="comparison-cell">DIALux / Relux</div>
+        <div class="comparison-cell">C/G LightCalc</div>
+      </div>
+      <div class="comparison-row">
+        <div class="comparison-cell"><strong>modellazione avanzata</strong></div>
+        <div class="comparison-cell">adatti a simulazioni complete e ambienti complessi</div>
+        <div class="comparison-cell">non nasce per sostituire un ambiente CAD o BIM</div>
+      </div>
+      <div class="comparison-row">
+        <div class="comparison-cell"><strong>verifica rapida da planimetria</strong></div>
+        <div class="comparison-cell">richiede più preparazione del modello</div>
+        <div class="comparison-cell">parte dalla pianta PDF e concentra il flusso sulla verifica</div>
+      </div>
+      <div class="comparison-row">
+        <div class="comparison-cell"><strong>relazione tecnica</strong></div>
+        <div class="comparison-cell">richiede spesso lavoro di composizione e integrazione</div>
+        <div class="comparison-cell">genera PDF e DOCX con grafici, tabelle e riferimenti normativi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="section section-alt" id="audience" aria-label="Per chi è">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <p class="section-label">per chi è</p>
+      <h2 class="section-title">Uno strumento pratico<br><strong>per verifiche e relazioni.</strong></h2>
+      <p class="section-desc">LightCalc è utile quando il risultato atteso è una verifica documentata, non una modellazione architettonica completa.</p>
+    </div>
+    <div class="audience-grid">
+      <article class="audience-card fade-up">
+        <h3 class="audience-title">LightCalc è ideale per</h3>
+        <ul class="audience-list" role="list">
+          <li><span class="audience-mark">✓</span> architetti</li>
+          <li><span class="audience-mark">✓</span> ingegneri</li>
+          <li><span class="audience-mark">✓</span> progettisti illuminotecnici</li>
+          <li><span class="audience-mark">✓</span> periti</li>
+          <li><span class="audience-mark">✓</span> studi tecnici</li>
+        </ul>
+      </article>
+      <article class="audience-card fade-up">
+        <h3 class="audience-title">Non è pensato per</h3>
+        <ul class="audience-list" role="list">
+          <li><span class="audience-mark audience-mark--no">×</span> modellazione BIM</li>
+          <li><span class="audience-mark audience-mark--no">×</span> progettazione CAD completa</li>
+          <li><span class="audience-mark audience-mark--no">×</span> rendering fotorealistici</li>
+          <li><span class="audience-mark audience-mark--no">×</span> simulazioni architettoniche avanzate</li>
+          <li><span class="audience-mark audience-mark--no">×</span> calcolo numerico completo dell'UGR</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section" id="story" aria-label="Perché è nato LightCalc">
+  <div class="container">
+    <div class="story-grid">
+      <article class="story-card fade-up">
+        <p class="section-label">storia</p>
+        <h2 class="story-title">Perché è nato LightCalc</h2>
+        <p class="story-desc">LightCalc è nato da una necessità molto pratica: ridurre il tempo perso nelle operazioni ripetitive che accompagnano una verifica illuminotecnica.</p>
+        <p class="story-desc">Nel lavoro di studio, spesso il problema non è solo calcolare, ma passare dalla planimetria alla relazione senza dover ricopiare dati, ricostruire tabelle, preparare grafici separati e controllare ogni riferimento a mano.</p>
+        <p class="story-desc">Da architetto, volevo uno strumento che seguisse il modo reale in cui preparo una verifica: carico la pianta, imposto il progetto, controllo i risultati e genero un documento tecnico da rivedere e consegnare.</p>
+        <p class="story-desc">Essendo una web app, posso usarlo ovunque mi trovi: in studio, in cantiere, da un portatile o da iPad. Basta una connessione internet.</p>
+        <p class="story-desc">LightCalc nasce per questo: togliere attrito al lavoro, senza togliere responsabilità al progettista.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
 <!-- PRICING -->
 <section class="section section-alt" id="pricing" aria-label="Prezzi">
@@ -587,6 +835,11 @@
           </div>
         </div>
         <div class="pricing-body">
+          <div class="pricing-value">
+            <h3 class="pricing-value-title">Un investimento che si ripaga rapidamente.</h3>
+            <p class="pricing-value-text">Se LightCalc ti evita anche solo parte del tempo normalmente necessario per preparare una relazione tecnica, il valore recuperato può superare il costo dell'abbonamento.</p>
+          </div>
+
           <ul class="feature-list" role="list">
             <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>doppio motore: flusso totale + punto-per-punto con fotometria reale</li>
             <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>uni en&nbsp;12464-1 con 23 destinazioni d'uso · uni en&nbsp;13201 + uni 11248</li>
@@ -611,15 +864,88 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="section" id="faq" aria-label="Domande frequenti">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <p class="section-label">faq</p>
+      <h2 class="section-title">Le domande prima<br><strong>di abbonarsi.</strong></h2>
+      <p class="section-desc">Le risposte essenziali per acquistare con consapevolezza e capire se LightCalc è adatto al tuo modo di lavorare.</p>
+    </div>
+    <div class="faq-list">
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">LightCalc sostituisce DIALux o Relux?</h3>
+        <p class="faq-answer">No. DIALux e Relux restano strumenti ideali per simulazioni complete e modellazione avanzata. LightCalc serve quando vuoi partire da una planimetria PDF e arrivare rapidamente a una verifica documentata e a una relazione tecnica.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">È adatto a un utilizzo professionale?</h3>
+        <p class="faq-answer">Sì. LightCalc è pensato per professionisti che devono produrre verifiche e documentazione tecnica in modo ordinato. Non sostituisce il giudizio del progettista, ma riduce passaggi manuali ed errori di trascrizione.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">Devo installare un software?</h3>
+        <p class="faq-answer">No. LightCalc funziona da browser: non devi installare programmi, gestire licenze locali o aggiornare manualmente il software.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">Funziona su Windows, Mac e iPad?</h3>
+        <p class="faq-answer">Sì. LightCalc è progettato per browser moderni su Windows, macOS e iPad. Puoi lavorare da studio, portatile o tablet senza dipendere da una singola postazione.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">Posso partire da una planimetria PDF?</h3>
+        <p class="faq-answer">Sì. Il flusso è pensato proprio per usare la planimetria PDF come base di lavoro, calibrare il progetto e produrre una verifica leggibile e documentabile.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">La relazione è esportabile in PDF e DOCX?</h3>
+        <p class="faq-answer">Sì. LightCalc genera una relazione in PDF e una versione DOCX modificabile, così puoi consegnare un documento ordinato e mantenere un file editabile per revisioni e personalizzazioni.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">Posso usare file fotometrici IES e LDT?</h3>
+        <p class="faq-answer">Sì. LightCalc importa fotometrie IES e LDT, così puoi lavorare con dati dei produttori senza ricostruire manualmente la sorgente luminosa.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">Quali normative sono integrate?</h3>
+        <p class="faq-answer">LightCalc supporta verifiche legate a UNI EN 12464-1, UNI EN 13201, UNI 11248, UNI EN 1838 e include riferimenti a 15 leggi regionali anti-inquinamento luminoso utili alla relazione.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">LightCalc calcola l'UGR?</h3>
+        <p class="faq-answer">No. L'UGR è indicato come requisito di riferimento quando previsto, ma non viene calcolato numericamente. Questa scelta è dichiarata con trasparenza per evitare aspettative errate.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">Posso salvare e riaprire un progetto?</h3>
+        <p class="faq-answer">Sì. Puoi salvare il progetto in formato JSON con geometria, fotometrie e disposizione degli apparecchi, così riprendi il lavoro senza ricostruire le impostazioni.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">I miei dati e progetti sono sotto controllo?</h3>
+        <p class="faq-answer">LightCalc è pensato per ridurre dipendenze locali e mantenere il progetto esportabile. Il salvataggio in JSON ti permette di conservare una copia del lavoro e riutilizzarla nelle sessioni successive.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">Che cosa significa Founding Member?</h3>
+        <p class="faq-answer">È l'offerta di lancio per chi entra entro il 12 agosto 2026: LightCalc Pro a 79 €/anno invece di 119 €/anno, con prezzo bloccato finché l'abbonamento rimane attivo.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">Il prezzo resta davvero bloccato?</h3>
+        <p class="faq-answer">Sì. Per i Founding Member il prezzo resta 79 €/anno finché l'abbonamento rimane attivo. Se l'abbonamento viene disattivato e riattivato in futuro, potrà valere il prezzo corrente.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">Come funziona il rinnovo annuale?</h3>
+        <p class="faq-answer">L'abbonamento si rinnova annualmente. Puoi disattivare il rinnovo automatico in qualsiasi momento dalla gestione dell'abbonamento, mantenendo l'accesso fino alla fine del periodo pagato.</p>
+      </article>
+      <article class="faq-item fade-up">
+        <h3 class="faq-question">Cosa succede dopo il pagamento?</h3>
+        <p class="faq-answer">Dopo l'abbonamento ricevi le istruzioni per l'accesso e puoi iniziare a usare LightCalc Pro. Per dubbi o attivazione puoi contattare direttamente il supporto indicato nella pagina.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section" aria-label="Chiamata all'azione">
   <div class="cta-slash" aria-hidden="true"></div>
   <div class="container" style="position:relative">
-    <h2 class="cta-title">c<span class="sl">/</span>g lightcalc.<br><strong>Nato sul campo.</strong></h2>
+    <h2 class="cta-title">Dalla verifica alla relazione.<br><strong>Senza ricominciare da zero.</strong></h2>
     <p class="cta-desc">Offerta Founding Member: €79/anno a vita per chi si iscrive entro il 12 agosto 2026.</p>
     <a href="#pricing" class="btn-primary" style="margin:0 auto;display:inline-flex;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      abbonati ora
+      prova lightcalc
     </a>
   </div>
 </section>
