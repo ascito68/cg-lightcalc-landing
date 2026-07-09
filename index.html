@@ -360,7 +360,8 @@
     .price-currency { font-size: 1.2rem; font-weight: 300; color: var(--cg-tortora-mid); margin-top: 1rem; }
     .price-amount { font-size: 5rem; font-weight: 200; color: var(--cg-bianco); line-height: 1; letter-spacing: -0.045em; }
     .price-period { font-size: .78rem; color: rgba(255,255,255,.30); align-self: flex-end; margin-bottom: .7rem; letter-spacing: .06em; }
-    .price-original { font-size: .82rem; font-weight: 300; color: rgba(255,255,255,.30); text-decoration: line-through; text-align: center; margin-bottom: .3rem; letter-spacing: .02em; }
+    .price-original { font-size: .78rem; font-weight: 300; color: rgba(255,255,255,.38); text-align: center; margin-bottom: .3rem; letter-spacing: .02em; }
+    .price-original .old-price { text-decoration: line-through; }
     .price-note { font-size: .76rem; color: rgba(255,255,255,.42); font-weight: 400; line-height: 1.65; max-width: 340px; margin: 0 auto; }
     .saving-badge { display: inline-flex; align-items: center; justify-content: center; margin: .45rem auto 1.05rem; padding: .34rem .9rem; border: 1px solid rgba(90,138,106,.38); background: rgba(90,138,106,.12); color: #9fd2ad; font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: lowercase; }
     .trial-pill { display: inline-flex; align-items: center; gap: .38rem; margin-top: 1.25rem; background: rgba(90,138,106,.08); border: 1px solid rgba(90,138,106,.26); color: #8abf9a; font-size: .7rem; font-weight: 400; letter-spacing: .06em; text-transform: lowercase; padding: .28rem .8rem; }
@@ -369,6 +370,8 @@
     .pricing-value { background: var(--cg-soft); border: 1px solid var(--cg-border); padding: 1.25rem 1.35rem; margin-bottom: 1.6rem; }
     .pricing-value-title { font-size: .86rem; font-weight: 700; color: var(--cg-nero); margin-bottom: .4rem; }
     .pricing-value-text { font-size: .8rem; color: var(--cg-fg-muted); line-height: 1.65; font-weight: 400; }
+    .checkout-title, .included-title { font-size: .78rem; font-weight: 700; color: var(--cg-nero); letter-spacing: .10em; text-transform: lowercase; text-align: center; margin-bottom: 1rem; }
+    .included-title { margin-top: 2.1rem; text-align: left; }
     .feature-list { list-style: none; margin-bottom: 2rem; }
     .feature-list li { display: flex; align-items: flex-start; gap: .7rem; padding: .6rem 0; border-bottom: 1px solid var(--cg-border); font-size: .86rem; color: var(--cg-nero); font-weight: 400; text-transform: lowercase; letter-spacing: .01em; }
     .feature-list li:last-child { border-bottom: none; }
@@ -821,14 +824,14 @@
         <div class="pricing-top">
           <div class="promo-pill">offerta founding member</div>
           <p class="plan-name">LightCalc Pro</p>
-          <p class="price-original">€ 119 / anno</p>
-          <div class="saving-badge">risparmi €40/anno</div>
           <div class="price-row">
             <span class="price-currency">€</span>
             <span class="price-amount">79</span>
             <span class="price-period">/anno</span>
           </div>
-          <p class="price-note">Offerta Founding Member · 79 €/anno a vita per chi si iscrive entro il 12 agosto 2026. Il prezzo resta invariato finché l'abbonamento rimane attivo.</p>
+          <p class="price-original">prezzo ufficiale dopo il lancio: <span class="old-price">€ 119 / anno</span></p>
+          <div class="saving-badge">risparmi €40/anno</div>
+          <p class="price-note">79 €/anno a vita se ti iscrivi entro il 12 agosto 2026.<br>Il prezzo resta bloccato finché l'abbonamento rimane attivo.</p>
           <div class="trial-pill">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             un solo piano annuale — tutto incluso
@@ -840,6 +843,16 @@
             <p class="pricing-value-text">Se LightCalc ti evita anche solo parte del tempo normalmente necessario per preparare una relazione tecnica, il valore recuperato può superare il costo dell'abbonamento.</p>
           </div>
 
+          <div class="paypal-form" aria-label="Abbonati con PayPal">
+            <h3 class="checkout-title">Attiva LightCalc Pro con PayPal</h3>
+            <div id="paypal-button-container-P-5U875098UL3621449NJHWXJQ" class="paypal-buttons"></div>
+            <p class="paypal-trust">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              pagamento sicuro &nbsp;·&nbsp; rinnovo annuale &nbsp;·&nbsp; puoi disattivare il rinnovo automatico in qualsiasi momento
+            </p>
+          </div>
+
+          <h3 class="included-title">cosa è incluso</h3>
           <ul class="feature-list" role="list">
             <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>doppio motore: flusso totale + punto-per-punto con fotometria reale</li>
             <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>uni en&nbsp;12464-1 con 23 destinazioni d'uso · uni en&nbsp;13201 + uni 11248</li>
@@ -850,14 +863,6 @@
             <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>report pdf e docx con grafici, tabelle di conformità e citazioni normative</li>
             <li><span class="check-circle" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>aggiornamenti inclusi · supporto tecnico via email</li>
           </ul>
-
-          <div class="paypal-form" aria-label="Abbonati con PayPal">
-            <div id="paypal-button-container-P-5U875098UL3621449NJHWXJQ" class="paypal-buttons"></div>
-            <p class="paypal-trust">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              pagamento sicuro &nbsp;·&nbsp; rinnovo annuale &nbsp;·&nbsp; puoi disattivare il rinnovo automatico in qualsiasi momento
-            </p>
-          </div>
         </div>
       </div>
     </div>
