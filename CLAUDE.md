@@ -57,7 +57,7 @@ Correzioni già applicate, da non invertire:
 - **IRM Spencer** = calcola la **componente riflessa della luce artificiale** (interriflessioni su pareti/soffitto/pavimento). NON è luce solare/naturale. Solo interni, metodo punto-per-punto.
 - **Ra** non è calcolata dall'app: viene riportata in relazione dal datasheet del costruttore.
 - L'app **non calcola luce naturale/solare**.
-- Verifiche: EN 12464-1 (interni) + EN 13201 / UNI 11248 (stradale) + EN 1838 (emergenza) + IRM Spencer (componente riflessa, solo interni) + 15 leggi regionali anti-inquinamento luminoso.
+- Verifiche: EN 12464-1 (interni) + EN 13201 / UNI 11248 (stradale) + EN 1838 (emergenza) + IRM Spencer (componente riflessa, solo interni) + 19 leggi regionali anti-inquinamento luminoso.
 
 ## Pricing
 
