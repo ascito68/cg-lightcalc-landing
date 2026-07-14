@@ -181,6 +181,24 @@
       gap: 1rem; flex-wrap: wrap;
     }
     .section-cta-note { font-size: .78rem; color: var(--cg-fg-muted); letter-spacing: .04em; text-transform: lowercase; }
+    .video-frame {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--cg-nero);
+      border: 1px solid var(--cg-border);
+    }
+    .video-frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
 
     /* ── WORKFLOW / CONVERSION SECTIONS ── */
     .workflow-grid {
@@ -389,7 +407,9 @@
 
     .paypal-form { text-align: center; min-height: 54px; }
     .paypal-buttons { min-height: 54px; }
-    .paypal-trust { margin-top: .8rem; font-size: .7rem; color: var(--cg-fg-subtle); display: flex; align-items: center; justify-content: center; gap: .35rem; line-height: 1.5; text-transform: lowercase; letter-spacing: .04em; }
+    .paypal-trust { margin: .9rem auto 0; max-width: 360px; font-size: .7rem; color: var(--cg-fg-subtle); display: flex; align-items: flex-start; justify-content: center; gap: .45rem; line-height: 1.55; text-transform: lowercase; letter-spacing: .04em; text-align: left; }
+    .paypal-trust svg { flex: 0 0 auto; margin-top: .15rem; }
+    .paypal-trust span { display: block; min-width: 0; }
     .paypal-next { margin-top: .75rem; font-size: .74rem; color: var(--cg-fg-muted); line-height: 1.55; font-weight: 400; }
 
     /* ── CTA ── */
@@ -906,6 +926,26 @@
   </div>
 </section>
 
+<!-- VIDEO TUTORIAL -->
+<section class="section section-alt" id="tutorial" aria-label="Video tutorial LightCalc">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <p class="section-label">tutorial</p>
+      <h2 class="section-title">Guarda come funziona <strong>LightCalc</strong></h2>
+      <p class="section-desc">Una guida rapida per eseguire la tua prima verifica illuminotecnica.</p>
+    </div>
+    <div class="video-frame fade-up">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/7PQvcMr7F5Q"
+        title="LightCalc - Guida rapida all'uso"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="section section-alt" id="pricing" aria-label="Prezzi">
   <div class="container">
@@ -944,7 +984,7 @@
             <div id="paypal-button-container-P-5U875098UL3621449NJHWXJQ" class="paypal-buttons"></div>
             <p class="paypal-trust">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              pagamento sicuro &nbsp;·&nbsp; rinnovo annuale &nbsp;·&nbsp; puoi disattivare il rinnovo automatico in qualsiasi momento
+              <span>pagamento sicuro &nbsp;·&nbsp; rinnovo annuale &nbsp;·&nbsp; puoi disattivare il rinnovo automatico in qualsiasi momento</span>
             </p>
             <p class="paypal-next">Dopo l'abbonamento ricevi le istruzioni di accesso via email entro due ore dalla sottoscrizione.</p>
           </div>
@@ -1097,8 +1137,9 @@
       <li><a href="#features">funzionalità</a></li>
       <li><a href="#screenshots">screenshot</a></li>
       <li><a href="#pricing">prezzi</a></li>
-      <li><a href="mailto:info.lightcalc@gmail.com">supporto</a></li>
+      <li><a href="mailto:assistenza@stefanocibelli.it">supporto</a></li>
       <li><a href="privacy.html">privacy policy</a></li>
+      <li><a href="cookie.html">cookie policy</a></li>
     </ul>
   </div>
 </footer>
@@ -1120,7 +1161,7 @@
         });
       },
       onApprove: function(data) {
-        window.location.href = 'mailto:info.lightcalc@gmail.com?subject=C/G%20LightCalc%20-%20abbonamento%20attivato&body=Subscription%20ID:%20' + encodeURIComponent(data.subscriptionID);
+        window.location.href = 'mailto:assistenza@stefanocibelli.it?subject=C/G%20LightCalc%20-%20abbonamento%20attivato&body=Subscription%20ID:%20' + encodeURIComponent(data.subscriptionID);
       }
     }).render(paypalContainerId);
   }
