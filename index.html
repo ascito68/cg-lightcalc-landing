@@ -163,71 +163,6 @@
     }
     .btn-outline:hover { border-color: rgba(212,200,176,.48); color: var(--cg-bianco); }
 
-    /* ── ACCESS CTA + NOTE ── */
-    .access-note {
-      margin-top: .9rem; font-size: .78rem; color: var(--cg-fg-muted);
-      max-width: 420px; line-height: 1.6;
-    }
-    .access-note--light { color: rgba(255,255,255,.42); }
-    .access-cta-wrap { display: flex; flex-direction: column; align-items: center; }
-
-    /* ── MODAL: avvio LightCalc ── */
-    .modal-overlay {
-      display: none; position: fixed; inset: 0; z-index: 10000;
-      background: rgba(26,23,20,.72);
-      align-items: center; justify-content: center;
-      padding: 1.25rem;
-    }
-    .modal-overlay.is-open { display: flex; }
-    .modal-box {
-      background: var(--cg-bianco);
-      max-width: 460px; width: 100%;
-      padding: 2.25rem 2rem 2rem;
-      position: relative;
-      max-height: 90vh; overflow-y: auto;
-    }
-    .modal-close {
-      position: absolute; top: 1rem; right: 1rem;
-      background: none; border: none; cursor: pointer;
-      color: var(--cg-fg-muted); font-size: 1.4rem; line-height: 1;
-      padding: .3rem .5rem;
-    }
-    .modal-close:hover { color: var(--cg-nero); }
-    .modal-title {
-      font-size: 1.3rem; font-weight: 700; color: var(--cg-nero);
-      margin-bottom: 1rem; letter-spacing: -0.01em; padding-right: 1.5rem;
-    }
-    .modal-text {
-      font-size: .9rem; color: var(--cg-nero); line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-    .modal-note {
-      font-size: .8rem; color: var(--cg-fg-muted); line-height: 1.6;
-      margin-bottom: 1.6rem; border-left: 2px solid var(--cg-tortora-mid);
-      padding-left: .8rem;
-    }
-    .modal-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
-    .modal-btn-primary {
-      display: inline-flex; align-items: center; justify-content: center; gap: .45rem;
-      background: var(--cg-nero); color: var(--cg-bianco);
-      font-size: .82rem; font-weight: 700; padding: .82rem 1.6rem;
-      border: none; cursor: pointer; transition: background .2s;
-      letter-spacing: .04em; text-transform: lowercase;
-    }
-    .modal-btn-primary:hover { background: var(--cg-nero-deep); }
-    .modal-btn-secondary {
-      display: inline-flex; align-items: center; justify-content: center;
-      background: transparent; color: var(--cg-fg-muted);
-      font-size: .82rem; font-weight: 400; padding: .82rem 1.6rem;
-      border: 1px solid var(--cg-border-mid); cursor: pointer;
-      letter-spacing: .04em; text-transform: lowercase; transition: border-color .2s, color .2s;
-    }
-    .modal-btn-secondary:hover { border-color: var(--cg-nero); color: var(--cg-nero); }
-    @media (max-width: 480px) {
-      .modal-actions { flex-direction: column; }
-      .modal-btn-primary, .modal-btn-secondary { width: 100%; }
-    }
-
     .hero-stats {
       display: flex; justify-content: center; flex-wrap: wrap;
       padding-top: 3rem; border-top: 1px solid rgba(212,200,176,.09);
@@ -1144,38 +1079,6 @@
   </div>
 </section>
 
-<!-- ACCESSO -->
-<section class="section section-alt" id="accesso" aria-label="Accedi a LightCalc">
-  <div class="container">
-    <div class="section-header section-header--center fade-up">
-      <p class="section-label">accesso</p>
-      <h2 class="section-title">Sei già abbonato?<br><strong>Accedi a LightCalc.</strong></h2>
-      <p class="section-desc" style="margin:0 auto;">Se hai già attivato l'abbonamento, entra direttamente nell'applicazione dal pulsante qui sotto.</p>
-    </div>
-    <div class="access-cta-wrap fade-up">
-      <button type="button" class="btn-primary" id="accessOpenModalBtn">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        accedi a lightcalc
-      </button>
-      <p class="access-note">Il primo accesso dopo alcune ore di inattività può richiedere fino a 1-2 minuti.</p>
-    </div>
-  </div>
-</section>
-
-<!-- MODAL: avvio LightCalc -->
-<div class="modal-overlay" id="accessModal" role="dialog" aria-modal="true" aria-labelledby="accessModalTitle">
-  <div class="modal-box">
-    <button type="button" class="modal-close" id="accessModalClose" aria-label="Chiudi">&#215;</button>
-    <h3 class="modal-title" id="accessModalTitle">Avvio di LightCalc</h3>
-    <p class="modal-text">Dopo un periodo di inattività, LightCalc può richiedere alcuni istanti per avviarsi. Se compare la schermata di riattivazione, premi «Yes, get this app back up!» e attendi il caricamento. È una normale procedura di avvio, non un errore dell'applicazione.</p>
-    <p class="modal-note">Se la pagina non si aggiorna automaticamente, ricaricala dopo circa un minuto.</p>
-    <div class="modal-actions">
-      <a href="https://lightcalc.streamlit.app/" target="_blank" rel="noopener" class="modal-btn-primary" id="accessModalConfirm">avvia lightcalc</a>
-      <button type="button" class="modal-btn-secondary" id="accessModalCancel">annulla</button>
-    </div>
-  </div>
-</div>
-
 <!-- FAQ -->
 <section class="section" id="faq" aria-label="Domande frequenti">
   <div class="container">
@@ -1256,10 +1159,6 @@
       <article class="faq-item fade-up">
         <h3 class="faq-question">Il supporto è incluso?</h3>
         <p class="faq-answer">Sì. Il supporto via email è incluso per problemi legati all'utilizzo di LightCalc o a eventuali mancati funzionamenti del servizio.</p>
-      </article>
-      <article class="faq-item fade-up">
-        <h3 class="faq-question">Perché LightCalc può richiedere qualche istante al primo accesso?</h3>
-        <p class="faq-answer">Dopo un periodo senza accessi, il servizio può entrare temporaneamente in pausa. Premi «Yes, get this app back up!» nella schermata di riattivazione e attendi 1-2 minuti. Questa procedura non modifica il tuo account o abbonamento.</p>
       </article>
     </div>
   </div>
@@ -1504,42 +1403,6 @@
     const dx = e.changedTouches[0].clientX - tsX;
     if (Math.abs(dx) > 50) lbShow(dx < 0 ? lbIdx + 1 : lbIdx - 1);
   });
-
-  /* ── MODAL: avvio LightCalc ── */
-  const accessModal = document.getElementById('accessModal');
-  const accessOpenBtn = document.getElementById('accessOpenModalBtn');
-  const accessCloseBtn = document.getElementById('accessModalClose');
-  const accessCancelBtn = document.getElementById('accessModalCancel');
-  let accessLastFocused = null;
-
-  function accessModalOpen() {
-    accessLastFocused = document.activeElement;
-    accessModal.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-    accessCloseBtn.focus();
-  }
-  function accessModalClose() {
-    accessModal.classList.remove('is-open');
-    document.body.style.overflow = '';
-    if (accessLastFocused) accessLastFocused.focus();
-  }
-
-  if (accessOpenBtn && accessModal) {
-    accessOpenBtn.addEventListener('click', accessModalOpen);
-    accessCloseBtn.addEventListener('click', accessModalClose);
-    accessCancelBtn.addEventListener('click', accessModalClose);
-    accessModal.addEventListener('click', e => { if (e.target === accessModal) accessModalClose(); });
-    document.addEventListener('keydown', e => {
-      if (!accessModal.classList.contains('is-open')) return;
-      if (e.key === 'Escape') accessModalClose();
-      if (e.key === 'Tab') {
-        const focusable = accessModal.querySelectorAll('button, a[href]');
-        const first = focusable[0], last = focusable[focusable.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
-    });
-  }
 </script>
 
 </body>
