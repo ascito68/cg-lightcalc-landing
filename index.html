@@ -133,6 +133,16 @@
     .norm-pill .ck { color: var(--cg-tortora-mid); }
 
     .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: .85rem; margin-bottom: 5rem; }
+    .hero-access-note {
+      max-width: 420px;
+      margin: -3.8rem auto 4.8rem;
+      color: rgba(255,255,255,.36);
+      font-size: .76rem;
+      line-height: 1.6;
+      font-weight: 400;
+      letter-spacing: .02em;
+      text-align: center;
+    }
 
     .btn-primary {
       display: inline-flex; align-items: center; gap: .45rem;
@@ -477,6 +487,55 @@
     .paypal-trust span { display: block; min-width: 0; }
     .paypal-next { margin-top: .75rem; font-size: .74rem; color: var(--cg-fg-muted); line-height: 1.55; font-weight: 400; }
 
+    /* ── ACCESS MODAL ── */
+    .access-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .access-modal.is-open { display: flex; }
+    .access-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(26,23,20,.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .access-modal-panel {
+      position: relative;
+      width: min(100%, 560px);
+      max-height: min(86vh, 680px);
+      overflow: auto;
+      background: var(--cg-bianco);
+      border: 1px solid var(--cg-border-mid);
+      box-shadow: 0 24px 80px rgba(26,23,20,.22);
+      padding: 2.4rem;
+      color: var(--cg-nero);
+    }
+    .access-modal-close {
+      position: absolute;
+      top: .9rem;
+      right: .9rem;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--cg-border);
+      background: var(--cg-soft);
+      color: var(--cg-nero);
+      cursor: pointer;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+    .access-modal-label { color: var(--cg-tortora-deep); font-size: .62rem; letter-spacing: .16em; text-transform: lowercase; margin-bottom: .75rem; }
+    .access-modal-title { font-size: clamp(1.8rem, 4vw, 2.45rem); font-weight: 700; line-height: 1.05; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .access-modal-text, .access-modal-note { color: var(--cg-fg-muted); font-size: .94rem; line-height: 1.78; font-weight: 400; }
+    .access-modal-note { margin-top: 1rem; padding: 1rem 1.1rem; background: var(--cg-soft); border: 1px solid var(--cg-border); }
+    .access-modal-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.6rem; }
+    .access-modal-actions .btn-primary, .access-modal-actions .btn-outline { width: auto; }
+
     /* ── CTA ── */
     .cta-section { background: var(--cg-nero-deep); padding: 112px var(--bx); text-align: center; position: relative; overflow: hidden; }
     .cta-slash { position: absolute; left: 50%; top: 50%; width: 140vmin; height: 140vmin; transform: translate(-50%,-50%) rotate(70deg); pointer-events: none; }
@@ -558,7 +617,11 @@
       .section { padding: 80px 1.5rem; }
       .hero { padding: 120px 1.5rem 80px; }
       .hero-actions { flex-direction: column; align-items: center; }
+      .hero-access-note { margin-top: -3.6rem; margin-bottom: 4.4rem; }
       .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+      .access-modal { padding: 1rem; }
+      .access-modal-panel { padding: 2rem 1.35rem 1.45rem; }
+      .access-modal-actions { flex-direction: column; }
     }
     @media (max-width: 768px) {
       .nav-links.nav-open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(26,23,20,.98); padding: 1.5rem var(--bx); gap: 1.1rem; border-bottom: 1px solid rgba(212,200,176,.10); }
@@ -615,6 +678,10 @@
     </ul>
 
     <div class="hero-actions">
+      <a href="https://lightcalc.streamlit.app/" class="btn-primary js-lightcalc-access">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        Accedi a LightCalc
+      </a>
       <a href="#pricing" class="btn-primary">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         attiva lightcalc pro
@@ -624,6 +691,7 @@
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
       </a>
     </div>
+    <p class="hero-access-note">Il primo accesso dopo alcune ore di inattività può richiedere fino a 1-2 minuti.</p>
 
     <div class="hero-stats" aria-label="Cifre chiave">
       <div class="stat"><span class="stat-value">en 12464-1</span><span class="stat-label">illuminazione interni</span></div>
@@ -1162,6 +1230,10 @@
         <p class="faq-answer">Sì. Puoi salvare il progetto in formato JSON con geometria, fotometrie e disposizione degli apparecchi, così riprendi il lavoro senza ricostruire le impostazioni.</p>
       </article>
       <article class="faq-item fade-up">
+        <h3 class="faq-question">Perché LightCalc può richiedere qualche istante al primo accesso?</h3>
+        <p class="faq-answer">Dopo un periodo senza accessi, il servizio può entrare temporaneamente in pausa. Premi «Yes, get this app back up!» nella schermata di riattivazione e attendi 1-2 minuti. Questa procedura non modifica il tuo account o abbonamento.</p>
+      </article>
+      <article class="faq-item fade-up">
         <h3 class="faq-question">I miei dati e progetti sono sotto controllo?</h3>
         <p class="faq-answer">I file caricati sono gestiti dal professionista che li utilizza: vengono lavorati e salvati sul terminale del progettista tramite progetto esportabile. È un approccio semplice e coerente con i principi di controllo e minimizzazione dei dati richiamati dal GDPR.</p>
       </article>
@@ -1254,6 +1326,21 @@
   </div>
 </footer>
 
+<div class="access-modal" id="lightcalcAccessModal" role="dialog" aria-modal="true" aria-labelledby="accessModalTitle" aria-describedby="accessModalDesc" hidden>
+  <div class="access-modal-backdrop" data-access-close aria-hidden="true"></div>
+  <div class="access-modal-panel" tabindex="-1">
+    <button class="access-modal-close" type="button" data-access-close aria-label="Chiudi finestra">×</button>
+    <p class="access-modal-label">accesso</p>
+    <h2 class="access-modal-title" id="accessModalTitle">Avvio di LightCalc</h2>
+    <p class="access-modal-text" id="accessModalDesc">Dopo un periodo di inattività, LightCalc può richiedere alcuni istanti per avviarsi. Se compare la schermata di riattivazione, premi «Yes, get this app back up!» e attendi il caricamento. È una normale procedura di avvio, non un errore dell'applicazione.</p>
+    <p class="access-modal-note">Se la pagina non si aggiorna automaticamente, ricaricala dopo circa un minuto.</p>
+    <div class="access-modal-actions">
+      <a class="btn-primary" id="accessModalLaunch" href="https://lightcalc.streamlit.app/" target="_blank" rel="noopener">Avvia LightCalc</a>
+      <button class="btn-outline" type="button" data-access-close>Annulla</button>
+    </div>
+  </div>
+</div>
+
 <script src="https://www.paypal.com/sdk/js?client-id=BAAWopI2D5c4L-7SRxcbb4ggOliPXj88OaFEF6_8KF_r7ReBCInubKYr7YKquWe8aBMtwngcu0iK1jhftg&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
   const paypalContainerId = '#paypal-button-container-P-5U875098UL3621449NJHWXJQ';
@@ -1301,6 +1388,65 @@
       heroSlash.style.transform = `translate(-50%,-50%) rotate(${70 + window.scrollY * 0.015}deg)`;
     }, { passive: true });
   }
+
+  const lightcalcAccessUrl = 'https://lightcalc.streamlit.app/';
+  const accessModal = document.getElementById('lightcalcAccessModal');
+  const accessPanel = accessModal?.querySelector('.access-modal-panel');
+  const accessLaunch = document.getElementById('accessModalLaunch');
+  const accessTriggers = document.querySelectorAll(`a[href="${lightcalcAccessUrl}"]:not(#accessModalLaunch)`);
+  const accessCloseControls = accessModal?.querySelectorAll('[data-access-close]') || [];
+  let accessLastFocus = null;
+
+  function getAccessFocusable() {
+    return accessModal ? Array.from(accessModal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')) : [];
+  }
+
+  function openAccessModal(event) {
+    event.preventDefault();
+    accessLastFocus = document.activeElement;
+    accessModal.hidden = false;
+    accessModal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => accessPanel?.focus(), 0);
+  }
+
+  function closeAccessModal() {
+    if (!accessModal || accessModal.hidden) return;
+    accessModal.classList.remove('is-open');
+    accessModal.hidden = true;
+    document.body.style.overflow = '';
+    if (accessLastFocus && typeof accessLastFocus.focus === 'function') accessLastFocus.focus();
+  }
+
+  accessTriggers.forEach(trigger => trigger.addEventListener('click', openAccessModal));
+  accessCloseControls.forEach(control => control.addEventListener('click', closeAccessModal));
+
+  if (accessLaunch) {
+    accessLaunch.addEventListener('click', () => {
+      closeAccessModal();
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (!accessModal || accessModal.hidden) return;
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeAccessModal();
+      return;
+    }
+    if (event.key !== 'Tab') return;
+    const focusable = getAccessFocusable();
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
 
   /* ── GALLERY drag-to-scroll ── */
   const wrap = document.getElementById('galleryWrap');
